@@ -1,0 +1,17 @@
+Normes pour les messages de commit
+
+
+[+] : Ajout d'un fichier/code/repertoire...
+[-] : Correction ou suppression
+[*] : Amelioration
+
+
+FO : Front Office (fonction d'affichage/design/image/...)
+BO : Back office (fonction de traitement/calcul/...)
+
+
+En gros, un message de commit se compose comme ca :
+
+	[+] BO module de connection a la base + code de connection fermeture
+	[+] FO jFrame principale
+	[+] BO Fonctions d'ajout, de MaJ et de suppression
