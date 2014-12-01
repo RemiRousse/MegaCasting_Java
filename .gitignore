@@ -30,3 +30,5 @@ _ReSharper*/
 .settings/org.eclipse.jdt.core.prefs
 .project
 .classpath
+build.xml
+manifest.mf
