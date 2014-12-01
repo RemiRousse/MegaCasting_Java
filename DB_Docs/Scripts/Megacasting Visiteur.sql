@@ -1,7 +1,11 @@
+CREATE DATABASE MegaCasting_java;
+
+USE MegaCasting_java;
+
 /* ************** */
 /*      Info      */
 /* ************** */
-DROP TABLE `information`;
+/* DROP TABLE `information`; */
 
 CREATE TABLE `information` (
 	`Identifant` 		BIGINT NOT NULL auto_increment,
@@ -13,6 +17,7 @@ CREATE TABLE `information` (
 	`Ville` 			VARCHAR(100),
 	`Pays` 				VARCHAR(100),
 	`CP` 				VARCHAR(100),
+	
 	PRIMARY KEY (`Identifant`)
 ) AUTO_INCREMENT=1;
 
@@ -73,13 +78,14 @@ VALUES 						("faucibus.leo.in@actellus.edu",						"05 56 62 56 24",		"(293) 248
 /* ************** */
 /*     COMPTE     */
 /* ************** */
-DROP TABLE `compte`;
+/* DROP TABLE `compte`; */
 
 CREATE TABLE `compte` (
 	`Identifant` 	BIGINT NOT NULL auto_increment,
 	`Login` 		VARCHAR(50) default NULL,
 	`Password` 		VARCHAR(25),
 	`code` 			BIGINT,
+	
 	PRIMARY KEY (`Identifant`)
 ) AUTO_INCREMENT=1;
 
@@ -120,47 +126,56 @@ VALUES 					("Meloxicam",				"MRN48FPI6TZ",	4600),
 /* **************** */
 /*     CANDIDAT     */
 /* **************** */
-DROP TABLE `candidat`;
+/* DROP TABLE `candidat`; */
 
 CREATE TABLE `candidat` (
 	`Identifant` 				BIGINT NOT NULL auto_increment,
 	`Nom` 						VARCHAR(25) default NULL,
 	`Prenom` 					VARCHAR(50) default NULL,
-	`DateNaissance` 			datetime,
+	`DateNaissance` 			date,
 	`Pays` 						VARCHAR(50) default NULL,
 	`IdentifiantCompte` 		BIGINT,
 	`IdentifiantInformation` 	BIGINT,
-	PRIMARY KEY (`Identifant`)
+	
+	PRIMARY KEY (`Identifant`),
+		
+	FOREIGN KEY (IdentifiantCompte) 
+		REFERENCES compte(`Identifant`)
+		ON UPDATE CASCADE ON DELETE RESTRICT,
+		
+	FOREIGN KEY (IdentifiantInformation) 
+		REFERENCES information(`Identifant`)
+		ON UPDATE CASCADE ON DELETE RESTRICT
 ) AUTO_INCREMENT=1;
 
-INSERT INTO `candidat` (`Nom`,`Prenom`,`Pays`, `DateNaissance`,`IdentifiantCompte`,`IdentifiantInformation`)
-VALUES 	("Levy",		"Chadwick",		"France",				`1973-05-04`,		1,	1),
-		("Garcia",		"Colby",		"Spain",				`1988-10-26`,		2,	2),
-		("Small",		"Patrick",		"Spain",				`1963-08-28`,		3,	3),
-		("Rush",		"Castor",		"United States",		`1966-06-28`,		4,	4),
-		("Ellison",		"Victor",		"United Kingdom",		`1966-03-08`,		5,	5),
-		("Bartlett",	"Oscar",		"United Kingdom",		`1972-09-21`,		6,	6),
-		("Russell",		"Lawrence",		"France",				`1960-12-10`,		7,	7),
-		("Glass",		"Zachary",		"Spain",				`1974-03-01`,		8,	8),
-		("Zamora",		"Tad",			"United Kingdom",		`1990-03-07`,		9,	9),
-		("Beasley",		"Plato",		"United Kingdom",		`1979-07-12`,		10,	10),
-		("Franco",		"Leo",			"United Kingdom",		`1970-02-26`,		11,	11),
-		("Phillips",	"Richard",		"France",				`1983-06-19`,		12,	12),
-		("Whitehead",	"Clinton",		"France",				`1987-07-16`,		13,	13),
-		("Ewing",		"Hamish",		"United States",		`1970-12-14`,		14,	14),
-		("Poole",		"Nigel",		"Spain",				`1990-05-29`,		15,	15),
-		("Vazquez",		"Amos",			"United Kingdom",		`1994-04-30`,		16,	16),
-		("Sawyer",		"Wyatt",		"France",				`1987-09-16`,		17,	17),
-		("Cannon",		"Ryan",			"Spain",				`1967-01-20`,		18,	18),
-		("Walter",		"Nehru",		"United States",		`1975-08-17`,		19,	19),
-		("Dickerson",	"Daniel",		"Spain",				`1968-09-09`,		20,	20);
+INSERT INTO `candidat` 	(`Nom`,			`Prenom`,		`Pays`, 				`DateNaissance`,	`IdentifiantCompte`,	`IdentifiantInformation`)
+VALUES 					("Levy",		"Chadwick",		"France",				"1973-05-04",			1,						1),
+						("Garcia",		"Colby",		"Spain",				"1988-10-26",			2,						2),
+						("Small",		"Patrick",		"Spain",				"1963-08-28",			3,						3),
+						("Rush",		"Castor",		"United States",		"1966-06-28",			4,						4),
+						("Ellison",		"Victor",		"United Kingdom",		"1966-03-08",			5,						5),
+						("Bartlett",	"Oscar",		"United Kingdom",		"1972-09-21",			6,						6),
+						("Russell",		"Lawrence",		"France",				"1960-12-10",			7,						7),
+						("Glass",		"Zachary",		"Spain",				"1974-03-01",			8,						8),
+						("Zamora",		"Tad",			"United Kingdom",		"1990-03-07",			9,						9),
+						("Beasley",		"Plato",		"United Kingdom",		"1979-07-12",			10,						10),
+						("Franco",		"Leo",			"United Kingdom",		"1970-02-26",			11,						11),
+						("Phillips",	"Richard",		"France",				"1983-06-19",			12,						12),
+						("Whitehead",	"Clinton",		"France",				"1987-07-16",			13,						13),
+						("Ewing",		"Hamish",		"United States",		"1970-12-14",			14,						14),
+						("Poole",		"Nigel",		"Spain",				"1990-05-29",			15,						15),
+						("Vazquez",		"Amos",			"United Kingdom",		"1994-04-30",			16,						16),
+						("Sawyer",		"Wyatt",		"France",				"1987-09-16",			17,						17),
+						("Cannon",		"Ryan",			"Spain",				"1967-01-20",			18,						18),
+						("Walter",		"Nehru",		"United States",		"1975-08-17",			19,						19),
+						("Dickerson",	"Daniel",		"Spain",				"1968-09-09",			20,						20);
 		
 
 
 /* **************** */
 /*    ANNONCEUR     */
 /* **************** */
-DROP TABLE `annonceur`;
+/* DROP TABLE `annonceur`; */
 
 CREATE TABLE `annonceur` (
 	`Identifant` 				BIGINT NOT NULL auto_increment,
@@ -169,30 +184,42 @@ CREATE TABLE `annonceur` (
 	`Responsable` 				VARCHAR(25) default NULL,
 	`IdentifiantCompte` 		BIGINT default NULL,
 	`IdentifiantInformation` 	BIGINT default NULL,
-	PRIMARY KEY (`Identifant`)
+	PRIMARY KEY (`Identifant`),
+	
+	FOREIGN KEY (IdentifiantCompte) 
+		REFERENCES compte(`Identifant`)
+		ON UPDATE CASCADE ON DELETE RESTRICT,
+		
+	FOREIGN KEY (IdentifiantInformation) 
+		REFERENCES information(`Identifant`)
+		ON UPDATE CASCADE ON DELETE RESTRICT
 ) AUTO_INCREMENT=1;
 
-INSERT INTO `annonceur` (`Siret`,`Nom`,`Responsable`,`IdentifiantCompte`,`IdentifiantInformation`) 
-VALUES 	("629.409.178.189",		"Nec Orci LLP",							"M. Cameron",		21,		21),
-		("445.180.3.473",		"Curabitur Institute",					"M. Vinson",		22,		22),
-		("711.91.199.31",		"Sagittis Inc.",						"M. Bonner",		23,		23),
-		("665.408.171.642",		"Odio Sagittis LLP",					"Mme. Hartman",		24,		24),
-		("5.12.197.552",		"Phasellus Vitae Ltd",					"M. Kennedy",		25,		25);
+INSERT INTO `annonceur` 	(`Siret`,				`Nom`,							`Responsable`,		`IdentifiantCompte`,	`IdentifiantInformation`) 
+VALUES 						("629.409.178.189",		"Nec Orci LLP",					"M. Cameron",		21,						21),
+							("445.180.3.473",		"Curabitur Institute",			"M. Vinson",		22,						22),
+							("711.91.199.31",		"Sagittis Inc.",				"M. Bonner",		23,						23),
+							("665.408.171.642",		"Odio Sagittis LLP",			"Mme. Hartman",		24,						24),
+							("5.12.197.552",		"Phasellus Vitae Ltd",			"M. Kennedy",		25,						25);
 
 
 		
 		
 /* **************** */
 /*     Diffuseur    */
-/* **************** */
-DROP TABLE `diffuseur`;
+/* **************** */		
+/* DROP TABLE `diffuseur`; */
 
 CREATE TABLE `diffuseur` (
-  `Identifiant` 			BIGINT unsigned NOT NULL auto_increment,
-  `Nom` 					VARCHAR(50),
-  `Responsable` 			VARCHAR(25) default NULL,
-  `IdentifiantInformation`	BIGINT,
-  PRIMARY KEY (`Identifiant`)
+	`Identifiant` 			BIGINT unsigned NOT NULL auto_increment,
+	`Nom` 					VARCHAR(50),
+	`Responsable` 			VARCHAR(25) default NULL,
+	`IdentifiantInformation`	BIGINT,
+	PRIMARY KEY (`Identifiant`),
+  
+	FOREIGN KEY (IdentifiantInformation) 
+		REFERENCES information(`Identifant`)
+		ON UPDATE CASCADE ON DELETE RESTRICT
 ) AUTO_INCREMENT=1;
 
 INSERT INTO `diffuseur` (`Nom`,										`Responsable`,	`IdentifiantInformation`)
@@ -207,7 +234,7 @@ INSERT INTO `diffuseur` (`Nom`,										`Responsable`,	`IdentifiantInformation`
 /* **************** */
 /*      EMPLOYE     */
 /* **************** */
-DROP TABLE `employe`;
+/* DROP TABLE `employe`; */
 
 CREATE TABLE `employe` (
 	`Identifant` 				BIGINT NOT NULL auto_increment,
@@ -215,11 +242,15 @@ CREATE TABLE `employe` (
 	`Prenom` 					VARCHAR(255) default NULL,
 	`Poste` 					BIGINT default NULL,
 	`Habilitation` 				BIGINT default NULL,
-	`IdentifiantInforamation` 	BIGINT,
-	PRIMARY KEY (`Identifant`)
+	`IdentifiantInformation` 	BIGINT,
+	PRIMARY KEY (`Identifant`),
+	
+	FOREIGN KEY (IdentifiantInformation) 
+		REFERENCES information(`Identifant`)
+		ON UPDATE CASCADE ON DELETE RESTRICT
 ) AUTO_INCREMENT=1;
 
-INSERT INTO `employe` 	(`Nom`,			`Prenom`,		`Poste`,	`Habilitation`,		`IdentifiantInforamation`) 
+INSERT INTO `employe` 	(`Nom`,			`Prenom`,		`Poste`,	`Habilitation`,		`IdentifiantInformation`) 
 VALUES 					("Brun",		"Françoise",	1,			2,					31),
 						("Le goff",		"Charlotte",	1,			3,					32),
 						("Pons",		"Tristan",		1,			5,					33),
