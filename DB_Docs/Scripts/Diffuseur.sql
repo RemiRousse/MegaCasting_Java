@@ -8,9 +8,9 @@ CREATE TABLE `diffuseur` (
   PRIMARY KEY (`Identifiant`)
 ) AUTO_INCREMENT=1;
 
-INSERT INTO `diffuseur` (`Nom`,										`Responsable`,`IdentifiantInformation`)
-	VALUES				("At Libero Morbi Corporation",				"Bradshaw",		26),
-						("Libero Corp.",							"Barry",		27),
-						("Nam Nulla Magna Ltd",						"Obrien",		28),
-						("Dictum Ultricies Ligula PC",				"Little",		29),
-						("Lorem Ipsum Inc.",						"Rollins",		30);
+INSERT INTO `diffuseur` (`Nom`, `Responsable`, `IdentifiantInformation`)
+	VALUES				("At Libero Morbi Corporation",	"Bradshaw",	26),
+						("Libero Corp.",				"Barry",	27),
+						("Nam Nulla Magna Ltd",			"Obrien",	28),
+						("Dictum Ultricies Ligula PC",	"Little",	29),
+						("Lorem Ipsum Inc.",			"Rollins",	30);
