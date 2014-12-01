@@ -5,21 +5,19 @@ package megacasting.entity;
 
 /**
  * @author julien
- * 01-12-2014
+ *
  */
-public class Annonceur extends Entreprise {
-	
+public class Diffuseur extends Entreprise {
+
 	private long identifiant;
     private String nom;
     private String responsable;
-    private String siret;
     
- 
-    public Annonceur(String nom, String responsable) {
-		super(nom, responsable);
-		// TODO Auto-generated constructor stub
-	}
     
+    public Diffuseur(String nom, String responsable) {
+  		super(nom, responsable);
+  		// TODO Auto-generated constructor stub
+  	}
     
 	/**
 	 * @return the identifiant
@@ -57,17 +55,5 @@ public class Annonceur extends Entreprise {
 	public void setResponsable(String responsable) {
 		this.responsable = responsable;
 	}
-	/**
-	 * @return the siret
-	 */
-	public String getSiret() {
-		return siret;
-	}
-	/**
-	 * @param siret the siret to set
-	 */
-	public void setSiret(String siret) {
-		this.siret = siret;
-	}
-
+	
 }

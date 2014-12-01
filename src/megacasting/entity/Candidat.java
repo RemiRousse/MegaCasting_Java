@@ -11,14 +11,17 @@ import java.util.Date;
  * @author julien
  * 01-12-2014
  */
-public class Candidat {
+public class Candidat extends Personne {
 
+	
 	private long identifiant;
-    private String nom;
-    private String prenom;
     private Date dateNaissance;
     private String pays;
     
+    public Candidat(String nom, String prenom) {
+		super(nom, prenom);
+		// TODO Auto-generated constructor stub
+	}
     
 	/**
 	 * @return the identifiant
@@ -31,30 +34,6 @@ public class Candidat {
 	 */
 	public void setIdentifiant(long identifiant) {
 		this.identifiant = identifiant;
-	}
-	/**
-	 * @return the nom
-	 */
-	public String getNom() {
-		return nom;
-	}
-	/**
-	 * @param nom the nom to set
-	 */
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-	/**
-	 * @return the prenom
-	 */
-	public String getPrenom() {
-		return prenom;
-	}
-	/**
-	 * @param prenom the prenom to set
-	 */
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
 	}
 	/**
 	 * @return the dateNaissance

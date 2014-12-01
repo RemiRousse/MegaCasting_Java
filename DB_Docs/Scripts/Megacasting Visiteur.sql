@@ -9,7 +9,7 @@ USE MegaCasting_java;
 
 CREATE TABLE `information` (
 	`Identifant` 		BIGINT NOT NULL auto_increment,
-	`Mail` 				VARCHAR(255) default NULL,
+	`Mail` 				VARCHAR(100) default NULL,
 	`TelephoneFixe` 	VARCHAR(100),
 	`TelephonePortable` VARCHAR(100) default NULL,
 	`Fax` 				VARCHAR(100) default NULL,
@@ -238,10 +238,10 @@ INSERT INTO `diffuseur` (`Nom`,										`Responsable`,	`IdentifiantInformation`
 
 CREATE TABLE `employe` (
 	`Identifant` 				BIGINT NOT NULL auto_increment,
-	`Nom` 						VARCHAR(255) default NULL,
-	`Prenom` 					VARCHAR(255) default NULL,
-	`Poste` 					BIGINT default NULL,
-	`Habilitation` 				BIGINT default NULL,
+	`Nom` 						VARCHAR(50) default NULL,
+	`Prenom` 					VARCHAR(50) default NULL,
+	`Poste` 					VARCHAR(50) default NULL,
+	`Habilitation` 				INT default NULL,
 	`IdentifiantInformation` 	BIGINT,
 	PRIMARY KEY (`Identifant`),
 	
