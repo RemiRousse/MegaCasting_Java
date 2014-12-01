@@ -9,7 +9,7 @@ package megacasting.entity;
  */
 public class Annonceur extends Entreprise {
 	
-	private long identifiant;
+    private long identifiant;
     private String nom;
     private String responsable;
     private String siret;
@@ -20,7 +20,13 @@ public class Annonceur extends Entreprise {
 		super(nom, responsable);
 		// TODO Auto-generated constructor stub
 	}
-    
+
+    public Annonceur(long identifiant, String nom, String responsable, String siret) {
+        super(nom, responsable);
+        this.identifiant = identifiant;
+        this.siret = siret;
+    }
+       
     
 	/**
 	 * @return the identifiant

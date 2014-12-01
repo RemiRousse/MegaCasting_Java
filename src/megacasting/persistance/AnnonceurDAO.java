@@ -14,23 +14,25 @@ import java.sql.Statement;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
-import megacasting.entity.Domaine;
+import megacasting.entity.Annonceur;
 
 /**
  *
  * @author Mousse
  */
-public class DomaineDAO {
+public class AnnonceurDAO {
     
-    public void insert(Connection cnx, Domaine domaine) {
+    public void insert(Connection cnx, Annonceur annonceur) {
 
         Statement stmt = null;
         PreparedStatement pstmt = null;
 
         try {
-            pstmt = cnx.prepareStatement("INSERT INTO Domaine (Libelle) "
-                    + "VALUES (?)");
-            pstmt.setString(1, domaine.getLibelle());
+            pstmt = cnx.prepareStatement("INSERT INTO Annonceur (Nom, Responsable, Siret) "
+                    + "VALUES (?, ?, ?)");
+            pstmt.setString(1, annonceur.getNom());
+            pstmt.setString(2, annonceur.getResponsable());
+            pstmt.setString(3, annonceur.getSiret());
 
             int nb = pstmt.executeUpdate();
 
@@ -38,8 +40,8 @@ public class DomaineDAO {
                 stmt = cnx.createStatement();
                 ResultSet rs = stmt.executeQuery("SELECT MAX(Identifiant) FROM Domaine");
                 if (rs.next()) {
-                    long id = rs.getLong(1);
-                    domaine.setIdentifiant(id);
+                    int id = rs.getInt(1);
+                    annonceur.setIdentifiant(id);
                 }
             }
 
@@ -61,16 +63,18 @@ public class DomaineDAO {
         }
     }
 
-    public void update(Connection cnx, Domaine domaine) {
+    public void update(Connection cnx, Annonceur annonceur) {
         
         PreparedStatement pstmt = null;
 
         try {
-            pstmt = cnx.prepareStatement("UPDATE Domaine SET "
-                    + "Libelle = ? "
+            pstmt = cnx.prepareStatement("UPDATE Annonceur SET "
+                    + "Nom = ? , Responsable = ? , Siret = ?"
                     + "WHERE Identifiant = ?");
-            pstmt.setString(1, domaine.getLibelle());
-            pstmt.setLong(2, domaine.getIdentifiant());
+            pstmt.setString(1, annonceur.getNom());
+            pstmt.setString(2, annonceur.getResponsable());
+            pstmt.setString(3, annonceur.getSiret());
+            pstmt.setLong(4, annonceur.getIdentifiant());
 
             pstmt.executeUpdate();
             
@@ -86,14 +90,14 @@ public class DomaineDAO {
         } 
     }
 
-    public void delete(Connection cnx, Domaine domaine) {
+    public void delete(Connection cnx, Annonceur annonceur) {
         
         PreparedStatement pstmt = null;
 
         try {
-            pstmt = cnx.prepareStatement("DELETE FROM Domaine "
+            pstmt = cnx.prepareStatement("DELETE FROM Annonceur "
                     + "WHERE Identifiant = ?");
-            pstmt.setLong(1, domaine.getIdentifiant());
+            pstmt.setLong(1, annonceur.getIdentifiant());
             
             pstmt.executeUpdate();
 
@@ -109,19 +113,19 @@ public class DomaineDAO {
         }
     }
 
-    public Collection<Domaine> list(Connection cnx) {
-        Set<Domaine> set = new HashSet<Domaine>();
+    public Collection<Annonceur> list(Connection cnx) {
+        Set<Annonceur> set = new HashSet<Annonceur>();
         
         Statement stmt = null;
         
         try {
             stmt = cnx.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT Identifiant, Libelle "
-                    + "FROM Domaine");
+            ResultSet rs = stmt.executeQuery("SELECT Identifiant, Nom, Responsable, Siret "
+                    + "FROM Annonceur");
             
             while (rs.next()) {                
-                Domaine domaine = new Domaine(rs.getLong("Identifiant"), rs.getString("Libelle"));
-                set.add(domaine);
+                Annonceur annonceur = new Annonceur(rs.getLong("Identifiant"), rs.getString("Nom"), rs.getString("Reponsable"), rs.getString("Siret"));
+                set.add(annonceur);
             }
             
         } catch (Exception e) {
@@ -137,20 +141,20 @@ public class DomaineDAO {
         return set;
     }
     
-    public Domaine find(Connection cnx, long id) {
-        Domaine domaine = null;
+    public Annonceur find(Connection cnx, long id) {
+        Annonceur annonceur = null;
         
         PreparedStatement pstmt = null;
         
         try {
-            pstmt = cnx.prepareStatement("SELECT Identifiant, Libelle "
-                    + " FROM Domaine "
+            pstmt = cnx.prepareStatement("SELECT Identifiant, Nom, Reponsable, Siret "
+                    + " FROM Annonceur "
                     + " WHERE Identifiant = ?");
             pstmt.setLong(1, id);
             
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
-                domaine = new Domaine(rs.getLong("Identifiant"), rs.getString("Libelle"));
+                annonceur = new Annonceur(rs.getLong("Identifiant"), rs.getString("Nom"), rs.getString("Responsable"), rs.getString("Siret"));
             }
             
         } catch (Exception e) {
@@ -165,6 +169,6 @@ public class DomaineDAO {
 
         }
         
-        return domaine;
+        return annonceur;
     }
 }

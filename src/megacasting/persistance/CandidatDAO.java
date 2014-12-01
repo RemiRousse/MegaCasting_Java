@@ -7,6 +7,7 @@
 package megacasting.persistance;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,32 +15,36 @@ import java.sql.Statement;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
-import megacasting.entity.Domaine;
+import megacasting.entity.Candidat;
 
 /**
  *
  * @author Mousse
  */
-public class DomaineDAO {
+public class CandidatDAO {
     
-    public void insert(Connection cnx, Domaine domaine) {
+    public void insert(Connection cnx, Candidat candidat) {
 
         Statement stmt = null;
         PreparedStatement pstmt = null;
 
         try {
-            pstmt = cnx.prepareStatement("INSERT INTO Domaine (Libelle) "
-                    + "VALUES (?)");
-            pstmt.setString(1, domaine.getLibelle());
+            pstmt = cnx.prepareStatement("INSERT INTO Candidat (DateNaissance, Pays, Nom, Prenom) "
+                    + "VALUES (?, ?, ?, ?)");
+            pstmt.setDate(1, (Date) candidat.getDateNaissance());
+            pstmt.setString(2, candidat.getPays());
+            pstmt.setString(3, candidat.getNom());
+            pstmt.setString(4, candidat.getPrenom());
+            
 
             int nb = pstmt.executeUpdate();
 
             if (nb == 1) {
                 stmt = cnx.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT MAX(Identifiant) FROM Domaine");
+                ResultSet rs = stmt.executeQuery("SELECT MAX(Identifiant) FROM Candidat");
                 if (rs.next()) {
                     long id = rs.getLong(1);
-                    domaine.setIdentifiant(id);
+                    candidat.setIdentifiant(id);
                 }
             }
 
@@ -61,16 +66,19 @@ public class DomaineDAO {
         }
     }
 
-    public void update(Connection cnx, Domaine domaine) {
+    public void update(Connection cnx, Candidat candidat) {
         
         PreparedStatement pstmt = null;
 
         try {
-            pstmt = cnx.prepareStatement("UPDATE Domaine SET "
-                    + "Libelle = ? "
+            pstmt = cnx.prepareStatement("UPDATE Candidat SET "
+                    + "DateNaissance = ?, Pays = ?, Nom = ?, Prenom = ? "
                     + "WHERE Identifiant = ?");
-            pstmt.setString(1, domaine.getLibelle());
-            pstmt.setLong(2, domaine.getIdentifiant());
+            pstmt.setDate(1, (Date) candidat.getDateNaissance());
+            pstmt.setString(2, candidat.getPays());
+            pstmt.setString(3, candidat.getNom());
+            pstmt.setString(4, candidat.getPrenom());
+            pstmt.setLong(5, candidat.getIdentifiant());
 
             pstmt.executeUpdate();
             
@@ -86,14 +94,14 @@ public class DomaineDAO {
         } 
     }
 
-    public void delete(Connection cnx, Domaine domaine) {
+    public void delete(Connection cnx, Candidat candidat) {
         
         PreparedStatement pstmt = null;
 
         try {
-            pstmt = cnx.prepareStatement("DELETE FROM Domaine "
+            pstmt = cnx.prepareStatement("DELETE FROM Candidat "
                     + "WHERE Identifiant = ?");
-            pstmt.setLong(1, domaine.getIdentifiant());
+            pstmt.setLong(1, candidat.getIdentifiant());
             
             pstmt.executeUpdate();
 
@@ -109,19 +117,19 @@ public class DomaineDAO {
         }
     }
 
-    public Collection<Domaine> list(Connection cnx) {
-        Set<Domaine> set = new HashSet<Domaine>();
+    public Collection<Candidat> list(Connection cnx) {
+        Set<Candidat> set = new HashSet<Candidat>();
         
         Statement stmt = null;
         
         try {
             stmt = cnx.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT Identifiant, Libelle "
-                    + "FROM Domaine");
+            ResultSet rs = stmt.executeQuery("SELECT Identifiant, DateNaissance, Pays "
+                    + "FROM Candidat");
             
-            while (rs.next()) {                
-                Domaine domaine = new Domaine(rs.getLong("Identifiant"), rs.getString("Libelle"));
-                set.add(domaine);
+            while (rs.next()) {      
+                Candidat candidat = new Candidat(rs.getLong("Identifiant"), rs.getDate("DateNaissance"), rs.getString("Pays"), rs.getString("Nom"), rs.getString("Prenom"));
+                set.add(candidat);
             }
             
         } catch (Exception e) {
@@ -137,20 +145,20 @@ public class DomaineDAO {
         return set;
     }
     
-    public Domaine find(Connection cnx, long id) {
-        Domaine domaine = null;
+    public Candidat find(Connection cnx, long id) {
+        Candidat candidat = null;
         
         PreparedStatement pstmt = null;
         
         try {
-            pstmt = cnx.prepareStatement("SELECT Identifiant, Libelle "
-                    + " FROM Domaine "
+            pstmt = cnx.prepareStatement("SELECT Identifiant, DateNaissance, Pays, Nom, Prenom "
+                    + " FROM Candidat "
                     + " WHERE Identifiant = ?");
             pstmt.setLong(1, id);
             
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
-                domaine = new Domaine(rs.getLong("Identifiant"), rs.getString("Libelle"));
+                candidat = new Candidat(rs.getLong("Identifiant"), rs.getDate("DateNaissance"), rs.getString("Pays"), rs.getString("Nom"), rs.getString("Prenom"));
             }
             
         } catch (Exception e) {
@@ -165,6 +173,6 @@ public class DomaineDAO {
 
         }
         
-        return domaine;
+        return candidat;
     }
 }

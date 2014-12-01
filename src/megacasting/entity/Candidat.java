@@ -14,7 +14,7 @@ import java.util.Date;
 public class Candidat extends Personne {
 
 	
-	private long identifiant;
+    private long identifiant;
     private Date dateNaissance;
     private String pays;
     private Personne personne;
@@ -23,6 +23,15 @@ public class Candidat extends Personne {
 		super(nom, prenom);
 		// TODO Auto-generated constructor stub
 	}
+
+    public Candidat(long identifiant, Date dateNaissance, String pays, String nom, String prenom) {
+        super(nom, prenom);
+        this.identifiant = identifiant;
+        this.dateNaissance = dateNaissance;
+        this.pays = pays;
+    }
+    
+    
     
 	/**
 	 * @return the identifiant

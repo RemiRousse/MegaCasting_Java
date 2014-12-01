@@ -37,5 +37,9 @@ public class Contrat {
         this.identifiant = identifiant;
         this.libelle = libelle;
     }
+
+    public Contrat(String libelle) {
+        this.libelle = libelle;
+    }
     
 }
