@@ -17,6 +17,7 @@ public class Candidat extends Personne {
 	private long identifiant;
     private Date dateNaissance;
     private String pays;
+    private Personne personne;
     
     public Candidat(String nom, String prenom) {
 		super(nom, prenom);
@@ -59,5 +60,16 @@ public class Candidat extends Personne {
 	public void setPays(String pays) {
 		this.pays = pays;
 	}
-    
+	/**
+	 * @return the personne
+	 */
+	public Personne getPersonne() {
+		return personne;
+	}
+	/**
+	 * @param personne the personne to set
+	 */
+	public void setPersonne(Personne personne) {
+		this.personne = personne;
+	}
 }

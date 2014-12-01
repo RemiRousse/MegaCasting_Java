@@ -12,6 +12,7 @@ public class Diffuseur extends Entreprise {
 	private long identifiant;
     private String nom;
     private String responsable;
+    private Entreprise entreprise;
     
     
     public Diffuseur(String nom, String responsable) {
@@ -54,6 +55,18 @@ public class Diffuseur extends Entreprise {
 	 */
 	public void setResponsable(String responsable) {
 		this.responsable = responsable;
+	}
+	/**
+	 * @return the entreprise
+	 */
+	public Entreprise getEntreprise() {
+		return entreprise;
+	}
+	/**
+	 * @param entreprise the entreprise to set
+	 */
+	public void setEntreprise(Entreprise entreprise) {
+		this.entreprise = entreprise;
 	}
 	
 }

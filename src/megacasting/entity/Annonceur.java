@@ -13,6 +13,7 @@ public class Annonceur extends Entreprise {
     private String nom;
     private String responsable;
     private String siret;
+    private Entreprise entreprise;
     
  
     public Annonceur(String nom, String responsable) {
@@ -68,6 +69,18 @@ public class Annonceur extends Entreprise {
 	 */
 	public void setSiret(String siret) {
 		this.siret = siret;
+	}
+	/**
+	 * @return the entreprise
+	 */
+	public Entreprise getEntreprise() {
+		return entreprise;
+	}
+	/**
+	 * @param entreprise the entreprise to set
+	 */
+	public void setEntreprise(Entreprise entreprise) {
+		this.entreprise = entreprise;
 	}
 
 }
