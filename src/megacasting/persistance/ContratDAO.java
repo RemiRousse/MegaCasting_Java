@@ -14,32 +14,31 @@ import java.sql.Statement;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
-import megacasting.entity.Domaine;
+import megacasting.entity.Contrat;
 
 /**
  *
  * @author Mousse
  */
-public class DomaineDAO {
-    
-    public void insert(Connection cnx, Domaine domaine) {
+public class ContratDAO {
+    public void insert(Connection cnx, Contrat contrat) {
 
         Statement stmt = null;
         PreparedStatement pstmt = null;
 
         try {
-            pstmt = cnx.prepareStatement("INSERT INTO Domaine (Libelle) "
+            pstmt = cnx.prepareStatement("INSERT INTO Contrat (Libelle) "
                     + "VALUES (?)");
-            pstmt.setString(1, domaine.getLibelle());
+            pstmt.setString(1, contrat.getLibelle());
 
             int nb = pstmt.executeUpdate();
 
             if (nb == 1) {
                 stmt = cnx.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT MAX(Identifiant) FROM Domaine");
+                ResultSet rs = stmt.executeQuery("SELECT MAX(Identifiant) FROM Contrat");
                 if (rs.next()) {
                     long id = rs.getLong(1);
-                    domaine.setIdentifiant(id);
+                    contrat.setIdentifiant(id);
                 }
             }
 
@@ -61,16 +60,16 @@ public class DomaineDAO {
         }
     }
 
-    public void update(Connection cnx, Domaine domaine) {
+    public void update(Connection cnx, Contrat contrat) {
         
         PreparedStatement pstmt = null;
 
         try {
-            pstmt = cnx.prepareStatement("UPDATE Domaine SET "
+            pstmt = cnx.prepareStatement("UPDATE Contrat SET "
                     + "Libelle = ? "
                     + "WHERE Identifiant = ?");
-            pstmt.setString(1, domaine.getLibelle());
-            pstmt.setLong(2, domaine.getIdentifiant());
+            pstmt.setString(1, contrat.getLibelle());
+            pstmt.setLong(2, contrat.getIdentifiant());
 
             pstmt.executeUpdate();
             
@@ -86,14 +85,14 @@ public class DomaineDAO {
         } 
     }
 
-    public void delete(Connection cnx, Domaine domaine) {
+    public void delete(Connection cnx, Contrat contrat) {
         
         PreparedStatement pstmt = null;
 
         try {
-            pstmt = cnx.prepareStatement("DELETE FROM Domaine "
+            pstmt = cnx.prepareStatement("DELETE FROM Contrat "
                     + "WHERE Identifiant = ?");
-            pstmt.setLong(1, domaine.getIdentifiant());
+            pstmt.setLong(1, contrat.getIdentifiant());
             
             pstmt.executeUpdate();
 
@@ -109,19 +108,19 @@ public class DomaineDAO {
         }
     }
 
-    public Collection<Domaine> list(Connection cnx) {
-        Set<Domaine> set = new HashSet<Domaine>();
+    public Collection<Contrat> list(Connection cnx) {
+        Set<Contrat> set = new HashSet<Contrat>();
         
         Statement stmt = null;
         
         try {
             stmt = cnx.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT Identifiant, Libelle "
-                    + "FROM Domaine");
+                    + "FROM Contrat");
             
             while (rs.next()) {                
-                Domaine domaine = new Domaine(rs.getLong("Identifiant"), rs.getString("Libelle"));
-                set.add(domaine);
+                Contrat contrat = new Contrat(rs.getLong("Identifiant"), rs.getString("Libelle"));
+                set.add(contrat);
             }
             
         } catch (Exception e) {
@@ -137,20 +136,20 @@ public class DomaineDAO {
         return set;
     }
     
-    public Domaine find(Connection cnx, long id) {
-        Domaine domaine = null;
+    public Contrat find(Connection cnx, long id) {
+        Contrat contrat = null;
         
         PreparedStatement pstmt = null;
         
         try {
             pstmt = cnx.prepareStatement("SELECT Identifiant, Libelle "
-                    + " FROM Domaine "
+                    + " FROM Contrat "
                     + " WHERE Identifiant = ?");
             pstmt.setLong(1, id);
             
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
-                domaine = new Domaine(rs.getLong("Identifiant"), rs.getString("Libelle"));
+                contrat = new Contrat(rs.getLong("Identifiant"), rs.getString("Libelle"));
             }
             
         } catch (Exception e) {
@@ -165,6 +164,6 @@ public class DomaineDAO {
 
         }
         
-        return domaine;
+        return contrat;
     }
 }
