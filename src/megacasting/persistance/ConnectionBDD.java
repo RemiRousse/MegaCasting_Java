@@ -1,64 +1,93 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package megacasting.persistance;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
+ * Creation - Ouverture et Fermeture d'une conneciton
+ * @author julien
  *
- * @author Mousse
  */
 public class ConnectionBDD {
-    
-    private static ConnectionBDD instance = null;
-    private Connection cnx = null;
-    
-    // Constructeur en privé : on ne pourra pas créer d'instance dans le projet
-    private ConnectionBDD() {
-         
-        try {
-            // Chargement du driver MySQL
+	
+	//Cette class est une singleton, cad que l'instance et unique dans tout le projet
+	
+	private static ConnectionBDD instance = null;
+	private Connection cnx = null;
+	
+	
+	
+	/**
+	 * private pour empecher un new dans le code
+	 */
+	private ConnectionBDD(){
+		
+		try {
+//            Chargement du driver MySQL
             Class.forName("com.mysql.jdbc.Driver");
-            
-            // System.out.println("Chargement du driver réussi");
-            
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+
+//            Chargement du driver MSSQL Server
+//            Class.forName("net.sourceforge.jtds.jdbc.Driver");
+
+            System.out.println("Chargement du driver réussi !");
+
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
         }
-        
-    }
-    
-    public static ConnectionBDD getInstance() {
-        if(instance == null) {
-            instance = new ConnectionBDD();
-        }
-        return instance;
-    }
-    
-    public Connection getConnection() {
-        if (cnx == null) {
-            String url = "jdbc:mysql://localhost/MegaCasting_Java";
-            try {
-                cnx = DriverManager.getConnection(url, "root", "");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return cnx;
-    }
-    
-    public void close() {
-        if (cnx != null) {
-            try {
-                cnx.close();
-            } catch (Exception e) {
-            }
-        }
-        cnx = null;
-    }
+
+	}
+	
+	/**
+	 * permet d'acceder a l instance de cette class dans le projet
+	 * @return
+	 */
+	public static ConnectionBDD getInstance(){
+		if(instance == null){
+			instance = new ConnectionBDD();
+		}
+		return instance;
+	}
+	
+	/**
+	 * permet la connection
+	 * @return
+	 */
+	public Connection getConnection() {
+		
+		if (cnx == null) {
+//	        Connexion à MySQL
+	        String url = "jdbc:mysql://localhost/MegaCasting_java";
+//	        Connexion à MS SQL Server
+//	        String url = "jdbc:jtds:sqlserver://localhost:1433/BDD_JAVA";
+
+	        try {
+	            cnx = DriverManager.getConnection(url, "root", "");
+	            
+	            System.out.println("Connexion réussie !");
+	            
+	        } catch (SQLException ex) {
+	            ex.printStackTrace();
+	        }
+		}
+
+		return cnx;
+		
+	}
+	
+	/**
+	 * Methode de fermrture de la connection
+	 */
+	public void closeConnection(){
+		if (cnx != null) {
+			try {
+				cnx.close();
+			} catch (Exception e) {
+				
+			}
+		}
+		
+		//on remet a null pour pouvoir l'ouvrir a nouveau
+		cnx = null;
+	}
 }
