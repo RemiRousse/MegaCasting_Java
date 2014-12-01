@@ -5,6 +5,7 @@ DROP TABLE `contrat`;
 CREATE TABLE `contrat` (
 	`Identifiant` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
 	`Libelle`		VARCHAR(25),
+	
 	PRIMARY KEY (`Identifiant`)
 ) AUTO_INCREMENT=1;
 
@@ -20,6 +21,7 @@ DROP TABLE `domaine`;
 CREATE TABLE `domaine` (
 	`Identifiant` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
 	`Libelle`		VARCHAR(25),
+	
 	PRIMARY KEY (`Identifiant`)
 ) AUTO_INCREMENT=1;
 
@@ -35,8 +37,13 @@ DROP TABLE `metier`;
 CREATE TABLE `metier` (
 	`Identifiant` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
 	`Libelle`		VARCHAR(25),
-	`IdentifiantDomaine` BIGINT
-	PRIMARY KEY (`Identifiant`)
+	`IdentifiantDomaine` BIGINT,
+	
+	PRIMARY KEY (`Identifiant`),
+	
+	FOREIGN KEY (IdentifiantDomaine)
+		REFERENCES domaine(Identifiant)
+		ON UPDATE CASCADE ON DELETE RESTRICT
 ) AUTO_INCREMENT=1;
 
 INSERT INTO `metier`	(`Libelle`, `IdentifiantDomaine`)

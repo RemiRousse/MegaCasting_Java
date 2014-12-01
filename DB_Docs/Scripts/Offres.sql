@@ -13,7 +13,24 @@ CREATE TABLE `offre` (
   `IdentifiantContrat` 		BIGINT,
   `IdentifiantMetier` 		BIGINT,
   `IdentifiantDomaine` 		BIGINT,
-  PRIMARY KEY (`Identifiant`)
+  
+  PRIMARY KEY (`Identifiant`),
+  
+  FOREIGN KEY (IdentifiantAnnonceur)
+		REFERENCES annonceur(Identifiant)
+		ON UPDATE CASCADE ON DELETE RESTRICT,
+  
+  FOREIGN KEY (IdentifiantContrat)
+		REFERENCES contrat(Identifiant)
+		ON UPDATE CASCADE ON DELETE RESTRICT,
+  
+  FOREIGN KEY (IdentifiantMetier)
+		REFERENCES metier(Identifiant)
+		ON UPDATE CASCADE ON DELETE RESTRICT,
+		
+  FOREIGN KEY (IdentifiantDomaine)
+		REFERENCES domaine(Identifiant)
+		ON UPDATE CASCADE ON DELETE RESTRICT
 ) AUTO_INCREMENT=1;
 
 INSERT INTO `offre` (`Libelle`, `Reference`, `DateDebPublication`, `DateDebContrat`, `DateFinContrat`, `DescPoste`, `DescProfil`, `IdentifiantAnnonceur`, `IdentifiantContrat`, `IdentifiantMetier`, `IdentifiantDomaine`)

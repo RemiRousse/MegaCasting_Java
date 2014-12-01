@@ -5,7 +5,12 @@ CREATE TABLE `diffuseur` (
   `Nom` 					VARCHAR(50),
   `Responsable` 			VARCHAR(25) default NULL,
   `IdentifiantInformation`	BIGINT,
-  PRIMARY KEY (`Identifiant`)
+  
+  PRIMARY KEY (`Identifiant`),
+  
+  FOREIGN KEY (IdentifiantInformation)
+	REFERENCES information(Identifiant)
+	ON UPDATE CASCADE ON DELETE RESTRICT 
 ) AUTO_INCREMENT=1;
 
 INSERT INTO `diffuseur` (`Nom`, `Responsable`, `IdentifiantInformation`)
