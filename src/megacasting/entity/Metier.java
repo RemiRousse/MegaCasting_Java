@@ -45,6 +45,13 @@ public class Metier {
         this.libelle = libelle;
         this.domaine = domaine;
     }
+
+    public Metier(String libelle, Domaine domaine) {
+        this.libelle = libelle;
+        this.domaine = domaine;
+    }
+    
+    
     
     
 }

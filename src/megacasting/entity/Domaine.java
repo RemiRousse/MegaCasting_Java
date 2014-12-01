@@ -35,6 +35,9 @@ public class Domaine {
         this.identifiant = identifiant;
         this.libelle = libelle;
     }
-    
+
+    public Domaine(String libelle) {
+        this.libelle = libelle;
+    }
     
 }
