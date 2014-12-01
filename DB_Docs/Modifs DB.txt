@@ -1,0 +1,1 @@
+suppression du champ Offre.NbPostes : passage à une offre par poste
