@@ -5,14 +5,14 @@ package megacasting.entity;
 
 /**
  * @author julien
- * 01-12-2014
+ *
  */
-public class Annonceur {
-	
+public class Diffuseur {
+
 	private long identifiant;
     private String nom;
     private String responsable;
-    private String siret;
+    
     
 	/**
 	 * @return the identifiant
@@ -50,17 +50,5 @@ public class Annonceur {
 	public void setResponsable(String responsable) {
 		this.responsable = responsable;
 	}
-	/**
-	 * @return the siret
-	 */
-	public String getSiret() {
-		return siret;
-	}
-	/**
-	 * @param siret the siret to set
-	 */
-	public void setSiret(String siret) {
-		this.siret = siret;
-	}
-
+	
 }
