@@ -7,30 +7,22 @@ package megacasting.entity;
  * @author julien
  *
  */
-public class Diffuseur extends Entreprise {
-
-	private long identifiant;
+public class Entreprise {
+	
     private String nom;
     private String responsable;
     
     
-    public Diffuseur(String nom, String responsable) {
-  		super(nom, responsable);
-  		// TODO Auto-generated constructor stub
-  	}
-    
 	/**
-	 * @return the identifiant
+	 * @param nom
+	 * @param responsable
 	 */
-	public long getIdentifiant() {
-		return identifiant;
+	public Entreprise(String nom, String responsable) {
+		this.nom = nom;
+		this.responsable = responsable;
 	}
-	/**
-	 * @param identifiant the identifiant to set
-	 */
-	public void setIdentifiant(long identifiant) {
-		this.identifiant = identifiant;
-	}
+	
+	
 	/**
 	 * @return the nom
 	 */
@@ -55,5 +47,5 @@ public class Diffuseur extends Entreprise {
 	public void setResponsable(String responsable) {
 		this.responsable = responsable;
 	}
-	
+    
 }

@@ -7,13 +7,16 @@ package megacasting.entity;
  * @author julien
  *
  */
-public class Employe {
+public class Employe extends Personne {
 
 	private long identifiant;
-    private String nom;
-    private String prenom;
     private String poste;
     private int habilitation;
+    
+    public Employe(String nom, String prenom) {
+		super(nom, prenom);
+		// TODO Auto-generated constructor stub
+	}
     
     
 	/**
@@ -21,36 +24,6 @@ public class Employe {
 	 */
 	public long getIdentifiant() {
 		return identifiant;
-	}
-	/**
-	 * @param identifiant the identifiant to set
-	 */
-	public void setIdentifiant(long identifiant) {
-		this.identifiant = identifiant;
-	}
-	/**
-	 * @return the nom
-	 */
-	public String getNom() {
-		return nom;
-	}
-	/**
-	 * @param nom the nom to set
-	 */
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-	/**
-	 * @return the prenom
-	 */
-	public String getPrenom() {
-		return prenom;
-	}
-	/**
-	 * @param prenom the prenom to set
-	 */
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
 	}
 	/**
 	 * @return the poste

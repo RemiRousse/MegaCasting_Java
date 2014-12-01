@@ -7,12 +7,19 @@ package megacasting.entity;
  * @author julien
  * 01-12-2014
  */
-public class Annonceur {
+public class Annonceur extends Entreprise {
 	
 	private long identifiant;
     private String nom;
     private String responsable;
     private String siret;
+    
+ 
+    public Annonceur(String nom, String responsable) {
+		super(nom, responsable);
+		// TODO Auto-generated constructor stub
+	}
+    
     
 	/**
 	 * @return the identifiant
