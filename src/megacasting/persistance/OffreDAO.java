@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import megacasting.entity.Annonceur;
 import megacasting.entity.Offre;
 
 /**
@@ -25,6 +26,18 @@ public class OffreDAO {
 	 */
 	public void insert(Connection cnx, Offre offre) {
 		
+		AnnonceurDAO annonceur = new AnnonceurDAO();
+		annonceur.insert(cnx, offre.getAnnonceur());
+        
+		ContratDAO contrat = new ContratDAO();
+		contrat.insert(cnx, offre.getContrat());
+		
+		MetierDAO metier = new MetierDAO();
+		metier.insert(cnx, offre.getMetier());
+		
+		DomaineDAO domaine = new DomaineDAO();
+		domaine.insert(cnx, offre.getDomaine());
+		
 		Statement stmt = null;
         PreparedStatement pstmt = null;
         try {
@@ -36,9 +49,13 @@ public class OffreDAO {
 							+ "DATEDEBCONTRAT, "
 							+ "DATEFINCONTRAT, "
 							+ "DESCPOSTE, "
-							+ "DESCPROFIL) "
-//							+ "AAAAAAAAAA) "
-	                + "VALUES (?, ?, ?, ?)");
+							+ "DESCPROFIL,"
+							+ "IdentifiantAnnonceur,"
+							+ "IdentifiantContrat,"
+							+ "IdentifiantMetier,"
+							+ "IdentifiantDomaine) "
+
+	                + "VALUES (?, ?, ?, ?, ?, ?, ?)");
 			
 	        pstmt.setString(1, offre.getLibelle());
 	        pstmt.setString(2, offre.getReference());
@@ -47,12 +64,20 @@ public class OffreDAO {
 	        pstmt.setDate(4, (Date) offre.getDateFinContrat());
 	        pstmt.setString(5, offre.getDescPoste());
 	        pstmt.setString(6, offre.getDescProfil());
-	        
+	        pstmt.setLong(7, offre.getAnnonceur().getIdentifiant());
+	        pstmt.setLong(8, offre.getContrat().getIdentifiant());
+	        pstmt.setLong(9, offre.getMetier().getIdentifiant());
+	        pstmt.setLong(10, offre.getDomaine().getIdentifiant());
 	
 	        int nb = pstmt.executeUpdate();
 	
 	        if (nb == 1) {
-	           
+	        	stmt = cnx.createStatement();
+                ResultSet rs = stmt.executeQuery("SELECT MAX(Identifiant) FROM Offre");
+                if (rs.next()) {
+                    int id = rs.getInt(1);
+                    offre.setIdentifiant(id);
+                }
 	        }
 		} catch (SQLException ex) {
             ex.printStackTrace();

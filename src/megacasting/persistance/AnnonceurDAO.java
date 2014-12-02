@@ -38,7 +38,7 @@ public class AnnonceurDAO {
 
             if (nb == 1) {
                 stmt = cnx.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT MAX(Identifiant) FROM Domaine");
+                ResultSet rs = stmt.executeQuery("SELECT MAX(Identifiant) FROM Annonceur");
                 if (rs.next()) {
                     int id = rs.getInt(1);
                     annonceur.setIdentifiant(id);
