@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import megacasting.entity.Annonceur;
+import megacasting.entity.Metier;
 import megacasting.entity.Offre;
 
 /**
@@ -97,5 +98,82 @@ public class OffreDAO {
             }
         }
 	}
+	
+	/**
+	 * update offre
+	 * @param cnx
+	 * @param offre
+	 */
+	public void update (Connection cnx, Offre offre) {
+		
+		
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = cnx.prepareStatement(
+					"UPDATE Offre SET ("
+							+ "LIBELLE, "
+							+ "REFERENCE, "
+							+ "DATEDEBPUBLICATION, "
+							+ "DATEDEBCONTRAT, "
+							+ "DATEFINCONTRAT, "
+							+ "DESCPOSTE, "
+							+ "DESCPROFIL,"
+							+ "IdentifiantAnnonceur,"
+							+ "IdentifiantContrat,"
+							+ "IdentifiantMetier,"
+							+ "IdentifiantDomaine) "
 
+	                + "VALUES (?, ?, ?, ?, ?, ?, ?)");
+			
+		        pstmt.setString(1, offre.getLibelle());
+		        pstmt.setString(2, offre.getReference());
+		        pstmt.setDate(3, (Date) offre.getDateDebPublication());
+		        pstmt.setDate(4, (Date) offre.getDateDebContrat());
+		        pstmt.setDate(4, (Date) offre.getDateFinContrat());
+		        pstmt.setString(5, offre.getDescPoste());
+		        pstmt.setString(6, offre.getDescProfil());
+		        pstmt.setLong(7, offre.getAnnonceur().getIdentifiant());
+		        pstmt.setLong(8, offre.getContrat().getIdentifiant());
+		        pstmt.setLong(9, offre.getMetier().getIdentifiant());
+		        pstmt.setLong(10, offre.getDomaine().getIdentifiant());
+		} catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        if (pstmt != null) {
+	            try {
+	                pstmt.close();
+	            } catch (SQLException e) {
+	            }
+	        }
+	    }
+	}
+	
+	/**
+	 * delete offre
+	 * @param cnx
+	 * @param offre
+	 */
+	public void delete(Connection cnx, Offre offre) {
+        
+        PreparedStatement pstmt = null;
+
+        try {
+            pstmt = cnx.prepareStatement("DELETE FROM Offre "
+                    + "WHERE IDENTIFIANT = ?");
+            pstmt.setLong(1, offre.getIdentifiant());
+            
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (pstmt != null) {
+                try {
+                    pstmt.close();
+                } catch (SQLException e) {
+                }
+            }
+        }
+    }
 }

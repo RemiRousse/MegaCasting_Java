@@ -43,7 +43,7 @@ public class EmployeDAO {
 	
 	        if (nb == 1) {
 	            stmt = cnx.createStatement();
-	            ResultSet rs = stmt.executeQuery("SELECT MAX(Identifiant) FROM Domaine");
+	            ResultSet rs = stmt.executeQuery("SELECT MAX(Identifiant) FROM Employe");
 	            if (rs.next()) {
 	                long id = rs.getLong(1);
 	                employe.setIdentifiant(id);
