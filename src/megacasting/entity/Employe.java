@@ -9,10 +9,17 @@ package megacasting.entity;
  */
 public class Employe extends Personne {
 
-	private long identifiant;
+    private long identifiant;
     private String poste;
     private int habilitation;
     private Personne personne;
+
+    public Employe(long identifiant, String poste, int habilitation, String nom, String prenom) {
+        super(nom, prenom);
+        this.identifiant = identifiant;
+        this.poste = poste;
+        this.habilitation = habilitation;
+    }
     
     public Employe(String nom, String prenom) {
 		super(nom, prenom);

@@ -129,5 +129,64 @@ public class EmployeDAO {
             }
         }
     }
+        
+        public Collection<Employe> list(Connection cnx) {
+        Set<Employe> set = new HashSet<Employe>();
+        
+        Statement stmt = null;
+        
+        try {
+            stmt = cnx.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT Identifiant, Poste, Habilitation, Nom, Prenom "
+                    + "FROM Employe");
+            
+            while (rs.next()) {      
+                Employe employe = new Employe(rs.getLong("Identifiant"), rs.getString("Poste"), rs.getInt("Habilitation"), rs.getString("Nom"), rs.getString("Prenom"));
+                set.add(employe);
+            }
+            
+        } catch (Exception e) {
+        } finally {
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (Exception e) {
+                }
+            }
+        }
+        
+        return set;
+    }
+    
+    public Employe find(Connection cnx, long id) {
+        Employe employe = null;
+        
+        PreparedStatement pstmt = null;
+        
+        try {
+            pstmt = cnx.prepareStatement("SELECT Identifiant, Poste, Habilitation, Nom, Prenom "
+                    + " FROM Employe "
+                    + " WHERE Identifiant = ?");
+            pstmt.setLong(1, id);
+            
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                employe = new Employe(rs.getLong("Identifiant"), rs.getString("Poste"), rs.getInt("Habilitation"), rs.getString("Nom"), rs.getString("Prenom"));
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (pstmt != null) {
+                    pstmt.close();
+                }
+            } catch (Exception e) {
+            }
+
+        }
+        
+        return employe;
+    }
 	
 }
