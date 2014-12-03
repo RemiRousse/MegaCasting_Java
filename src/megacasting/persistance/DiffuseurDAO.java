@@ -14,34 +14,32 @@ import java.sql.Statement;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
-import megacasting.entity.Annonceur;
+import megacasting.entity.Diffuseur;
 
 /**
  *
  * @author Mousse
  */
-public class AnnonceurDAO {
-    
-    public void insert(Connection cnx, Annonceur annonceur) {
+public class DiffuseurDAO {
+    public void insert(Connection cnx, Diffuseur diffuseur) {
 
         Statement stmt = null;
         PreparedStatement pstmt = null;
 
         try {
-            pstmt = cnx.prepareStatement("INSERT INTO Annonceur (Nom, Responsable, Siret) "
+            pstmt = cnx.prepareStatement("INSERT INTO Diffuseur (Nom, Responsable) "
                     + "VALUES (?, ?, ?)");
-            pstmt.setString(1, annonceur.getNom());
-            pstmt.setString(2, annonceur.getResponsable());
-            pstmt.setString(3, annonceur.getSiret());
+            pstmt.setString(1, diffuseur.getNom());
+            pstmt.setString(2, diffuseur.getResponsable());
 
             int nb = pstmt.executeUpdate();
 
             if (nb == 1) {
                 stmt = cnx.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT MAX(Identifiant) FROM Annonceur");
+                ResultSet rs = stmt.executeQuery("SELECT MAX(Identifiant) FROM Diffuseur");
                 if (rs.next()) {
                     int id = rs.getInt(1);
-                    annonceur.setIdentifiant(id);
+                    diffuseur.setIdentifiant(id);
                 }
             }
 
@@ -63,18 +61,17 @@ public class AnnonceurDAO {
         }
     }
 
-    public void update(Connection cnx, Annonceur annonceur) {
+    public void update(Connection cnx, Diffuseur diffuseur) {
         
         PreparedStatement pstmt = null;
 
         try {
-            pstmt = cnx.prepareStatement("UPDATE Annonceur SET "
-                    + "Nom = ? , Responsable = ? , Siret = ? "
+            pstmt = cnx.prepareStatement("UPDATE Diffuseur SET "
+                    + "Nom = ? , Responsable = ? "
                     + "WHERE Identifiant = ?");
-            pstmt.setString(1, annonceur.getNom());
-            pstmt.setString(2, annonceur.getResponsable());
-            pstmt.setString(3, annonceur.getSiret());
-            pstmt.setLong(4, annonceur.getIdentifiant());
+            pstmt.setString(1, diffuseur.getNom());
+            pstmt.setString(2, diffuseur.getResponsable());
+            pstmt.setLong(3, diffuseur.getIdentifiant());
 
             pstmt.executeUpdate();
             
@@ -90,14 +87,14 @@ public class AnnonceurDAO {
         } 
     }
 
-    public void delete(Connection cnx, Annonceur annonceur) {
+    public void delete(Connection cnx, Diffuseur diffuseur) {
         
         PreparedStatement pstmt = null;
 
         try {
-            pstmt = cnx.prepareStatement("DELETE FROM Annonceur "
+            pstmt = cnx.prepareStatement("DELETE FROM Diffuseur "
                     + "WHERE Identifiant = ?");
-            pstmt.setLong(1, annonceur.getIdentifiant());
+            pstmt.setLong(1, diffuseur.getIdentifiant());
             
             pstmt.executeUpdate();
 
@@ -113,19 +110,19 @@ public class AnnonceurDAO {
         }
     }
 
-    public Collection<Annonceur> list(Connection cnx) {
-        Set<Annonceur> set = new HashSet<Annonceur>();
+    public Collection<Diffuseur> list(Connection cnx) {
+        Set<Diffuseur> set = new HashSet<Diffuseur>();
         
         Statement stmt = null;
         
         try {
             stmt = cnx.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT Identifiant, Nom, Responsable, Siret "
-                    + "FROM Annonceur");
+                    + "FROM Diffuseur");
             
             while (rs.next()) {                
-                Annonceur annonceur = new Annonceur(rs.getLong("Identifiant"), rs.getString("Nom"), rs.getString("Reponsable"), rs.getString("Siret"));
-                set.add(annonceur);
+                Diffuseur diffuseur = new Diffuseur(rs.getLong("Identifiant"), rs.getString("Nom"), rs.getString("Reponsable"));
+                set.add(diffuseur);
             }
             
         } catch (Exception e) {
@@ -141,20 +138,20 @@ public class AnnonceurDAO {
         return set;
     }
     
-    public Annonceur find(Connection cnx, long id) {
-        Annonceur annonceur = null;
+    public Diffuseur find(Connection cnx, long id) {
+        Diffuseur diffuseur = null;
         
         PreparedStatement pstmt = null;
         
         try {
             pstmt = cnx.prepareStatement("SELECT Identifiant, Nom, Reponsable, Siret "
-                    + " FROM Annonceur "
+                    + " FROM Diffuseur "
                     + " WHERE Identifiant = ?");
             pstmt.setLong(1, id);
             
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
-                annonceur = new Annonceur(rs.getLong("Identifiant"), rs.getString("Nom"), rs.getString("Responsable"), rs.getString("Siret"));
+                diffuseur = new Diffuseur(rs.getLong("Identifiant"), rs.getString("Nom"), rs.getString("Responsable"));
             }
             
         } catch (Exception e) {
@@ -169,6 +166,6 @@ public class AnnonceurDAO {
 
         }
         
-        return annonceur;
+        return diffuseur;
     }
 }

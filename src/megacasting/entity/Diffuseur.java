@@ -9,8 +9,13 @@ package megacasting.entity;
  */
 public class Diffuseur extends Entreprise {
 
-	private long identifiant;
+    private long identifiant;
     private Entreprise entreprise;
+
+    public Diffuseur(long identifiant, String nom, String responsable) {
+        super(nom, responsable);
+        this.identifiant = identifiant;
+    }
     
     
     public Diffuseur(String nom, String responsable) {
