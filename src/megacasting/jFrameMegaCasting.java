@@ -852,6 +852,9 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
     private javax.swing.JTextField textFieldOffre_2;
     private javax.swing.JTextField textFieldOffre_3;
     private javax.swing.JTextField textFieldOffre_4;
+    private javax.swing.JTextField textFieldPers_nom;
+    private javax.swing.JTextField textFieldPers_prenom;
+    private javax.swing.JTextField textFieldPers_poste;
     private javax.swing.JTextField textFieldPers_habilitation;
     private javax.swing.JTextField textFieldSociete_Nom;
     private javax.swing.JTextField textFieldSociete_Responsable;
