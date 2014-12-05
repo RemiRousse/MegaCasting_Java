@@ -21,6 +21,7 @@ import megacasting.entity.Diffuseur;
  * @author Mousse
  */
 public class DiffuseurDAO {
+	
     public void insert(Connection cnx, Diffuseur diffuseur) {
 
         Statement stmt = null;
