@@ -33,3 +33,5 @@ _ReSharper*/
 build.xml
 manifest.mf
 /build/
+src/megacasting/jFrameMegaCasting.form.orig
+src/megacasting/jFrameMegaCasting.java.orig
