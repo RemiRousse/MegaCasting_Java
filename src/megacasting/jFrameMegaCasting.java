@@ -6,6 +6,8 @@
 
 package megacasting;
 
+import javax.swing.plaf.basic.BasicTabbedPaneUI;
+
 /**
  *
  * @author Mousse
@@ -17,6 +19,14 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
      */
     public jFrameMegaCasting() {
         initComponents();
+        tabbedPanePers.setUI(new BasicTabbedPaneUI() {
+
+            @Override
+            protected int calculateTabAreaHeight(int tabPlacement, int horizRunCount, int maxTabHeight) {
+                return 0; //To change body of generated methods, choose Tools | Templates.
+            }
+            
+        });
     }
 
     /**
@@ -102,9 +112,9 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
         buttonCand_update = new javax.swing.JButton();
         panelParam = new javax.swing.JPanel();
         panelContrat = new javax.swing.JPanel();
-        jSplitPane1 = new javax.swing.JSplitPane();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jSplitPane2 = new javax.swing.JSplitPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         panelMetier = new javax.swing.JPanel();
         panelDomaine = new javax.swing.JPanel();
 
@@ -499,6 +509,11 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
         panelPers_sort.setBorder(javax.swing.BorderFactory.createTitledBorder("Tri"));
 
         comboBoxPers_sort.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2" }));
+        comboBoxPers_sort.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxPers_sortActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelPers_sortLayout = new javax.swing.GroupLayout(panelPers_sort);
         panelPers_sort.setLayout(panelPers_sortLayout);
@@ -905,7 +920,7 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
 
         panelContrat.setBorder(javax.swing.BorderFactory.createTitledBorder("Contrats"));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
                 {null},
@@ -913,12 +928,12 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
                 {null}
             },
             new String [] {
-                "Title 1"
+                "Libellé"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane2.setViewportView(jTable2);
 
-        jSplitPane1.setLeftComponent(jScrollPane1);
+        jSplitPane2.setLeftComponent(jScrollPane2);
 
         javax.swing.GroupLayout panelContratLayout = new javax.swing.GroupLayout(panelContrat);
         panelContrat.setLayout(panelContratLayout);
@@ -926,13 +941,13 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
             panelContratLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelContratLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jSplitPane1)
+                .addComponent(jSplitPane2)
                 .addContainerGap())
         );
         panelContratLayout.setVerticalGroup(
             panelContratLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelContratLayout.createSequentialGroup()
-                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
+                .addComponent(jSplitPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1010,6 +1025,11 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void comboBoxPers_sortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxPers_sortActionPerformed
+        // TODO add your handling code here:
+        tabbedPanePers.setSelectedIndex(comboBoxPers_sort.getSelectedIndex());
+    }//GEN-LAST:event_comboBoxPers_sortActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1060,10 +1080,10 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
     private javax.swing.JButton buttonSociete_update;
     private javax.swing.JComboBox comboBoxPers_sort;
     private javax.swing.JComboBox comboBoxSociete_sort;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSplitPane jSplitPane2;
     private javax.swing.JTabbedPane jTabbedPane;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JLabel labelCand_dateNaissance;
     private javax.swing.JLabel labelCand_nom;
     private javax.swing.JLabel labelCand_pays;
