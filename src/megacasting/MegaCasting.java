@@ -17,7 +17,11 @@ public class MegaCasting {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-		
+	java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new jFrameMegaCasting().setVisible(true);
+            }
+        });	
 		
 		//petit commentaire pour tester git -> julien 14/11/14 16:01
     }

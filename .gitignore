@@ -32,3 +32,4 @@ _ReSharper*/
 .classpath
 build.xml
 manifest.mf
+/build/
