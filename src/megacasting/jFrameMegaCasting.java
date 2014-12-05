@@ -30,8 +30,6 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
 
         jTabbedPane = new javax.swing.JTabbedPane();
         panelOffre = new javax.swing.JPanel();
-        panelOffre_sort = new javax.swing.JPanel();
-        comboBoxOffre_sort = new javax.swing.JComboBox();
         panelOffre_list = new javax.swing.JPanel();
         scrollPanelOffre_list = new javax.swing.JScrollPane();
         tableOffre_list = new javax.swing.JTable();
@@ -67,87 +65,36 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
         buttonOffre_insert1 = new javax.swing.JButton();
         buttonOffre_delete1 = new javax.swing.JButton();
         buttonOffre_update1 = new javax.swing.JButton();
-        panelOffre2 = new javax.swing.JPanel();
-        panelOffre_sort2 = new javax.swing.JPanel();
-        comboBoxOffre_sort2 = new javax.swing.JComboBox();
-        panelOffre_list2 = new javax.swing.JPanel();
-        scrollPanelOffre_list2 = new javax.swing.JScrollPane();
-        tableOffre_list2 = new javax.swing.JTable();
-        panelOffre_form2 = new javax.swing.JPanel();
-        labelOffre_9 = new javax.swing.JLabel();
-        textFieldOffre_9 = new javax.swing.JTextField();
-        labelOffre_10 = new javax.swing.JLabel();
-        textFieldOffre_10 = new javax.swing.JTextField();
-        labelOffre_11 = new javax.swing.JLabel();
-        textFieldOffre_11 = new javax.swing.JTextField();
-        labelOffre_12 = new javax.swing.JLabel();
-        textFieldOffre_12 = new javax.swing.JTextField();
-        panelOffre_valid2 = new javax.swing.JPanel();
-        buttonOffre_insert2 = new javax.swing.JButton();
-        buttonOffre_delete2 = new javax.swing.JButton();
-        buttonOffre_update2 = new javax.swing.JButton();
-        panelOffre3 = new javax.swing.JPanel();
-        panelOffre_sort3 = new javax.swing.JPanel();
-        comboBoxOffre_sort3 = new javax.swing.JComboBox();
-        panelOffre_list3 = new javax.swing.JPanel();
-        scrollPanelOffre_list3 = new javax.swing.JScrollPane();
-        tableOffre_list3 = new javax.swing.JTable();
-        panelOffre_form3 = new javax.swing.JPanel();
-        labelOffre_13 = new javax.swing.JLabel();
-        textFieldOffre_13 = new javax.swing.JTextField();
-        labelOffre_14 = new javax.swing.JLabel();
-        textFieldOffre_14 = new javax.swing.JTextField();
-        labelOffre_15 = new javax.swing.JLabel();
-        textFieldOffre_15 = new javax.swing.JTextField();
-        labelOffre_16 = new javax.swing.JLabel();
-        textFieldOffre_16 = new javax.swing.JTextField();
-        panelOffre_valid3 = new javax.swing.JPanel();
-        buttonOffre_insert3 = new javax.swing.JButton();
-        buttonOffre_delete3 = new javax.swing.JButton();
-        buttonOffre_update3 = new javax.swing.JButton();
-        panelOffre4 = new javax.swing.JPanel();
-        panelOffre_sort4 = new javax.swing.JPanel();
-        comboBoxOffre_sort4 = new javax.swing.JComboBox();
-        panelOffre_list4 = new javax.swing.JPanel();
-        scrollPanelOffre_list4 = new javax.swing.JScrollPane();
-        tableOffre_list4 = new javax.swing.JTable();
-        panelOffre_form4 = new javax.swing.JPanel();
-        labelOffre_17 = new javax.swing.JLabel();
-        textFieldOffre_17 = new javax.swing.JTextField();
-        labelOffre_18 = new javax.swing.JLabel();
-        textFieldOffre_18 = new javax.swing.JTextField();
-        labelOffre_19 = new javax.swing.JLabel();
-        textFieldOffre_19 = new javax.swing.JTextField();
-        labelOffre_20 = new javax.swing.JLabel();
-        textFieldOffre_20 = new javax.swing.JTextField();
-        panelOffre_valid4 = new javax.swing.JPanel();
-        buttonOffre_insert4 = new javax.swing.JButton();
-        buttonOffre_delete4 = new javax.swing.JButton();
-        buttonOffre_update4 = new javax.swing.JButton();
+        panelPers = new javax.swing.JPanel();
+        panelPers_sort = new javax.swing.JPanel();
+        comboBoxPers_sort = new javax.swing.JComboBox();
+        panelPers_list = new javax.swing.JPanel();
+        scrollPanelPers_list = new javax.swing.JScrollPane();
+        tablePers_list = new javax.swing.JTable();
+        panelPers_form = new javax.swing.JPanel();
+        labelPers_nom = new javax.swing.JLabel();
+        textFieldPers_nom = new javax.swing.JTextField();
+        labelPers_prenom = new javax.swing.JLabel();
+        textFieldPers_prenom = new javax.swing.JTextField();
+        labelPers_poste = new javax.swing.JLabel();
+        textFieldPers_poste = new javax.swing.JTextField();
+        labelPers_habilitation = new javax.swing.JLabel();
+        textFieldPers_habilitation = new javax.swing.JTextField();
+        panelPers_valid = new javax.swing.JPanel();
+        buttonPers_insert = new javax.swing.JButton();
+        buttonPers_delete = new javax.swing.JButton();
+        buttonPers_update = new javax.swing.JButton();
+        panelParam = new javax.swing.JPanel();
+        panelContrat = new javax.swing.JPanel();
+        panelMetier = new javax.swing.JPanel();
+        panelDomaine = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
-        panelOffre_sort.setBorder(javax.swing.BorderFactory.createTitledBorder("Tri"));
+        jTabbedPane.setName(""); // NOI18N
 
-        comboBoxOffre_sort.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        javax.swing.GroupLayout panelOffre_sortLayout = new javax.swing.GroupLayout(panelOffre_sort);
-        panelOffre_sort.setLayout(panelOffre_sortLayout);
-        panelOffre_sortLayout.setHorizontalGroup(
-            panelOffre_sortLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre_sortLayout.createSequentialGroup()
-                .addGap(154, 154, 154)
-                .addComponent(comboBoxOffre_sort, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        panelOffre_sortLayout.setVerticalGroup(
-            panelOffre_sortLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOffre_sortLayout.createSequentialGroup()
-                .addComponent(comboBoxOffre_sort, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        panelOffre_list.setBorder(javax.swing.BorderFactory.createTitledBorder("Liste des "));
+        panelOffre_list.setBorder(javax.swing.BorderFactory.createTitledBorder("Liste des offres"));
 
         tableOffre_list.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -260,7 +207,7 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
                 .addGroup(panelOffre_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textFieldOffre_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelOffre_4))
-                .addContainerGap(256, Short.MAX_VALUE))
+                .addContainerGap(336, Short.MAX_VALUE))
         );
 
         panelOffre_valid.setBorder(javax.swing.BorderFactory.createTitledBorder("Valider"));
@@ -289,7 +236,7 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
             .addGroup(panelOffre_validLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelOffre_validLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttonOffre_insert, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                    .addComponent(buttonOffre_insert, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
                     .addComponent(buttonOffre_delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonOffre_update, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -301,23 +248,18 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
             panelOffreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelOffreLayout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(panelOffre_list, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelOffreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelOffre_sort, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(panelOffreLayout.createSequentialGroup()
-                        .addComponent(panelOffre_list, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelOffreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panelOffre_form, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(panelOffre_valid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(panelOffre_form, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelOffre_valid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         panelOffreLayout.setVerticalGroup(
             panelOffreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffreLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOffreLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelOffre_sort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelOffreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelOffreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(panelOffre_list, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panelOffreLayout.createSequentialGroup()
                         .addComponent(panelOffre_form, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -326,7 +268,7 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane.addTab("tab1", panelOffre);
+        jTabbedPane.addTab("Offres", panelOffre);
 
         panelOffre_sort1.setBorder(javax.swing.BorderFactory.createTitledBorder("Tri"));
 
@@ -490,7 +432,7 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
             .addGroup(panelOffre_valid1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelOffre_valid1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttonOffre_insert1, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                    .addComponent(buttonOffre_insert1, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
                     .addComponent(buttonOffre_delete1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonOffre_update1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -529,29 +471,29 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
 
         jTabbedPane.addTab("tab1", panelOffre1);
 
-        panelOffre_sort2.setBorder(javax.swing.BorderFactory.createTitledBorder("Tri"));
+        panelPers_sort.setBorder(javax.swing.BorderFactory.createTitledBorder("Tri"));
 
-        comboBoxOffre_sort2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboBoxPers_sort.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2" }));
 
-        javax.swing.GroupLayout panelOffre_sort2Layout = new javax.swing.GroupLayout(panelOffre_sort2);
-        panelOffre_sort2.setLayout(panelOffre_sort2Layout);
-        panelOffre_sort2Layout.setHorizontalGroup(
-            panelOffre_sort2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre_sort2Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelPers_sortLayout = new javax.swing.GroupLayout(panelPers_sort);
+        panelPers_sort.setLayout(panelPers_sortLayout);
+        panelPers_sortLayout.setHorizontalGroup(
+            panelPers_sortLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPers_sortLayout.createSequentialGroup()
                 .addGap(154, 154, 154)
-                .addComponent(comboBoxOffre_sort2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(comboBoxPers_sort, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        panelOffre_sort2Layout.setVerticalGroup(
-            panelOffre_sort2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOffre_sort2Layout.createSequentialGroup()
-                .addComponent(comboBoxOffre_sort2, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+        panelPers_sortLayout.setVerticalGroup(
+            panelPers_sortLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPers_sortLayout.createSequentialGroup()
+                .addComponent(comboBoxPers_sort, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        panelOffre_list2.setBorder(javax.swing.BorderFactory.createTitledBorder("Liste des "));
+        panelPers_list.setBorder(javax.swing.BorderFactory.createTitledBorder("Liste des employes"));
 
-        tableOffre_list2.setModel(new javax.swing.table.DefaultTableModel(
+        tablePers_list.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -591,546 +533,211 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        scrollPanelOffre_list2.setViewportView(tableOffre_list2);
+        scrollPanelPers_list.setViewportView(tablePers_list);
 
-        javax.swing.GroupLayout panelOffre_list2Layout = new javax.swing.GroupLayout(panelOffre_list2);
-        panelOffre_list2.setLayout(panelOffre_list2Layout);
-        panelOffre_list2Layout.setHorizontalGroup(
-            panelOffre_list2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre_list2Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelPers_listLayout = new javax.swing.GroupLayout(panelPers_list);
+        panelPers_list.setLayout(panelPers_listLayout);
+        panelPers_listLayout.setHorizontalGroup(
+            panelPers_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPers_listLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(scrollPanelOffre_list2, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
+                .addComponent(scrollPanelPers_list, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        panelOffre_list2Layout.setVerticalGroup(
-            panelOffre_list2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre_list2Layout.createSequentialGroup()
+        panelPers_listLayout.setVerticalGroup(
+            panelPers_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPers_listLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(scrollPanelOffre_list2)
+                .addComponent(scrollPanelPers_list)
                 .addContainerGap())
         );
 
-        panelOffre_form2.setBorder(javax.swing.BorderFactory.createTitledBorder("Formulaire"));
+        panelPers_form.setBorder(javax.swing.BorderFactory.createTitledBorder("Formulaire"));
 
-        labelOffre_9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelOffre_9.setText("jLabel1");
+        labelPers_nom.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labelPers_nom.setText("Nom");
 
-        labelOffre_10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelOffre_10.setText("jLabel1");
+        labelPers_prenom.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labelPers_prenom.setText("Prénom");
 
-        labelOffre_11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelOffre_11.setText("jLabel1");
+        labelPers_poste.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labelPers_poste.setText("Poste");
 
-        labelOffre_12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelOffre_12.setText("jLabel1");
+        labelPers_habilitation.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labelPers_habilitation.setText("Habilitation");
 
-        javax.swing.GroupLayout panelOffre_form2Layout = new javax.swing.GroupLayout(panelOffre_form2);
-        panelOffre_form2.setLayout(panelOffre_form2Layout);
-        panelOffre_form2Layout.setHorizontalGroup(
-            panelOffre_form2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre_form2Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelPers_formLayout = new javax.swing.GroupLayout(panelPers_form);
+        panelPers_form.setLayout(panelPers_formLayout);
+        panelPers_formLayout.setHorizontalGroup(
+            panelPers_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPers_formLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelOffre_form2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelOffre_9, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelOffre_12, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelOffre_10, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelOffre_11, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelPers_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelPers_nom, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelPers_prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelPers_poste, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelPers_habilitation, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(panelOffre_form2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textFieldOffre_12, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textFieldOffre_10, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textFieldOffre_11, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textFieldOffre_9, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelPers_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textFieldPers_poste, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textFieldPers_nom, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textFieldPers_prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textFieldPers_habilitation, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        panelOffre_form2Layout.setVerticalGroup(
-            panelOffre_form2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre_form2Layout.createSequentialGroup()
+        panelPers_formLayout.setVerticalGroup(
+            panelPers_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPers_formLayout.createSequentialGroup()
                 .addGap(75, 75, 75)
-                .addGroup(panelOffre_form2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textFieldOffre_10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelOffre_9))
+                .addGroup(panelPers_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textFieldPers_nom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelPers_nom))
                 .addGap(27, 27, 27)
-                .addGroup(panelOffre_form2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelOffre_12)
-                    .addComponent(textFieldOffre_11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelPers_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelPers_prenom)
+                    .addComponent(textFieldPers_prenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
-                .addGroup(panelOffre_form2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textFieldOffre_12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelOffre_10))
+                .addGroup(panelPers_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textFieldPers_poste, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelPers_poste))
                 .addGap(31, 31, 31)
-                .addGroup(panelOffre_form2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textFieldOffre_9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelOffre_11))
+                .addGroup(panelPers_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textFieldPers_habilitation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelPers_habilitation))
                 .addContainerGap(256, Short.MAX_VALUE))
         );
 
-        panelOffre_valid2.setBorder(javax.swing.BorderFactory.createTitledBorder("Valider"));
+        panelPers_valid.setBorder(javax.swing.BorderFactory.createTitledBorder("Valider"));
 
-        buttonOffre_insert2.setLabel("Ajouter");
+        buttonPers_insert.setLabel("Ajouter");
 
-        buttonOffre_delete2.setLabel("Supprimer");
+        buttonPers_delete.setLabel("Supprimer");
 
-        buttonOffre_update2.setLabel("Modifier");
+        buttonPers_update.setLabel("Modifier");
 
-        javax.swing.GroupLayout panelOffre_valid2Layout = new javax.swing.GroupLayout(panelOffre_valid2);
-        panelOffre_valid2.setLayout(panelOffre_valid2Layout);
-        panelOffre_valid2Layout.setHorizontalGroup(
-            panelOffre_valid2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre_valid2Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelPers_validLayout = new javax.swing.GroupLayout(panelPers_valid);
+        panelPers_valid.setLayout(panelPers_validLayout);
+        panelPers_validLayout.setHorizontalGroup(
+            panelPers_validLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPers_validLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(buttonOffre_insert2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonPers_insert, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(buttonOffre_update2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonPers_update, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(buttonOffre_delete2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonPers_delete, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        panelOffre_valid2Layout.setVerticalGroup(
-            panelOffre_valid2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre_valid2Layout.createSequentialGroup()
+        panelPers_validLayout.setVerticalGroup(
+            panelPers_validLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPers_validLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelOffre_valid2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttonOffre_insert2, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
-                    .addComponent(buttonOffre_delete2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonOffre_update2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(panelPers_validLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buttonPers_insert, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                    .addComponent(buttonPers_delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonPers_update, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout panelOffre2Layout = new javax.swing.GroupLayout(panelOffre2);
-        panelOffre2.setLayout(panelOffre2Layout);
-        panelOffre2Layout.setHorizontalGroup(
-            panelOffre2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre2Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelPersLayout = new javax.swing.GroupLayout(panelPers);
+        panelPers.setLayout(panelPersLayout);
+        panelPersLayout.setHorizontalGroup(
+            panelPersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPersLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelOffre2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelOffre_sort2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(panelOffre2Layout.createSequentialGroup()
-                        .addComponent(panelOffre_list2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelPersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelPers_sort, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panelPersLayout.createSequentialGroup()
+                        .addComponent(panelPers_list, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelOffre2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panelOffre_form2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(panelOffre_valid2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(panelPersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(panelPers_form, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelPers_valid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
-        panelOffre2Layout.setVerticalGroup(
-            panelOffre2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre2Layout.createSequentialGroup()
+        panelPersLayout.setVerticalGroup(
+            panelPersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPersLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelOffre_sort2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelPers_sort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelOffre2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelOffre_list2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(panelOffre2Layout.createSequentialGroup()
-                        .addComponent(panelOffre_form2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelPersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelPers_list, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panelPersLayout.createSequentialGroup()
+                        .addComponent(panelPers_form, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panelOffre_valid2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(panelPers_valid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
-        jTabbedPane.addTab("tab1", panelOffre2);
+        jTabbedPane.addTab("Personnes", panelPers);
 
-        panelOffre_sort3.setBorder(javax.swing.BorderFactory.createTitledBorder("Tri"));
+        panelContrat.setBorder(javax.swing.BorderFactory.createTitledBorder("Contrats"));
 
-        comboBoxOffre_sort3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        javax.swing.GroupLayout panelOffre_sort3Layout = new javax.swing.GroupLayout(panelOffre_sort3);
-        panelOffre_sort3.setLayout(panelOffre_sort3Layout);
-        panelOffre_sort3Layout.setHorizontalGroup(
-            panelOffre_sort3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre_sort3Layout.createSequentialGroup()
-                .addGap(154, 154, 154)
-                .addComponent(comboBoxOffre_sort3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        javax.swing.GroupLayout panelContratLayout = new javax.swing.GroupLayout(panelContrat);
+        panelContrat.setLayout(panelContratLayout);
+        panelContratLayout.setHorizontalGroup(
+            panelContratLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
-        panelOffre_sort3Layout.setVerticalGroup(
-            panelOffre_sort3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOffre_sort3Layout.createSequentialGroup()
-                .addComponent(comboBoxOffre_sort3, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-                .addContainerGap())
+        panelContratLayout.setVerticalGroup(
+            panelContratLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 207, Short.MAX_VALUE)
         );
 
-        panelOffre_list3.setBorder(javax.swing.BorderFactory.createTitledBorder("Liste des "));
+        panelMetier.setBorder(javax.swing.BorderFactory.createTitledBorder("Métiers"));
+        panelMetier.setPreferredSize(new java.awt.Dimension(12, 231));
 
-        tableOffre_list3.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
+        javax.swing.GroupLayout panelMetierLayout = new javax.swing.GroupLayout(panelMetier);
+        panelMetier.setLayout(panelMetierLayout);
+        panelMetierLayout.setHorizontalGroup(
+            panelMetierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 935, Short.MAX_VALUE)
+        );
+        panelMetierLayout.setVerticalGroup(
+            panelMetierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 206, Short.MAX_VALUE)
+        );
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        scrollPanelOffre_list3.setViewportView(tableOffre_list3);
+        panelDomaine.setBorder(javax.swing.BorderFactory.createTitledBorder("Domaines de métiers"));
+        panelDomaine.setPreferredSize(new java.awt.Dimension(12, 230));
 
-        javax.swing.GroupLayout panelOffre_list3Layout = new javax.swing.GroupLayout(panelOffre_list3);
-        panelOffre_list3.setLayout(panelOffre_list3Layout);
-        panelOffre_list3Layout.setHorizontalGroup(
-            panelOffre_list3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre_list3Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelDomaineLayout = new javax.swing.GroupLayout(panelDomaine);
+        panelDomaine.setLayout(panelDomaineLayout);
+        panelDomaineLayout.setHorizontalGroup(
+            panelDomaineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        panelDomaineLayout.setVerticalGroup(
+            panelDomaineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 205, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout panelParamLayout = new javax.swing.GroupLayout(panelParam);
+        panelParam.setLayout(panelParamLayout);
+        panelParamLayout.setHorizontalGroup(
+            panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelParamLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(scrollPanelOffre_list3, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
+                .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelContrat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelMetier, javax.swing.GroupLayout.DEFAULT_SIZE, 947, Short.MAX_VALUE)
+                    .addComponent(panelDomaine, javax.swing.GroupLayout.DEFAULT_SIZE, 947, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        panelOffre_list3Layout.setVerticalGroup(
-            panelOffre_list3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre_list3Layout.createSequentialGroup()
+        panelParamLayout.setVerticalGroup(
+            panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelParamLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(scrollPanelOffre_list3)
-                .addContainerGap())
-        );
-
-        panelOffre_form3.setBorder(javax.swing.BorderFactory.createTitledBorder("Formulaire"));
-
-        labelOffre_13.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelOffre_13.setText("jLabel1");
-
-        labelOffre_14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelOffre_14.setText("jLabel1");
-
-        labelOffre_15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelOffre_15.setText("jLabel1");
-
-        labelOffre_16.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelOffre_16.setText("jLabel1");
-
-        javax.swing.GroupLayout panelOffre_form3Layout = new javax.swing.GroupLayout(panelOffre_form3);
-        panelOffre_form3.setLayout(panelOffre_form3Layout);
-        panelOffre_form3Layout.setHorizontalGroup(
-            panelOffre_form3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre_form3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelOffre_form3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelOffre_13, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelOffre_16, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelOffre_14, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelOffre_15, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelOffre_form3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textFieldOffre_16, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textFieldOffre_14, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textFieldOffre_15, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textFieldOffre_13, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        panelOffre_form3Layout.setVerticalGroup(
-            panelOffre_form3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre_form3Layout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addGroup(panelOffre_form3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textFieldOffre_14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelOffre_13))
-                .addGap(27, 27, 27)
-                .addGroup(panelOffre_form3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelOffre_16)
-                    .addComponent(textFieldOffre_15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(panelOffre_form3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textFieldOffre_16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelOffre_14))
-                .addGap(31, 31, 31)
-                .addGroup(panelOffre_form3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textFieldOffre_13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelOffre_15))
-                .addContainerGap(256, Short.MAX_VALUE))
-        );
-
-        panelOffre_valid3.setBorder(javax.swing.BorderFactory.createTitledBorder("Valider"));
-
-        buttonOffre_insert3.setLabel("Ajouter");
-
-        buttonOffre_delete3.setLabel("Supprimer");
-
-        buttonOffre_update3.setLabel("Modifier");
-
-        javax.swing.GroupLayout panelOffre_valid3Layout = new javax.swing.GroupLayout(panelOffre_valid3);
-        panelOffre_valid3.setLayout(panelOffre_valid3Layout);
-        panelOffre_valid3Layout.setHorizontalGroup(
-            panelOffre_valid3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre_valid3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(buttonOffre_insert3, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(buttonOffre_update3, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(buttonOffre_delete3, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        panelOffre_valid3Layout.setVerticalGroup(
-            panelOffre_valid3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre_valid3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelOffre_valid3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttonOffre_insert3, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
-                    .addComponent(buttonOffre_delete3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonOffre_update3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panelContrat, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(panelMetier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(panelDomaine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout panelOffre3Layout = new javax.swing.GroupLayout(panelOffre3);
-        panelOffre3.setLayout(panelOffre3Layout);
-        panelOffre3Layout.setHorizontalGroup(
-            panelOffre3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelOffre3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelOffre_sort3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(panelOffre3Layout.createSequentialGroup()
-                        .addComponent(panelOffre_list3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelOffre3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panelOffre_form3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(panelOffre_valid3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap())
-        );
-        panelOffre3Layout.setVerticalGroup(
-            panelOffre3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelOffre_sort3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelOffre3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelOffre_list3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(panelOffre3Layout.createSequentialGroup()
-                        .addComponent(panelOffre_form3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panelOffre_valid3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-
-        jTabbedPane.addTab("tab1", panelOffre3);
-
-        panelOffre_sort4.setBorder(javax.swing.BorderFactory.createTitledBorder("Tri"));
-
-        comboBoxOffre_sort4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        javax.swing.GroupLayout panelOffre_sort4Layout = new javax.swing.GroupLayout(panelOffre_sort4);
-        panelOffre_sort4.setLayout(panelOffre_sort4Layout);
-        panelOffre_sort4Layout.setHorizontalGroup(
-            panelOffre_sort4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre_sort4Layout.createSequentialGroup()
-                .addGap(154, 154, 154)
-                .addComponent(comboBoxOffre_sort4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        panelOffre_sort4Layout.setVerticalGroup(
-            panelOffre_sort4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOffre_sort4Layout.createSequentialGroup()
-                .addComponent(comboBoxOffre_sort4, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        panelOffre_list4.setBorder(javax.swing.BorderFactory.createTitledBorder("Liste des "));
-
-        tableOffre_list4.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        scrollPanelOffre_list4.setViewportView(tableOffre_list4);
-
-        javax.swing.GroupLayout panelOffre_list4Layout = new javax.swing.GroupLayout(panelOffre_list4);
-        panelOffre_list4.setLayout(panelOffre_list4Layout);
-        panelOffre_list4Layout.setHorizontalGroup(
-            panelOffre_list4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre_list4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(scrollPanelOffre_list4, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        panelOffre_list4Layout.setVerticalGroup(
-            panelOffre_list4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre_list4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(scrollPanelOffre_list4)
-                .addContainerGap())
-        );
-
-        panelOffre_form4.setBorder(javax.swing.BorderFactory.createTitledBorder("Formulaire"));
-
-        labelOffre_17.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelOffre_17.setText("jLabel1");
-
-        labelOffre_18.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelOffre_18.setText("jLabel1");
-
-        labelOffre_19.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelOffre_19.setText("jLabel1");
-
-        labelOffre_20.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelOffre_20.setText("jLabel1");
-
-        javax.swing.GroupLayout panelOffre_form4Layout = new javax.swing.GroupLayout(panelOffre_form4);
-        panelOffre_form4.setLayout(panelOffre_form4Layout);
-        panelOffre_form4Layout.setHorizontalGroup(
-            panelOffre_form4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre_form4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelOffre_form4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelOffre_17, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelOffre_20, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelOffre_18, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelOffre_19, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelOffre_form4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textFieldOffre_20, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textFieldOffre_18, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textFieldOffre_19, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textFieldOffre_17, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        panelOffre_form4Layout.setVerticalGroup(
-            panelOffre_form4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre_form4Layout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addGroup(panelOffre_form4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textFieldOffre_18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelOffre_17))
-                .addGap(27, 27, 27)
-                .addGroup(panelOffre_form4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelOffre_20)
-                    .addComponent(textFieldOffre_19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(panelOffre_form4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textFieldOffre_20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelOffre_18))
-                .addGap(31, 31, 31)
-                .addGroup(panelOffre_form4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textFieldOffre_17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelOffre_19))
-                .addContainerGap(256, Short.MAX_VALUE))
-        );
-
-        panelOffre_valid4.setBorder(javax.swing.BorderFactory.createTitledBorder("Valider"));
-
-        buttonOffre_insert4.setLabel("Ajouter");
-
-        buttonOffre_delete4.setLabel("Supprimer");
-
-        buttonOffre_update4.setLabel("Modifier");
-
-        javax.swing.GroupLayout panelOffre_valid4Layout = new javax.swing.GroupLayout(panelOffre_valid4);
-        panelOffre_valid4.setLayout(panelOffre_valid4Layout);
-        panelOffre_valid4Layout.setHorizontalGroup(
-            panelOffre_valid4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre_valid4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(buttonOffre_insert4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(buttonOffre_update4, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(buttonOffre_delete4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        panelOffre_valid4Layout.setVerticalGroup(
-            panelOffre_valid4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre_valid4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelOffre_valid4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttonOffre_insert4, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
-                    .addComponent(buttonOffre_delete4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonOffre_update4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout panelOffre4Layout = new javax.swing.GroupLayout(panelOffre4);
-        panelOffre4.setLayout(panelOffre4Layout);
-        panelOffre4Layout.setHorizontalGroup(
-            panelOffre4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelOffre4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelOffre_sort4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(panelOffre4Layout.createSequentialGroup()
-                        .addComponent(panelOffre_list4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelOffre4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panelOffre_form4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(panelOffre_valid4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap())
-        );
-        panelOffre4Layout.setVerticalGroup(
-            panelOffre4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelOffre_sort4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelOffre4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelOffre_list4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(panelOffre4Layout.createSequentialGroup()
-                        .addComponent(panelOffre_form4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panelOffre_valid4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-
-        jTabbedPane.addTab("tab1", panelOffre4);
+        jTabbedPane.addTab("Contrats / Métiers", panelParam);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1190,99 +797,63 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonOffre_delete;
     private javax.swing.JButton buttonOffre_delete1;
-    private javax.swing.JButton buttonOffre_delete2;
-    private javax.swing.JButton buttonOffre_delete3;
-    private javax.swing.JButton buttonOffre_delete4;
     private javax.swing.JButton buttonOffre_insert;
     private javax.swing.JButton buttonOffre_insert1;
-    private javax.swing.JButton buttonOffre_insert2;
-    private javax.swing.JButton buttonOffre_insert3;
-    private javax.swing.JButton buttonOffre_insert4;
     private javax.swing.JButton buttonOffre_update;
     private javax.swing.JButton buttonOffre_update1;
-    private javax.swing.JButton buttonOffre_update2;
-    private javax.swing.JButton buttonOffre_update3;
-    private javax.swing.JButton buttonOffre_update4;
-    private javax.swing.JComboBox comboBoxOffre_sort;
+    private javax.swing.JButton buttonPers_delete;
+    private javax.swing.JButton buttonPers_insert;
+    private javax.swing.JButton buttonPers_update;
     private javax.swing.JComboBox comboBoxOffre_sort1;
-    private javax.swing.JComboBox comboBoxOffre_sort2;
-    private javax.swing.JComboBox comboBoxOffre_sort3;
-    private javax.swing.JComboBox comboBoxOffre_sort4;
+    private javax.swing.JComboBox comboBoxPers_sort;
     private javax.swing.JTabbedPane jTabbedPane;
     private javax.swing.JLabel labelOffre_1;
-    private javax.swing.JLabel labelOffre_10;
-    private javax.swing.JLabel labelOffre_11;
-    private javax.swing.JLabel labelOffre_12;
-    private javax.swing.JLabel labelOffre_13;
-    private javax.swing.JLabel labelOffre_14;
-    private javax.swing.JLabel labelOffre_15;
-    private javax.swing.JLabel labelOffre_16;
-    private javax.swing.JLabel labelOffre_17;
-    private javax.swing.JLabel labelOffre_18;
-    private javax.swing.JLabel labelOffre_19;
     private javax.swing.JLabel labelOffre_2;
-    private javax.swing.JLabel labelOffre_20;
     private javax.swing.JLabel labelOffre_3;
     private javax.swing.JLabel labelOffre_4;
     private javax.swing.JLabel labelOffre_5;
     private javax.swing.JLabel labelOffre_6;
     private javax.swing.JLabel labelOffre_7;
     private javax.swing.JLabel labelOffre_8;
-    private javax.swing.JLabel labelOffre_9;
+    private javax.swing.JLabel labelPers_habilitation;
+    private javax.swing.JLabel labelPers_nom;
+    private javax.swing.JLabel labelPers_poste;
+    private javax.swing.JLabel labelPers_prenom;
+    private javax.swing.JPanel panelContrat;
+    private javax.swing.JPanel panelDomaine;
+    private javax.swing.JPanel panelMetier;
     private javax.swing.JPanel panelOffre;
     private javax.swing.JPanel panelOffre1;
-    private javax.swing.JPanel panelOffre2;
-    private javax.swing.JPanel panelOffre3;
-    private javax.swing.JPanel panelOffre4;
     private javax.swing.JPanel panelOffre_form;
     private javax.swing.JPanel panelOffre_form1;
-    private javax.swing.JPanel panelOffre_form2;
-    private javax.swing.JPanel panelOffre_form3;
-    private javax.swing.JPanel panelOffre_form4;
     private javax.swing.JPanel panelOffre_list;
     private javax.swing.JPanel panelOffre_list1;
-    private javax.swing.JPanel panelOffre_list2;
-    private javax.swing.JPanel panelOffre_list3;
-    private javax.swing.JPanel panelOffre_list4;
-    private javax.swing.JPanel panelOffre_sort;
     private javax.swing.JPanel panelOffre_sort1;
-    private javax.swing.JPanel panelOffre_sort2;
-    private javax.swing.JPanel panelOffre_sort3;
-    private javax.swing.JPanel panelOffre_sort4;
     private javax.swing.JPanel panelOffre_valid;
     private javax.swing.JPanel panelOffre_valid1;
-    private javax.swing.JPanel panelOffre_valid2;
-    private javax.swing.JPanel panelOffre_valid3;
-    private javax.swing.JPanel panelOffre_valid4;
+    private javax.swing.JPanel panelParam;
+    private javax.swing.JPanel panelPers;
+    private javax.swing.JPanel panelPers_form;
+    private javax.swing.JPanel panelPers_list;
+    private javax.swing.JPanel panelPers_sort;
+    private javax.swing.JPanel panelPers_valid;
     private javax.swing.JScrollPane scrollPanelOffre_list;
     private javax.swing.JScrollPane scrollPanelOffre_list1;
-    private javax.swing.JScrollPane scrollPanelOffre_list2;
-    private javax.swing.JScrollPane scrollPanelOffre_list3;
-    private javax.swing.JScrollPane scrollPanelOffre_list4;
+    private javax.swing.JScrollPane scrollPanelPers_list;
     private javax.swing.JTable tableOffre_list;
     private javax.swing.JTable tableOffre_list1;
-    private javax.swing.JTable tableOffre_list2;
-    private javax.swing.JTable tableOffre_list3;
-    private javax.swing.JTable tableOffre_list4;
+    private javax.swing.JTable tablePers_list;
     private javax.swing.JTextField textFieldOffre_1;
-    private javax.swing.JTextField textFieldOffre_10;
-    private javax.swing.JTextField textFieldOffre_11;
-    private javax.swing.JTextField textFieldOffre_12;
-    private javax.swing.JTextField textFieldOffre_13;
-    private javax.swing.JTextField textFieldOffre_14;
-    private javax.swing.JTextField textFieldOffre_15;
-    private javax.swing.JTextField textFieldOffre_16;
-    private javax.swing.JTextField textFieldOffre_17;
-    private javax.swing.JTextField textFieldOffre_18;
-    private javax.swing.JTextField textFieldOffre_19;
     private javax.swing.JTextField textFieldOffre_2;
-    private javax.swing.JTextField textFieldOffre_20;
     private javax.swing.JTextField textFieldOffre_3;
     private javax.swing.JTextField textFieldOffre_4;
     private javax.swing.JTextField textFieldOffre_5;
     private javax.swing.JTextField textFieldOffre_6;
     private javax.swing.JTextField textFieldOffre_7;
     private javax.swing.JTextField textFieldOffre_8;
-    private javax.swing.JTextField textFieldOffre_9;
+    private javax.swing.JTextField textFieldPers_habilitation;
+    private javax.swing.JTextField textFieldPers_nom;
+    private javax.swing.JTextField textFieldPers_poste;
+    private javax.swing.JTextField textFieldPers_prenom;
     // End of variables declaration//GEN-END:variables
 }

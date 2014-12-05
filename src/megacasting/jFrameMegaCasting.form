@@ -3,6 +3,7 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -42,14 +43,17 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JTabbedPane" name="jTabbedPane">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="" noResource="true"/>
+      </Properties>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
         <Container class="javax.swing.JPanel" name="panelOffre">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="tab1">
-                <Property name="tabTitle" type="java.lang.String" value="tab1"/>
+              <JTabbedPaneConstraints tabName="Offres">
+                <Property name="tabTitle" type="java.lang.String" value="Offres"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -59,16 +63,11 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
+                      <Component id="panelOffre_list" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="panelOffre_sort" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="panelOffre_list" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="panelOffre_form" max="32767" attributes="0"/>
-                                  <Component id="panelOffre_valid" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="panelOffre_form" max="32767" attributes="0"/>
+                          <Component id="panelOffre_valid" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -76,11 +75,9 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="panelOffre_sort" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="panelOffre_list" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="panelOffre_form" min="-2" max="-2" attributes="0"/>
@@ -94,54 +91,11 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="panelOffre_sort">
-              <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Tri"/>
-                  </Border>
-                </Property>
-              </Properties>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
-                          <Component id="comboBoxOffre_sort" min="-2" pref="200" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="comboBoxOffre_sort" pref="35" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JComboBox" name="comboBoxOffre_sort">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
-                        <StringItem index="0" value="Item 1"/>
-                        <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
-                      </StringArray>
-                    </Property>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
             <Container class="javax.swing.JPanel" name="panelOffre_list">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Liste des "/>
+                    <TitledBorder title="Liste des offres"/>
                   </Border>
                 </Property>
               </Properties>
@@ -245,7 +199,7 @@
                               <Component id="textFieldOffre_4" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="labelOffre_4" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="256" max="32767" attributes="0"/>
+                          <EmptySpace pref="336" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -313,7 +267,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="buttonOffre_insert" pref="49" max="32767" attributes="0"/>
+                              <Component id="buttonOffre_insert" pref="50" max="32767" attributes="0"/>
                               <Component id="buttonOffre_delete" max="32767" attributes="0"/>
                               <Component id="buttonOffre_update" alignment="0" max="32767" attributes="0"/>
                           </Group>
@@ -610,7 +564,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="buttonOffre_insert1" alignment="0" pref="49" max="32767" attributes="0"/>
+                              <Component id="buttonOffre_insert1" alignment="0" pref="50" max="32767" attributes="0"/>
                               <Component id="buttonOffre_delete1" alignment="0" max="32767" attributes="0"/>
                               <Component id="buttonOffre_update1" alignment="0" max="32767" attributes="0"/>
                           </Group>
@@ -639,11 +593,11 @@
             </Container>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="panelOffre2">
+        <Container class="javax.swing.JPanel" name="panelPers">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="tab1">
-                <Property name="tabTitle" type="java.lang.String" value="tab1"/>
+              <JTabbedPaneConstraints tabName="Personnes">
+                <Property name="tabTitle" type="java.lang.String" value="Personnes"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -654,13 +608,13 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="panelOffre_sort2" alignment="0" max="32767" attributes="0"/>
+                          <Component id="panelPers_sort" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="panelOffre_list2" min="-2" max="-2" attributes="0"/>
+                              <Component id="panelPers_list" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="panelOffre_form2" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="panelOffre_valid2" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="panelPers_form" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="panelPers_valid" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -672,14 +626,14 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="panelOffre_sort2" min="-2" max="-2" attributes="0"/>
+                      <Component id="panelPers_sort" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="panelOffre_list2" alignment="0" max="32767" attributes="0"/>
+                          <Component id="panelPers_list" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="panelOffre_form2" min="-2" max="-2" attributes="0"/>
+                              <Component id="panelPers_form" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="panelOffre_valid2" max="32767" attributes="0"/>
+                              <Component id="panelPers_valid" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -688,7 +642,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="panelOffre_sort2">
+            <Container class="javax.swing.JPanel" name="panelPers_sort">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -702,7 +656,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
-                          <Component id="comboBoxOffre_sort2" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="comboBoxPers_sort" min="-2" pref="200" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -710,32 +664,30 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="comboBoxOffre_sort2" pref="35" max="32767" attributes="0"/>
+                          <Component id="comboBoxPers_sort" pref="35" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JComboBox" name="comboBoxOffre_sort2">
+                <Component class="javax.swing.JComboBox" name="comboBoxPers_sort">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
+                      <StringArray count="2">
                         <StringItem index="0" value="Item 1"/>
                         <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
                       </StringArray>
                     </Property>
                   </Properties>
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="panelOffre_list2">
+            <Container class="javax.swing.JPanel" name="panelPers_list">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Liste des "/>
+                    <TitledBorder title="Liste des employes"/>
                   </Border>
                 </Property>
               </Properties>
@@ -745,7 +697,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="scrollPanelOffre_list2" pref="476" max="32767" attributes="0"/>
+                          <Component id="scrollPanelPers_list" pref="476" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -754,21 +706,21 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="scrollPanelOffre_list2" max="32767" attributes="0"/>
+                          <Component id="scrollPanelPers_list" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Container class="javax.swing.JScrollPane" name="scrollPanelOffre_list2">
+                <Container class="javax.swing.JScrollPane" name="scrollPanelPers_list">
                   <AuxValues>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                   </AuxValues>
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTable" name="tableOffre_list2">
+                    <Component class="javax.swing.JTable" name="tablePers_list">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="5" rowCount="25">
@@ -785,7 +737,7 @@
                 </Container>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="panelOffre_form2">
+            <Container class="javax.swing.JPanel" name="panelPers_form">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -800,17 +752,17 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="labelOffre_9" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                              <Component id="labelOffre_12" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                              <Component id="labelOffre_10" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                              <Component id="labelOffre_11" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                              <Component id="labelPers_nom" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                              <Component id="labelPers_prenom" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                              <Component id="labelPers_poste" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                              <Component id="labelPers_habilitation" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="textFieldOffre_12" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                              <Component id="textFieldOffre_10" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                              <Component id="textFieldOffre_11" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                              <Component id="textFieldOffre_9" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                              <Component id="textFieldPers_poste" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                              <Component id="textFieldPers_nom" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                              <Component id="textFieldPers_prenom" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                              <Component id="textFieldPers_habilitation" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -821,23 +773,23 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="textFieldOffre_10" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelOffre_9" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="textFieldPers_nom" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelPers_nom" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="labelOffre_12" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="textFieldOffre_11" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelPers_prenom" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="textFieldPers_prenom" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="textFieldOffre_12" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelOffre_10" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="textFieldPers_poste" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelPers_poste" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="textFieldOffre_9" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelOffre_11" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="textFieldPers_habilitation" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelPers_habilitation" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="256" max="32767" attributes="0"/>
                       </Group>
@@ -845,41 +797,41 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="labelOffre_9">
+                <Component class="javax.swing.JLabel" name="labelPers_nom">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value="jLabel1"/>
+                    <Property name="text" type="java.lang.String" value="Nom"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="textFieldOffre_9">
+                <Component class="javax.swing.JTextField" name="textFieldPers_nom">
                 </Component>
-                <Component class="javax.swing.JLabel" name="labelOffre_10">
+                <Component class="javax.swing.JLabel" name="labelPers_prenom">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value="jLabel1"/>
+                    <Property name="text" type="java.lang.String" value="Pr&#xe9;nom"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="textFieldOffre_10">
+                <Component class="javax.swing.JTextField" name="textFieldPers_prenom">
                 </Component>
-                <Component class="javax.swing.JLabel" name="labelOffre_11">
+                <Component class="javax.swing.JLabel" name="labelPers_poste">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value="jLabel1"/>
+                    <Property name="text" type="java.lang.String" value="Poste"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="textFieldOffre_11">
+                <Component class="javax.swing.JTextField" name="textFieldPers_poste">
                 </Component>
-                <Component class="javax.swing.JLabel" name="labelOffre_12">
+                <Component class="javax.swing.JLabel" name="labelPers_habilitation">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value="jLabel1"/>
+                    <Property name="text" type="java.lang.String" value="Habilitation"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="textFieldOffre_12">
+                <Component class="javax.swing.JTextField" name="textFieldPers_habilitation">
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="panelOffre_valid2">
+            <Container class="javax.swing.JPanel" name="panelPers_valid">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -893,11 +845,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="buttonOffre_insert2" min="-2" pref="119" max="-2" attributes="0"/>
+                          <Component id="buttonPers_insert" min="-2" pref="119" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="buttonOffre_update2" min="-2" pref="118" max="-2" attributes="0"/>
+                          <Component id="buttonPers_update" min="-2" pref="118" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="buttonOffre_delete2" min="-2" pref="119" max="-2" attributes="0"/>
+                          <Component id="buttonPers_delete" min="-2" pref="119" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -907,9 +859,9 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="buttonOffre_insert2" alignment="0" pref="49" max="32767" attributes="0"/>
-                              <Component id="buttonOffre_delete2" alignment="0" max="32767" attributes="0"/>
-                              <Component id="buttonOffre_update2" alignment="0" max="32767" attributes="0"/>
+                              <Component id="buttonPers_insert" alignment="0" pref="50" max="32767" attributes="0"/>
+                              <Component id="buttonPers_delete" alignment="0" max="32767" attributes="0"/>
+                              <Component id="buttonPers_update" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -917,17 +869,17 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JButton" name="buttonOffre_insert2">
+                <Component class="javax.swing.JButton" name="buttonPers_insert">
                   <Properties>
                     <Property name="label" type="java.lang.String" value="Ajouter"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="buttonOffre_delete2">
+                <Component class="javax.swing.JButton" name="buttonPers_delete">
                   <Properties>
                     <Property name="label" type="java.lang.String" value="Supprimer"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="buttonOffre_update2">
+                <Component class="javax.swing.JButton" name="buttonPers_update">
                   <Properties>
                     <Property name="label" type="java.lang.String" value="Modifier"/>
                   </Properties>
@@ -936,11 +888,11 @@
             </Container>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="panelOffre3">
+        <Container class="javax.swing.JPanel" name="panelParam">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="tab1">
-                <Property name="tabTitle" type="java.lang.String" value="tab1"/>
+              <JTabbedPaneConstraints tabName="Contrats / M&#xe9;tiers">
+                <Property name="tabTitle" type="java.lang.String" value="Contrats / M&#xe9;tiers"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -948,18 +900,12 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="panelOffre_sort3" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="panelOffre_list3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="panelOffre_form3" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="panelOffre_valid3" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="panelContrat" max="32767" attributes="0"/>
+                          <Component id="panelMetier" alignment="0" pref="947" max="32767" attributes="0"/>
+                          <Component id="panelDomaine" alignment="0" pref="947" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -969,27 +915,22 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="panelOffre_sort3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="panelOffre_list3" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="panelOffre_form3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="panelOffre_valid3" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="panelContrat" min="-2" pref="232" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="panelMetier" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="panelDomaine" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="panelOffre_sort3">
+            <Container class="javax.swing.JPanel" name="panelContrat">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Tri"/>
+                    <TitledBorder title="Contrats"/>
                   </Border>
                 </Property>
               </Properties>
@@ -997,536 +938,65 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
-                          <Component id="comboBoxOffre_sort3" min="-2" pref="200" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="comboBoxOffre_sort3" pref="35" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="0" pref="207" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JComboBox" name="comboBoxOffre_sort3">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
-                        <StringItem index="0" value="Item 1"/>
-                        <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
-                      </StringArray>
-                    </Property>
-                  </Properties>
-                </Component>
-              </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="panelOffre_list3">
+            <Container class="javax.swing.JPanel" name="panelMetier">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Liste des "/>
+                    <TitledBorder title="M&#xe9;tiers"/>
                   </Border>
+                </Property>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[12, 231]"/>
                 </Property>
               </Properties>
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="scrollPanelOffre_list3" pref="476" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="0" pref="935" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="scrollPanelOffre_list3" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="0" pref="206" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
-              <SubComponents>
-                <Container class="javax.swing.JScrollPane" name="scrollPanelOffre_list3">
-                  <AuxValues>
-                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                  </AuxValues>
-
-                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-                  <SubComponents>
-                    <Component class="javax.swing.JTable" name="tableOffre_list3">
-                      <Properties>
-                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="5" rowCount="25">
-                            <Column editable="false" title="Title 1" type="java.lang.Object"/>
-                            <Column editable="false" title="Title 2" type="java.lang.Object"/>
-                            <Column editable="false" title="Title 3" type="java.lang.Object"/>
-                            <Column editable="false" title="Title 4" type="java.lang.Object"/>
-                            <Column editable="false" title="Title 5" type="java.lang.Object"/>
-                          </Table>
-                        </Property>
-                      </Properties>
-                    </Component>
-                  </SubComponents>
-                </Container>
-              </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="panelOffre_form3">
+            <Container class="javax.swing.JPanel" name="panelDomaine">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Formulaire"/>
+                    <TitledBorder title="Domaines de m&#xe9;tiers"/>
                   </Border>
+                </Property>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[12, 230]"/>
                 </Property>
               </Properties>
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="labelOffre_13" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                              <Component id="labelOffre_16" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                              <Component id="labelOffre_14" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                              <Component id="labelOffre_15" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="textFieldOffre_16" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                              <Component id="textFieldOffre_14" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                              <Component id="textFieldOffre_15" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                              <Component id="textFieldOffre_13" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="textFieldOffre_14" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelOffre_13" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="labelOffre_16" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="textFieldOffre_15" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="textFieldOffre_16" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelOffre_14" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="textFieldOffre_13" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelOffre_15" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="256" max="32767" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="0" pref="205" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JLabel" name="labelOffre_13">
-                  <Properties>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value="jLabel1"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="textFieldOffre_13">
-                </Component>
-                <Component class="javax.swing.JLabel" name="labelOffre_14">
-                  <Properties>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value="jLabel1"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="textFieldOffre_14">
-                </Component>
-                <Component class="javax.swing.JLabel" name="labelOffre_15">
-                  <Properties>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value="jLabel1"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="textFieldOffre_15">
-                </Component>
-                <Component class="javax.swing.JLabel" name="labelOffre_16">
-                  <Properties>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value="jLabel1"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="textFieldOffre_16">
-                </Component>
-              </SubComponents>
-            </Container>
-            <Container class="javax.swing.JPanel" name="panelOffre_valid3">
-              <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Valider"/>
-                  </Border>
-                </Property>
-              </Properties>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="buttonOffre_insert3" min="-2" pref="119" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="buttonOffre_update3" min="-2" pref="118" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="buttonOffre_delete3" min="-2" pref="119" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="buttonOffre_insert3" alignment="0" pref="49" max="32767" attributes="0"/>
-                              <Component id="buttonOffre_delete3" alignment="0" max="32767" attributes="0"/>
-                              <Component id="buttonOffre_update3" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JButton" name="buttonOffre_insert3">
-                  <Properties>
-                    <Property name="label" type="java.lang.String" value="Ajouter"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="buttonOffre_delete3">
-                  <Properties>
-                    <Property name="label" type="java.lang.String" value="Supprimer"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="buttonOffre_update3">
-                  <Properties>
-                    <Property name="label" type="java.lang.String" value="Modifier"/>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
-          </SubComponents>
-        </Container>
-        <Container class="javax.swing.JPanel" name="panelOffre4">
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="tab1">
-                <Property name="tabTitle" type="java.lang.String" value="tab1"/>
-              </JTabbedPaneConstraints>
-            </Constraint>
-          </Constraints>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="panelOffre_sort4" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="panelOffre_list4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="panelOffre_form4" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="panelOffre_valid4" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="panelOffre_sort4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="panelOffre_list4" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="panelOffre_form4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="panelOffre_valid4" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Container class="javax.swing.JPanel" name="panelOffre_sort4">
-              <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Tri"/>
-                  </Border>
-                </Property>
-              </Properties>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
-                          <Component id="comboBoxOffre_sort4" min="-2" pref="200" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="comboBoxOffre_sort4" pref="35" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JComboBox" name="comboBoxOffre_sort4">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
-                        <StringItem index="0" value="Item 1"/>
-                        <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
-                      </StringArray>
-                    </Property>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Container class="javax.swing.JPanel" name="panelOffre_list4">
-              <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Liste des "/>
-                  </Border>
-                </Property>
-              </Properties>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="scrollPanelOffre_list4" pref="476" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="scrollPanelOffre_list4" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Container class="javax.swing.JScrollPane" name="scrollPanelOffre_list4">
-                  <AuxValues>
-                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                  </AuxValues>
-
-                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-                  <SubComponents>
-                    <Component class="javax.swing.JTable" name="tableOffre_list4">
-                      <Properties>
-                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="5" rowCount="25">
-                            <Column editable="false" title="Title 1" type="java.lang.Object"/>
-                            <Column editable="false" title="Title 2" type="java.lang.Object"/>
-                            <Column editable="false" title="Title 3" type="java.lang.Object"/>
-                            <Column editable="false" title="Title 4" type="java.lang.Object"/>
-                            <Column editable="false" title="Title 5" type="java.lang.Object"/>
-                          </Table>
-                        </Property>
-                      </Properties>
-                    </Component>
-                  </SubComponents>
-                </Container>
-              </SubComponents>
-            </Container>
-            <Container class="javax.swing.JPanel" name="panelOffre_form4">
-              <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Formulaire"/>
-                  </Border>
-                </Property>
-              </Properties>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="labelOffre_17" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                              <Component id="labelOffre_20" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                              <Component id="labelOffre_18" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                              <Component id="labelOffre_19" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="textFieldOffre_20" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                              <Component id="textFieldOffre_18" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                              <Component id="textFieldOffre_19" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                              <Component id="textFieldOffre_17" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="textFieldOffre_18" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelOffre_17" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="labelOffre_20" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="textFieldOffre_19" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="textFieldOffre_20" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelOffre_18" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="textFieldOffre_17" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelOffre_19" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="256" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JLabel" name="labelOffre_17">
-                  <Properties>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value="jLabel1"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="textFieldOffre_17">
-                </Component>
-                <Component class="javax.swing.JLabel" name="labelOffre_18">
-                  <Properties>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value="jLabel1"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="textFieldOffre_18">
-                </Component>
-                <Component class="javax.swing.JLabel" name="labelOffre_19">
-                  <Properties>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value="jLabel1"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="textFieldOffre_19">
-                </Component>
-                <Component class="javax.swing.JLabel" name="labelOffre_20">
-                  <Properties>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value="jLabel1"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="textFieldOffre_20">
-                </Component>
-              </SubComponents>
-            </Container>
-            <Container class="javax.swing.JPanel" name="panelOffre_valid4">
-              <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Valider"/>
-                  </Border>
-                </Property>
-              </Properties>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="buttonOffre_insert4" min="-2" pref="119" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="buttonOffre_update4" min="-2" pref="118" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="buttonOffre_delete4" min="-2" pref="119" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="buttonOffre_insert4" alignment="0" pref="49" max="32767" attributes="0"/>
-                              <Component id="buttonOffre_delete4" alignment="0" max="32767" attributes="0"/>
-                              <Component id="buttonOffre_update4" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JButton" name="buttonOffre_insert4">
-                  <Properties>
-                    <Property name="label" type="java.lang.String" value="Ajouter"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="buttonOffre_delete4">
-                  <Properties>
-                    <Property name="label" type="java.lang.String" value="Supprimer"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="buttonOffre_update4">
-                  <Properties>
-                    <Property name="label" type="java.lang.String" value="Modifier"/>
-                  </Properties>
-                </Component>
-              </SubComponents>
             </Container>
           </SubComponents>
         </Container>
