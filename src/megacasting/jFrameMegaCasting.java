@@ -66,24 +66,45 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
         panelPers = new javax.swing.JPanel();
         panelPers_sort = new javax.swing.JPanel();
         comboBoxPers_sort = new javax.swing.JComboBox();
-        panelPers_list = new javax.swing.JPanel();
-        scrollPanelPers_list = new javax.swing.JScrollPane();
-        tablePers_list = new javax.swing.JTable();
-        panelPers_form = new javax.swing.JPanel();
-        labelPers_nom = new javax.swing.JLabel();
-        textFieldPers_nom = new javax.swing.JTextField();
-        labelPers_prenom = new javax.swing.JLabel();
-        textFieldPers_prenom = new javax.swing.JTextField();
-        labelPers_poste = new javax.swing.JLabel();
-        textFieldPers_poste = new javax.swing.JTextField();
-        labelPers_habilitation = new javax.swing.JLabel();
-        textFieldPers_habilitation = new javax.swing.JTextField();
-        panelPers_valid = new javax.swing.JPanel();
-        buttonPers_insert = new javax.swing.JButton();
-        buttonPers_delete = new javax.swing.JButton();
-        buttonPers_update = new javax.swing.JButton();
+        tabbedPanePers = new javax.swing.JTabbedPane();
+        panelEmpl = new javax.swing.JPanel();
+        panelEmpl_list = new javax.swing.JPanel();
+        scrollPanelEmpl_list = new javax.swing.JScrollPane();
+        tableEmpl_list = new javax.swing.JTable();
+        panelEmpl_form = new javax.swing.JPanel();
+        labelEmpl_nom = new javax.swing.JLabel();
+        textFieldEmpl_nom = new javax.swing.JTextField();
+        labelEmpl_prenom = new javax.swing.JLabel();
+        textFieldEmpl_prenom = new javax.swing.JTextField();
+        labelEmpl_poste = new javax.swing.JLabel();
+        textFieldEmpl_poste = new javax.swing.JTextField();
+        labelEmpl_habilitation = new javax.swing.JLabel();
+        textFieldEmpl_habilitation = new javax.swing.JTextField();
+        panelEmpl_valid = new javax.swing.JPanel();
+        buttonEmpl_insert = new javax.swing.JButton();
+        buttonEmpl_delete = new javax.swing.JButton();
+        buttonEmpl_update = new javax.swing.JButton();
+        panelCand = new javax.swing.JPanel();
+        panelCand_list = new javax.swing.JPanel();
+        scrollPanelCand_list = new javax.swing.JScrollPane();
+        tableCand_list = new javax.swing.JTable();
+        panelCand_form = new javax.swing.JPanel();
+        labelCand_nom = new javax.swing.JLabel();
+        textFieldCand_nom = new javax.swing.JTextField();
+        labelCand_prenom = new javax.swing.JLabel();
+        textFieldCand_prenom = new javax.swing.JTextField();
+        labelCand_dateNaissance = new javax.swing.JLabel();
+        labelCand_pays = new javax.swing.JLabel();
+        textFieldCand_pays = new javax.swing.JTextField();
+        panelCand_valid = new javax.swing.JPanel();
+        buttonCand_insert = new javax.swing.JButton();
+        buttonCand_delete = new javax.swing.JButton();
+        buttonCand_update = new javax.swing.JButton();
         panelParam = new javax.swing.JPanel();
         panelContrat = new javax.swing.JPanel();
+        jSplitPane1 = new javax.swing.JSplitPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         panelMetier = new javax.swing.JPanel();
         panelDomaine = new javax.swing.JPanel();
 
@@ -234,7 +255,7 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
             .addGroup(panelOffre_validLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelOffre_validLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttonOffre_insert, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                    .addComponent(buttonOffre_insert, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
                     .addComponent(buttonOffre_delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonOffre_update, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -436,7 +457,7 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
             .addGroup(panelSociete_validLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelSociete_validLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttonSociete_insert, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                    .addComponent(buttonSociete_insert, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
                     .addComponent(buttonSociete_delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonSociete_update, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -473,8 +494,6 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        panelSociete_list.getAccessibleContext().setAccessibleName("Liste des sociétés");
-
         jTabbedPane.addTab("Société", panelSociete);
 
         panelPers_sort.setBorder(javax.swing.BorderFactory.createTitledBorder("Tri"));
@@ -497,153 +516,369 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        panelPers_list.setBorder(javax.swing.BorderFactory.createTitledBorder("Liste des employes"));
+        panelEmpl_list.setBorder(javax.swing.BorderFactory.createTitledBorder("Liste des employés"));
 
-        tablePers_list.setModel(new javax.swing.table.DefaultTableModel(
+        tableEmpl_list.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
+                "Nom", "Prénom", "Poste", "Habilitation"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        scrollPanelPers_list.setViewportView(tablePers_list);
+        scrollPanelEmpl_list.setViewportView(tableEmpl_list);
 
-        javax.swing.GroupLayout panelPers_listLayout = new javax.swing.GroupLayout(panelPers_list);
-        panelPers_list.setLayout(panelPers_listLayout);
-        panelPers_listLayout.setHorizontalGroup(
-            panelPers_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPers_listLayout.createSequentialGroup()
+        javax.swing.GroupLayout panelEmpl_listLayout = new javax.swing.GroupLayout(panelEmpl_list);
+        panelEmpl_list.setLayout(panelEmpl_listLayout);
+        panelEmpl_listLayout.setHorizontalGroup(
+            panelEmpl_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelEmpl_listLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(scrollPanelPers_list, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
+                .addComponent(scrollPanelEmpl_list, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        panelPers_listLayout.setVerticalGroup(
-            panelPers_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPers_listLayout.createSequentialGroup()
+        panelEmpl_listLayout.setVerticalGroup(
+            panelEmpl_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelEmpl_listLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(scrollPanelPers_list)
+                .addComponent(scrollPanelEmpl_list)
                 .addContainerGap())
         );
 
-        panelPers_form.setBorder(javax.swing.BorderFactory.createTitledBorder("Formulaire"));
+        panelEmpl_form.setBorder(javax.swing.BorderFactory.createTitledBorder("Formulaire"));
 
-        labelPers_nom.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelPers_nom.setText("Nom");
+        labelEmpl_nom.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labelEmpl_nom.setText("Nom");
 
-        labelPers_prenom.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelPers_prenom.setText("Prénom");
+        labelEmpl_prenom.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labelEmpl_prenom.setText("Prénom");
 
-        labelPers_poste.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelPers_poste.setText("Poste");
+        labelEmpl_poste.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labelEmpl_poste.setText("Poste");
 
-        labelPers_habilitation.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelPers_habilitation.setText("Habilitation");
+        labelEmpl_habilitation.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labelEmpl_habilitation.setText("Habilitation");
 
-        javax.swing.GroupLayout panelPers_formLayout = new javax.swing.GroupLayout(panelPers_form);
-        panelPers_form.setLayout(panelPers_formLayout);
-        panelPers_formLayout.setHorizontalGroup(
-            panelPers_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPers_formLayout.createSequentialGroup()
+        javax.swing.GroupLayout panelEmpl_formLayout = new javax.swing.GroupLayout(panelEmpl_form);
+        panelEmpl_form.setLayout(panelEmpl_formLayout);
+        panelEmpl_formLayout.setHorizontalGroup(
+            panelEmpl_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelEmpl_formLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelPers_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelPers_nom, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelPers_prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelPers_poste, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelPers_habilitation, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelEmpl_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelEmpl_nom, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelEmpl_prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelEmpl_poste, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelEmpl_habilitation, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(panelPers_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textFieldPers_poste, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textFieldPers_nom, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textFieldPers_prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textFieldPers_habilitation, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelEmpl_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textFieldEmpl_poste, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textFieldEmpl_nom, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textFieldEmpl_prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textFieldEmpl_habilitation, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        panelPers_formLayout.setVerticalGroup(
-            panelPers_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPers_formLayout.createSequentialGroup()
+        panelEmpl_formLayout.setVerticalGroup(
+            panelEmpl_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelEmpl_formLayout.createSequentialGroup()
                 .addGap(75, 75, 75)
-                .addGroup(panelPers_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textFieldPers_nom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelPers_nom))
+                .addGroup(panelEmpl_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textFieldEmpl_nom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelEmpl_nom))
                 .addGap(27, 27, 27)
-                .addGroup(panelPers_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelPers_prenom)
-                    .addComponent(textFieldPers_prenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelEmpl_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelEmpl_prenom)
+                    .addComponent(textFieldEmpl_prenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
-                .addGroup(panelPers_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textFieldPers_poste, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelPers_poste))
+                .addGroup(panelEmpl_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textFieldEmpl_poste, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelEmpl_poste))
                 .addGap(31, 31, 31)
-                .addGroup(panelPers_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textFieldPers_habilitation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelPers_habilitation))
-                .addContainerGap(256, Short.MAX_VALUE))
+                .addGroup(panelEmpl_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textFieldEmpl_habilitation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelEmpl_habilitation))
+                .addContainerGap(245, Short.MAX_VALUE))
         );
 
-        panelPers_valid.setBorder(javax.swing.BorderFactory.createTitledBorder("Valider"));
+        panelEmpl_valid.setBorder(javax.swing.BorderFactory.createTitledBorder("Valider"));
 
-        buttonPers_insert.setLabel("Ajouter");
+        buttonEmpl_insert.setLabel("Ajouter");
 
-        buttonPers_delete.setLabel("Supprimer");
+        buttonEmpl_delete.setLabel("Supprimer");
 
-        buttonPers_update.setLabel("Modifier");
+        buttonEmpl_update.setLabel("Modifier");
 
-        javax.swing.GroupLayout panelPers_validLayout = new javax.swing.GroupLayout(panelPers_valid);
-        panelPers_valid.setLayout(panelPers_validLayout);
-        panelPers_validLayout.setHorizontalGroup(
-            panelPers_validLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPers_validLayout.createSequentialGroup()
+        javax.swing.GroupLayout panelEmpl_validLayout = new javax.swing.GroupLayout(panelEmpl_valid);
+        panelEmpl_valid.setLayout(panelEmpl_validLayout);
+        panelEmpl_validLayout.setHorizontalGroup(
+            panelEmpl_validLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelEmpl_validLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(buttonPers_insert, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonEmpl_insert, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(buttonPers_update, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonEmpl_update, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(buttonPers_delete, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonEmpl_delete, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        panelPers_validLayout.setVerticalGroup(
-            panelPers_validLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPers_validLayout.createSequentialGroup()
+        panelEmpl_validLayout.setVerticalGroup(
+            panelEmpl_validLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelEmpl_validLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelPers_validLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttonPers_insert, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-                    .addComponent(buttonPers_delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonPers_update, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(panelEmpl_validLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buttonEmpl_insert, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                    .addComponent(buttonEmpl_delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonEmpl_update, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
+
+        javax.swing.GroupLayout panelEmplLayout = new javax.swing.GroupLayout(panelEmpl);
+        panelEmpl.setLayout(panelEmplLayout);
+        panelEmplLayout.setHorizontalGroup(
+            panelEmplLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 971, Short.MAX_VALUE)
+            .addGroup(panelEmplLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelEmplLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(panelEmpl_list, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(panelEmplLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(panelEmpl_form, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(panelEmpl_valid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addContainerGap()))
+        );
+        panelEmplLayout.setVerticalGroup(
+            panelEmplLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 640, Short.MAX_VALUE)
+            .addGroup(panelEmplLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelEmplLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(panelEmplLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(panelEmpl_list, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(panelEmplLayout.createSequentialGroup()
+                            .addComponent(panelEmpl_form, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(panelEmpl_valid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addContainerGap()))
+        );
+
+        tabbedPanePers.addTab("Employés", panelEmpl);
+
+        panelCand_list.setBorder(javax.swing.BorderFactory.createTitledBorder("Liste des candidats"));
+
+        tableCand_list.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Nom", "Prénom", "Date de naissance", "Pays"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        scrollPanelCand_list.setViewportView(tableCand_list);
+
+        javax.swing.GroupLayout panelCand_listLayout = new javax.swing.GroupLayout(panelCand_list);
+        panelCand_list.setLayout(panelCand_listLayout);
+        panelCand_listLayout.setHorizontalGroup(
+            panelCand_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCand_listLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(scrollPanelCand_list, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        panelCand_listLayout.setVerticalGroup(
+            panelCand_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCand_listLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(scrollPanelCand_list)
+                .addContainerGap())
+        );
+
+        panelCand_form.setBorder(javax.swing.BorderFactory.createTitledBorder("Formulaire"));
+
+        labelCand_nom.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labelCand_nom.setText("Nom");
+
+        labelCand_prenom.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labelCand_prenom.setText("Prénom");
+
+        labelCand_dateNaissance.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labelCand_dateNaissance.setText("Date de naissance");
+
+        labelCand_pays.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labelCand_pays.setText("Pays");
+
+        javax.swing.GroupLayout panelCand_formLayout = new javax.swing.GroupLayout(panelCand_form);
+        panelCand_form.setLayout(panelCand_formLayout);
+        panelCand_formLayout.setHorizontalGroup(
+            panelCand_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCand_formLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelCand_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelCand_nom, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelCand_prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelCand_dateNaissance, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelCand_pays, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelCand_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textFieldCand_nom, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textFieldCand_prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textFieldCand_pays, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelCand_formLayout.setVerticalGroup(
+            panelCand_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCand_formLayout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addGroup(panelCand_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textFieldCand_nom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelCand_nom))
+                .addGap(27, 27, 27)
+                .addGroup(panelCand_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelCand_prenom)
+                    .addComponent(textFieldCand_prenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addComponent(labelCand_dateNaissance)
+                .addGap(34, 34, 34)
+                .addGroup(panelCand_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textFieldCand_pays, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelCand_pays))
+                .addContainerGap(245, Short.MAX_VALUE))
+        );
+
+        panelCand_valid.setBorder(javax.swing.BorderFactory.createTitledBorder("Valider"));
+
+        buttonCand_insert.setLabel("Ajouter");
+
+        buttonCand_delete.setLabel("Supprimer");
+
+        buttonCand_update.setLabel("Modifier");
+
+        javax.swing.GroupLayout panelCand_validLayout = new javax.swing.GroupLayout(panelCand_valid);
+        panelCand_valid.setLayout(panelCand_validLayout);
+        panelCand_validLayout.setHorizontalGroup(
+            panelCand_validLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCand_validLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(buttonCand_insert, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(buttonCand_update, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(buttonCand_delete, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        panelCand_validLayout.setVerticalGroup(
+            panelCand_validLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCand_validLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelCand_validLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buttonCand_insert, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                    .addComponent(buttonCand_delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonCand_update, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout panelCandLayout = new javax.swing.GroupLayout(panelCand);
+        panelCand.setLayout(panelCandLayout);
+        panelCandLayout.setHorizontalGroup(
+            panelCandLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 971, Short.MAX_VALUE)
+            .addGroup(panelCandLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelCandLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(panelCand_list, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(panelCandLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(panelCand_form, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(panelCand_valid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addContainerGap()))
+        );
+        panelCandLayout.setVerticalGroup(
+            panelCandLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 640, Short.MAX_VALUE)
+            .addGroup(panelCandLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelCandLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(panelCandLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(panelCand_list, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(panelCandLayout.createSequentialGroup()
+                            .addComponent(panelCand_form, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(panelCand_valid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addContainerGap()))
+        );
+
+        tabbedPanePers.addTab("Candidats", panelCand);
 
         javax.swing.GroupLayout panelPersLayout = new javax.swing.GroupLayout(panelPers);
         panelPers.setLayout(panelPersLayout);
@@ -653,12 +888,7 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelPersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelPers_sort, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(panelPersLayout.createSequentialGroup()
-                        .addComponent(panelPers_list, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelPersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panelPers_form, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(panelPers_valid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(tabbedPanePers))
                 .addContainerGap())
         );
         panelPersLayout.setVerticalGroup(
@@ -667,12 +897,7 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(panelPers_sort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelPersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelPers_list, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(panelPersLayout.createSequentialGroup()
-                        .addComponent(panelPers_form, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panelPers_valid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(tabbedPanePers)
                 .addContainerGap())
         );
 
@@ -680,15 +905,35 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
 
         panelContrat.setBorder(javax.swing.BorderFactory.createTitledBorder("Contrats"));
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                "Title 1"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jSplitPane1.setLeftComponent(jScrollPane1);
+
         javax.swing.GroupLayout panelContratLayout = new javax.swing.GroupLayout(panelContrat);
         panelContrat.setLayout(panelContratLayout);
         panelContratLayout.setHorizontalGroup(
             panelContratLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(panelContratLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jSplitPane1)
+                .addContainerGap())
         );
         panelContratLayout.setVerticalGroup(
             panelContratLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 207, Short.MAX_VALUE)
+            .addGroup(panelContratLayout.createSequentialGroup()
+                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         panelMetier.setBorder(javax.swing.BorderFactory.createTitledBorder("Métiers"));
@@ -698,7 +943,7 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
         panelMetier.setLayout(panelMetierLayout);
         panelMetierLayout.setHorizontalGroup(
             panelMetierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 935, Short.MAX_VALUE)
+            .addGap(0, 964, Short.MAX_VALUE)
         );
         panelMetierLayout.setVerticalGroup(
             panelMetierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -727,15 +972,15 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelContrat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelMetier, javax.swing.GroupLayout.DEFAULT_SIZE, 947, Short.MAX_VALUE)
-                    .addComponent(panelDomaine, javax.swing.GroupLayout.DEFAULT_SIZE, 947, Short.MAX_VALUE))
+                    .addComponent(panelMetier, javax.swing.GroupLayout.DEFAULT_SIZE, 976, Short.MAX_VALUE)
+                    .addComponent(panelDomaine, javax.swing.GroupLayout.DEFAULT_SIZE, 976, Short.MAX_VALUE))
                 .addContainerGap())
         );
         panelParamLayout.setVerticalGroup(
             panelParamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelParamLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelContrat, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelContrat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelMetier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -801,31 +1046,49 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonCand_delete;
+    private javax.swing.JButton buttonCand_insert;
+    private javax.swing.JButton buttonCand_update;
+    private javax.swing.JButton buttonEmpl_delete;
+    private javax.swing.JButton buttonEmpl_insert;
+    private javax.swing.JButton buttonEmpl_update;
     private javax.swing.JButton buttonOffre_delete;
     private javax.swing.JButton buttonOffre_insert;
     private javax.swing.JButton buttonOffre_update;
-    private javax.swing.JButton buttonPers_delete;
-    private javax.swing.JButton buttonPers_insert;
-    private javax.swing.JButton buttonPers_update;
     private javax.swing.JButton buttonSociete_delete;
     private javax.swing.JButton buttonSociete_insert;
     private javax.swing.JButton buttonSociete_update;
     private javax.swing.JComboBox comboBoxPers_sort;
     private javax.swing.JComboBox comboBoxSociete_sort;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JTabbedPane jTabbedPane;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel labelCand_dateNaissance;
+    private javax.swing.JLabel labelCand_nom;
+    private javax.swing.JLabel labelCand_pays;
+    private javax.swing.JLabel labelCand_prenom;
+    private javax.swing.JLabel labelEmpl_habilitation;
+    private javax.swing.JLabel labelEmpl_nom;
+    private javax.swing.JLabel labelEmpl_poste;
+    private javax.swing.JLabel labelEmpl_prenom;
     private javax.swing.JLabel labelOffre_1;
     private javax.swing.JLabel labelOffre_2;
     private javax.swing.JLabel labelOffre_3;
     private javax.swing.JLabel labelOffre_4;
-    private javax.swing.JLabel labelPers_habilitation;
     private javax.swing.JLabel labelSociete_Nom;
     private javax.swing.JLabel labelSociete_Responsable;
     private javax.swing.JLabel labelSociete_Siret;
-    private javax.swing.JLabel labelPers_nom;
-    private javax.swing.JLabel labelPers_poste;
-    private javax.swing.JLabel labelPers_prenom;
+    private javax.swing.JPanel panelCand;
+    private javax.swing.JPanel panelCand_form;
+    private javax.swing.JPanel panelCand_list;
+    private javax.swing.JPanel panelCand_valid;
     private javax.swing.JPanel panelContrat;
     private javax.swing.JPanel panelDomaine;
+    private javax.swing.JPanel panelEmpl;
+    private javax.swing.JPanel panelEmpl_form;
+    private javax.swing.JPanel panelEmpl_list;
+    private javax.swing.JPanel panelEmpl_valid;
     private javax.swing.JPanel panelMetier;
     private javax.swing.JPanel panelOffre;
     private javax.swing.JPanel panelOffre_form;
@@ -833,29 +1096,32 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
     private javax.swing.JPanel panelOffre_valid;
     private javax.swing.JPanel panelParam;
     private javax.swing.JPanel panelPers;
-    private javax.swing.JPanel panelPers_form;
-    private javax.swing.JPanel panelPers_list;
     private javax.swing.JPanel panelPers_sort;
-    private javax.swing.JPanel panelPers_valid;
     private javax.swing.JPanel panelSociete;
     private javax.swing.JPanel panelSociete_form;
     private javax.swing.JPanel panelSociete_list;
     private javax.swing.JPanel panelSociete_sort;
     private javax.swing.JPanel panelSociete_valid;
+    private javax.swing.JScrollPane scrollPanelCand_list;
+    private javax.swing.JScrollPane scrollPanelEmpl_list;
     private javax.swing.JScrollPane scrollPanelOffre_list;
-    private javax.swing.JScrollPane scrollPanelPers_list;
     private javax.swing.JScrollPane scrollPanelSociete_list;
+    private javax.swing.JTabbedPane tabbedPanePers;
+    private javax.swing.JTable tableCand_list;
+    private javax.swing.JTable tableEmpl_list;
     private javax.swing.JTable tableOffre_list;
-    private javax.swing.JTable tablePers_list;
     private javax.swing.JTable tableSociete_list;
+    private javax.swing.JTextField textFieldCand_nom;
+    private javax.swing.JTextField textFieldCand_pays;
+    private javax.swing.JTextField textFieldCand_prenom;
+    private javax.swing.JTextField textFieldEmpl_habilitation;
+    private javax.swing.JTextField textFieldEmpl_nom;
+    private javax.swing.JTextField textFieldEmpl_poste;
+    private javax.swing.JTextField textFieldEmpl_prenom;
     private javax.swing.JTextField textFieldOffre_1;
     private javax.swing.JTextField textFieldOffre_2;
     private javax.swing.JTextField textFieldOffre_3;
     private javax.swing.JTextField textFieldOffre_4;
-    private javax.swing.JTextField textFieldPers_nom;
-    private javax.swing.JTextField textFieldPers_prenom;
-    private javax.swing.JTextField textFieldPers_poste;
-    private javax.swing.JTextField textFieldPers_habilitation;
     private javax.swing.JTextField textFieldSociete_Nom;
     private javax.swing.JTextField textFieldSociete_Responsable;
     private javax.swing.JTextField textFieldSociete_Siret;
