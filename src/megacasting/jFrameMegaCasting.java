@@ -48,25 +48,23 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
         buttonOffre_insert = new javax.swing.JButton();
         buttonOffre_delete = new javax.swing.JButton();
         buttonOffre_update = new javax.swing.JButton();
-        panelOffre1 = new javax.swing.JPanel();
-        panelOffre_sort1 = new javax.swing.JPanel();
-        comboBoxOffre_sort1 = new javax.swing.JComboBox();
-        panelOffre_list1 = new javax.swing.JPanel();
-        scrollPanelOffre_list1 = new javax.swing.JScrollPane();
-        tableOffre_list1 = new javax.swing.JTable();
-        panelOffre_form1 = new javax.swing.JPanel();
-        labelOffre_5 = new javax.swing.JLabel();
-        textFieldOffre_5 = new javax.swing.JTextField();
-        labelOffre_6 = new javax.swing.JLabel();
-        textFieldOffre_6 = new javax.swing.JTextField();
-        labelOffre_7 = new javax.swing.JLabel();
-        textFieldOffre_7 = new javax.swing.JTextField();
-        labelOffre_8 = new javax.swing.JLabel();
-        textFieldOffre_8 = new javax.swing.JTextField();
-        panelOffre_valid1 = new javax.swing.JPanel();
-        buttonOffre_insert1 = new javax.swing.JButton();
-        buttonOffre_delete1 = new javax.swing.JButton();
-        buttonOffre_update1 = new javax.swing.JButton();
+        panelSociete = new javax.swing.JPanel();
+        panelSociete_sort = new javax.swing.JPanel();
+        comboBoxSociete_sort = new javax.swing.JComboBox();
+        panelSociete_list = new javax.swing.JPanel();
+        scrollPanelSociete_list = new javax.swing.JScrollPane();
+        tableSociete_list = new javax.swing.JTable();
+        panelSociete_form = new javax.swing.JPanel();
+        labelSociete_Nom = new javax.swing.JLabel();
+        textFieldSociete_Nom = new javax.swing.JTextField();
+        labelSociete_Responsable = new javax.swing.JLabel();
+        textFieldSociete_Responsable = new javax.swing.JTextField();
+        labelSociete_Siret = new javax.swing.JLabel();
+        textFieldSociete_Siret = new javax.swing.JTextField();
+        panelSociete_valid = new javax.swing.JPanel();
+        buttonSociete_insert = new javax.swing.JButton();
+        buttonSociete_delete = new javax.swing.JButton();
+        buttonSociete_update = new javax.swing.JButton();
         panelOffre2 = new javax.swing.JPanel();
         panelOffre_sort2 = new javax.swing.JPanel();
         comboBoxOffre_sort2 = new javax.swing.JComboBox();
@@ -328,206 +326,214 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
 
         jTabbedPane.addTab("tab1", panelOffre);
 
-        panelOffre_sort1.setBorder(javax.swing.BorderFactory.createTitledBorder("Tri"));
+        panelSociete_sort.setBorder(javax.swing.BorderFactory.createTitledBorder("Tri"));
 
-        comboBoxOffre_sort1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboBoxSociete_sort.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        javax.swing.GroupLayout panelOffre_sort1Layout = new javax.swing.GroupLayout(panelOffre_sort1);
-        panelOffre_sort1.setLayout(panelOffre_sort1Layout);
-        panelOffre_sort1Layout.setHorizontalGroup(
-            panelOffre_sort1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre_sort1Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelSociete_sortLayout = new javax.swing.GroupLayout(panelSociete_sort);
+        panelSociete_sort.setLayout(panelSociete_sortLayout);
+        panelSociete_sortLayout.setHorizontalGroup(
+            panelSociete_sortLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSociete_sortLayout.createSequentialGroup()
                 .addGap(154, 154, 154)
-                .addComponent(comboBoxOffre_sort1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(comboBoxSociete_sort, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        panelOffre_sort1Layout.setVerticalGroup(
-            panelOffre_sort1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOffre_sort1Layout.createSequentialGroup()
-                .addComponent(comboBoxOffre_sort1, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+        panelSociete_sortLayout.setVerticalGroup(
+            panelSociete_sortLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSociete_sortLayout.createSequentialGroup()
+                .addComponent(comboBoxSociete_sort, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        panelOffre_list1.setBorder(javax.swing.BorderFactory.createTitledBorder("Liste des "));
+        panelSociete_list.setBorder(javax.swing.BorderFactory.createTitledBorder("Liste des sociétés"));
 
-        tableOffre_list1.setModel(new javax.swing.table.DefaultTableModel(
+        tableSociete_list.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
+                "Raison Sociale", "Responsable"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        scrollPanelOffre_list1.setViewportView(tableOffre_list1);
+        scrollPanelSociete_list.setViewportView(tableSociete_list);
 
-        javax.swing.GroupLayout panelOffre_list1Layout = new javax.swing.GroupLayout(panelOffre_list1);
-        panelOffre_list1.setLayout(panelOffre_list1Layout);
-        panelOffre_list1Layout.setHorizontalGroup(
-            panelOffre_list1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre_list1Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelSociete_listLayout = new javax.swing.GroupLayout(panelSociete_list);
+        panelSociete_list.setLayout(panelSociete_listLayout);
+        panelSociete_listLayout.setHorizontalGroup(
+            panelSociete_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSociete_listLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(scrollPanelOffre_list1, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
+                .addComponent(scrollPanelSociete_list, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        panelOffre_list1Layout.setVerticalGroup(
-            panelOffre_list1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre_list1Layout.createSequentialGroup()
+        panelSociete_listLayout.setVerticalGroup(
+            panelSociete_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSociete_listLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(scrollPanelOffre_list1)
+                .addComponent(scrollPanelSociete_list)
                 .addContainerGap())
         );
 
-        panelOffre_form1.setBorder(javax.swing.BorderFactory.createTitledBorder("Formulaire"));
+        panelSociete_form.setBorder(javax.swing.BorderFactory.createTitledBorder("Formulaire"));
 
-        labelOffre_5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelOffre_5.setText("jLabel1");
+        labelSociete_Nom.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labelSociete_Nom.setText("Raison sociale");
 
-        labelOffre_6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelOffre_6.setText("jLabel1");
+        labelSociete_Responsable.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labelSociete_Responsable.setText("Responsable");
 
-        labelOffre_7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelOffre_7.setText("jLabel1");
+        labelSociete_Siret.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labelSociete_Siret.setText("Siret");
 
-        labelOffre_8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelOffre_8.setText("jLabel1");
-
-        javax.swing.GroupLayout panelOffre_form1Layout = new javax.swing.GroupLayout(panelOffre_form1);
-        panelOffre_form1.setLayout(panelOffre_form1Layout);
-        panelOffre_form1Layout.setHorizontalGroup(
-            panelOffre_form1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre_form1Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelSociete_formLayout = new javax.swing.GroupLayout(panelSociete_form);
+        panelSociete_form.setLayout(panelSociete_formLayout);
+        panelSociete_formLayout.setHorizontalGroup(
+            panelSociete_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSociete_formLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelOffre_form1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelOffre_5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelOffre_8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelOffre_6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelOffre_7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelOffre_form1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textFieldOffre_8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textFieldOffre_6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textFieldOffre_7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textFieldOffre_5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelSociete_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelSociete_formLayout.createSequentialGroup()
+                        .addGroup(panelSociete_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelSociete_Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelSociete_Responsable, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelSociete_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textFieldSociete_Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textFieldSociete_Responsable, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelSociete_formLayout.createSequentialGroup()
+                        .addComponent(labelSociete_Siret, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(textFieldSociete_Siret, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        panelOffre_form1Layout.setVerticalGroup(
-            panelOffre_form1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre_form1Layout.createSequentialGroup()
+        panelSociete_formLayout.setVerticalGroup(
+            panelSociete_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSociete_formLayout.createSequentialGroup()
                 .addGap(75, 75, 75)
-                .addGroup(panelOffre_form1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textFieldOffre_6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelOffre_5))
+                .addGroup(panelSociete_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textFieldSociete_Nom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelSociete_Nom))
                 .addGap(27, 27, 27)
-                .addGroup(panelOffre_form1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelOffre_8)
-                    .addComponent(textFieldOffre_7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(panelOffre_form1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textFieldOffre_8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelOffre_6))
-                .addGap(31, 31, 31)
-                .addGroup(panelOffre_form1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textFieldOffre_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelOffre_7))
-                .addContainerGap(256, Short.MAX_VALUE))
+                .addGroup(panelSociete_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textFieldSociete_Responsable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelSociete_Responsable))
+                .addGap(26, 26, 26)
+                .addGroup(panelSociete_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textFieldSociete_Siret, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelSociete_Siret))
+                .addContainerGap(312, Short.MAX_VALUE))
         );
 
-        panelOffre_valid1.setBorder(javax.swing.BorderFactory.createTitledBorder("Valider"));
+        textFieldSociete_Nom.getAccessibleContext().setAccessibleName("Raison sociale");
+        textFieldSociete_Responsable.getAccessibleContext().setAccessibleName("Responsable");
+        textFieldSociete_Siret.getAccessibleContext().setAccessibleName("Siret");
 
-        buttonOffre_insert1.setLabel("Ajouter");
+        panelSociete_valid.setBorder(javax.swing.BorderFactory.createTitledBorder("Valider"));
 
-        buttonOffre_delete1.setLabel("Supprimer");
+        buttonSociete_insert.setLabel("Ajouter");
 
-        buttonOffre_update1.setLabel("Modifier");
+        buttonSociete_delete.setLabel("Supprimer");
 
-        javax.swing.GroupLayout panelOffre_valid1Layout = new javax.swing.GroupLayout(panelOffre_valid1);
-        panelOffre_valid1.setLayout(panelOffre_valid1Layout);
-        panelOffre_valid1Layout.setHorizontalGroup(
-            panelOffre_valid1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre_valid1Layout.createSequentialGroup()
+        buttonSociete_update.setLabel("Modifier");
+
+        javax.swing.GroupLayout panelSociete_validLayout = new javax.swing.GroupLayout(panelSociete_valid);
+        panelSociete_valid.setLayout(panelSociete_validLayout);
+        panelSociete_validLayout.setHorizontalGroup(
+            panelSociete_validLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSociete_validLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(buttonOffre_insert1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonSociete_insert, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(buttonOffre_update1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonSociete_update, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(buttonOffre_delete1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(buttonSociete_delete, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        panelOffre_valid1Layout.setVerticalGroup(
-            panelOffre_valid1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre_valid1Layout.createSequentialGroup()
+        panelSociete_validLayout.setVerticalGroup(
+            panelSociete_validLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSociete_validLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelOffre_valid1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttonOffre_insert1, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
-                    .addComponent(buttonOffre_delete1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(buttonOffre_update1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(panelSociete_validLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(buttonSociete_insert, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                    .addComponent(buttonSociete_delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonSociete_update, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout panelOffre1Layout = new javax.swing.GroupLayout(panelOffre1);
-        panelOffre1.setLayout(panelOffre1Layout);
-        panelOffre1Layout.setHorizontalGroup(
-            panelOffre1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre1Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelSocieteLayout = new javax.swing.GroupLayout(panelSociete);
+        panelSociete.setLayout(panelSocieteLayout);
+        panelSocieteLayout.setHorizontalGroup(
+            panelSocieteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSocieteLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelOffre1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelOffre_sort1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(panelOffre1Layout.createSequentialGroup()
-                        .addComponent(panelOffre_list1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelSocieteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelSociete_sort, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panelSocieteLayout.createSequentialGroup()
+                        .addComponent(panelSociete_list, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelOffre1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panelOffre_form1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(panelOffre_valid1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(panelSocieteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(panelSociete_form, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelSociete_valid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
-        panelOffre1Layout.setVerticalGroup(
-            panelOffre1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelOffre1Layout.createSequentialGroup()
+        panelSocieteLayout.setVerticalGroup(
+            panelSocieteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSocieteLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelOffre_sort1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelSociete_sort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelOffre1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelOffre_list1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(panelOffre1Layout.createSequentialGroup()
-                        .addComponent(panelOffre_form1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelSocieteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelSociete_list, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panelSocieteLayout.createSequentialGroup()
+                        .addComponent(panelSociete_form, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panelOffre_valid1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(panelSociete_valid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
-        jTabbedPane.addTab("tab1", panelOffre1);
+        panelSociete_list.getAccessibleContext().setAccessibleName("Liste des sociétés");
+
+        jTabbedPane.addTab("Société", panelSociete);
 
         panelOffre_sort2.setBorder(javax.swing.BorderFactory.createTitledBorder("Tri"));
 
@@ -1189,25 +1195,25 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonOffre_delete;
-    private javax.swing.JButton buttonOffre_delete1;
     private javax.swing.JButton buttonOffre_delete2;
     private javax.swing.JButton buttonOffre_delete3;
     private javax.swing.JButton buttonOffre_delete4;
     private javax.swing.JButton buttonOffre_insert;
-    private javax.swing.JButton buttonOffre_insert1;
     private javax.swing.JButton buttonOffre_insert2;
     private javax.swing.JButton buttonOffre_insert3;
     private javax.swing.JButton buttonOffre_insert4;
     private javax.swing.JButton buttonOffre_update;
-    private javax.swing.JButton buttonOffre_update1;
     private javax.swing.JButton buttonOffre_update2;
     private javax.swing.JButton buttonOffre_update3;
     private javax.swing.JButton buttonOffre_update4;
+    private javax.swing.JButton buttonSociete_delete;
+    private javax.swing.JButton buttonSociete_insert;
+    private javax.swing.JButton buttonSociete_update;
     private javax.swing.JComboBox comboBoxOffre_sort;
-    private javax.swing.JComboBox comboBoxOffre_sort1;
     private javax.swing.JComboBox comboBoxOffre_sort2;
     private javax.swing.JComboBox comboBoxOffre_sort3;
     private javax.swing.JComboBox comboBoxOffre_sort4;
+    private javax.swing.JComboBox comboBoxSociete_sort;
     private javax.swing.JTabbedPane jTabbedPane;
     private javax.swing.JLabel labelOffre_1;
     private javax.swing.JLabel labelOffre_10;
@@ -1224,46 +1230,45 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
     private javax.swing.JLabel labelOffre_20;
     private javax.swing.JLabel labelOffre_3;
     private javax.swing.JLabel labelOffre_4;
-    private javax.swing.JLabel labelOffre_5;
-    private javax.swing.JLabel labelOffre_6;
-    private javax.swing.JLabel labelOffre_7;
-    private javax.swing.JLabel labelOffre_8;
     private javax.swing.JLabel labelOffre_9;
+    private javax.swing.JLabel labelSociete_Nom;
+    private javax.swing.JLabel labelSociete_Responsable;
+    private javax.swing.JLabel labelSociete_Siret;
     private javax.swing.JPanel panelOffre;
-    private javax.swing.JPanel panelOffre1;
     private javax.swing.JPanel panelOffre2;
     private javax.swing.JPanel panelOffre3;
     private javax.swing.JPanel panelOffre4;
     private javax.swing.JPanel panelOffre_form;
-    private javax.swing.JPanel panelOffre_form1;
     private javax.swing.JPanel panelOffre_form2;
     private javax.swing.JPanel panelOffre_form3;
     private javax.swing.JPanel panelOffre_form4;
     private javax.swing.JPanel panelOffre_list;
-    private javax.swing.JPanel panelOffre_list1;
     private javax.swing.JPanel panelOffre_list2;
     private javax.swing.JPanel panelOffre_list3;
     private javax.swing.JPanel panelOffre_list4;
     private javax.swing.JPanel panelOffre_sort;
-    private javax.swing.JPanel panelOffre_sort1;
     private javax.swing.JPanel panelOffre_sort2;
     private javax.swing.JPanel panelOffre_sort3;
     private javax.swing.JPanel panelOffre_sort4;
     private javax.swing.JPanel panelOffre_valid;
-    private javax.swing.JPanel panelOffre_valid1;
     private javax.swing.JPanel panelOffre_valid2;
     private javax.swing.JPanel panelOffre_valid3;
     private javax.swing.JPanel panelOffre_valid4;
+    private javax.swing.JPanel panelSociete;
+    private javax.swing.JPanel panelSociete_form;
+    private javax.swing.JPanel panelSociete_list;
+    private javax.swing.JPanel panelSociete_sort;
+    private javax.swing.JPanel panelSociete_valid;
     private javax.swing.JScrollPane scrollPanelOffre_list;
-    private javax.swing.JScrollPane scrollPanelOffre_list1;
     private javax.swing.JScrollPane scrollPanelOffre_list2;
     private javax.swing.JScrollPane scrollPanelOffre_list3;
     private javax.swing.JScrollPane scrollPanelOffre_list4;
+    private javax.swing.JScrollPane scrollPanelSociete_list;
     private javax.swing.JTable tableOffre_list;
-    private javax.swing.JTable tableOffre_list1;
     private javax.swing.JTable tableOffre_list2;
     private javax.swing.JTable tableOffre_list3;
     private javax.swing.JTable tableOffre_list4;
+    private javax.swing.JTable tableSociete_list;
     private javax.swing.JTextField textFieldOffre_1;
     private javax.swing.JTextField textFieldOffre_10;
     private javax.swing.JTextField textFieldOffre_11;
@@ -1279,10 +1284,9 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
     private javax.swing.JTextField textFieldOffre_20;
     private javax.swing.JTextField textFieldOffre_3;
     private javax.swing.JTextField textFieldOffre_4;
-    private javax.swing.JTextField textFieldOffre_5;
-    private javax.swing.JTextField textFieldOffre_6;
-    private javax.swing.JTextField textFieldOffre_7;
-    private javax.swing.JTextField textFieldOffre_8;
     private javax.swing.JTextField textFieldOffre_9;
+    private javax.swing.JTextField textFieldSociete_Nom;
+    private javax.swing.JTextField textFieldSociete_Responsable;
+    private javax.swing.JTextField textFieldSociete_Siret;
     // End of variables declaration//GEN-END:variables
 }
