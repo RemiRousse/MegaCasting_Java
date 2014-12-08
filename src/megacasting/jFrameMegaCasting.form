@@ -131,12 +131,13 @@
                     <Component class="javax.swing.JTable" name="tableOffre_list">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="5" rowCount="25">
-                            <Column editable="false" title="Title 1" type="java.lang.Object"/>
-                            <Column editable="false" title="Title 2" type="java.lang.Object"/>
-                            <Column editable="false" title="Title 3" type="java.lang.Object"/>
-                            <Column editable="false" title="Title 4" type="java.lang.Object"/>
-                            <Column editable="false" title="Title 5" type="java.lang.Object"/>
+                          <Table columnCount="6" rowCount="25">
+                            <Column editable="false" title="R&#xe9;f&#xe9;rence" type="java.lang.String"/>
+                            <Column editable="false" title="Libell&#xe9;" type="java.lang.String"/>
+                            <Column editable="false" title="Date de publication" type="java.lang.String"/>
+                            <Column editable="false" title="Domaine" type="java.lang.String"/>
+                            <Column editable="false" title="M&#xe9;tier" type="java.lang.String"/>
+                            <Column editable="false" title="Contrat" type="java.lang.String"/>
                           </Table>
                         </Property>
                       </Properties>
@@ -159,18 +160,31 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="labelOffre_1" min="-2" pref="150" max="-2" attributes="0"/>
-                              <Component id="labelOffre_2" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                              <Component id="labelOffre_3" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                              <Component id="labelOffre_4" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="textFieldOffre_3" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                              <Component id="textFieldOffre_1" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                              <Component id="textFieldOffre_2" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                              <Component id="textFieldOffre_4" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="labelOffre_reference" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="labelOffre_libelle" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="labelOffre_datePublication" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="labelOffre_domaine" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="textFieldOffre_reference" alignment="0" pref="150" max="32767" attributes="0"/>
+                                      <Component id="textFieldOffre_libelle" alignment="0" pref="150" max="32767" attributes="0"/>
+                                      <Component id="comboBoxOffre_domaine" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="labelOffre_metier" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="comboBoxOffre_metier" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="labelOffre_contrat" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="comboBoxOffre_contrat" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -181,61 +195,112 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="textFieldOffre_1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelOffre_1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="textFieldOffre_reference" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelOffre_reference" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="labelOffre_2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="textFieldOffre_2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelOffre_libelle" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="textFieldOffre_libelle" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="labelOffre_datePublication" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="labelOffre_domaine" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboBoxOffre_domaine" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="labelOffre_metier" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboBoxOffre_metier" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="textFieldOffre_3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelOffre_3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelOffre_contrat" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="comboBoxOffre_contrat" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="textFieldOffre_4" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelOffre_4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="336" max="32767" attributes="0"/>
+                          <EmptySpace pref="240" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="labelOffre_1">
+                <Component class="javax.swing.JLabel" name="labelOffre_reference">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value="jLabel1"/>
+                    <Property name="text" type="java.lang.String" value="R&#xe9;f&#xe9;rence"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="textFieldOffre_4">
+                <Component class="javax.swing.JTextField" name="textFieldOffre_reference">
                 </Component>
-                <Component class="javax.swing.JLabel" name="labelOffre_3">
+                <Component class="javax.swing.JLabel" name="labelOffre_libelle">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value="jLabel1"/>
+                    <Property name="text" type="java.lang.String" value="Libell&#xe9;"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="textFieldOffre_1">
+                <Component class="javax.swing.JTextField" name="textFieldOffre_libelle">
                 </Component>
-                <Component class="javax.swing.JLabel" name="labelOffre_4">
+                <Component class="javax.swing.JLabel" name="labelOffre_datePublication">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value="jLabel1"/>
+                    <Property name="text" type="java.lang.String" value="Date de publication"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="textFieldOffre_2">
-                </Component>
-                <Component class="javax.swing.JLabel" name="labelOffre_2">
+                <Component class="javax.swing.JLabel" name="labelOffre_domaine">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value="jLabel1"/>
+                    <Property name="text" type="java.lang.String" value="Domaine"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="textFieldOffre_3">
+                <Component class="javax.swing.JComboBox" name="comboBoxOffre_domaine">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="4">
+                        <StringItem index="0" value="Item 1"/>
+                        <StringItem index="1" value="Item 2"/>
+                        <StringItem index="2" value="Item 3"/>
+                        <StringItem index="3" value="Item 4"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="labelOffre_metier">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="4"/>
+                    <Property name="text" type="java.lang.String" value="M&#xe9;tier"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="comboBoxOffre_metier">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="4">
+                        <StringItem index="0" value="Item 1"/>
+                        <StringItem index="1" value="Item 2"/>
+                        <StringItem index="2" value="Item 3"/>
+                        <StringItem index="3" value="Item 4"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="labelOffre_contrat">
+                  <Properties>
+                    <Property name="horizontalAlignment" type="int" value="4"/>
+                    <Property name="text" type="java.lang.String" value="Contrat"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="comboBoxOffre_contrat">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="4">
+                        <StringItem index="0" value="Item 1"/>
+                        <StringItem index="1" value="Item 2"/>
+                        <StringItem index="2" value="Item 3"/>
+                        <StringItem index="3" value="Item 4"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -267,7 +332,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="buttonOffre_insert" pref="81" max="32767" attributes="0"/>
+                              <Component id="buttonOffre_insert" pref="78" max="32767" attributes="0"/>
                               <Component id="buttonOffre_delete" max="32767" attributes="0"/>
                               <Component id="buttonOffre_update" alignment="0" max="32767" attributes="0"/>
                           </Group>
@@ -282,14 +347,14 @@
                     <Property name="label" type="java.lang.String" value="Ajouter"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="buttonOffre_delete">
-                  <Properties>
-                    <Property name="label" type="java.lang.String" value="Supprimer"/>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JButton" name="buttonOffre_update">
                   <Properties>
                     <Property name="label" type="java.lang.String" value="Modifier"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="buttonOffre_delete">
+                  <Properties>
+                    <Property name="label" type="java.lang.String" value="Supprimer"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -299,8 +364,8 @@
         <Container class="javax.swing.JPanel" name="panelSociete">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Soci&#xe9;t&#xe9;">
-                <Property name="tabTitle" type="java.lang.String" value="Soci&#xe9;t&#xe9;"/>
+              <JTabbedPaneConstraints tabName="Soci&#xe9;t&#xe9;s">
+                <Property name="tabTitle" type="java.lang.String" value="Soci&#xe9;t&#xe9;s"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -312,14 +377,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="panelSociete_sort" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="panelSociete_list" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="panelSociete_form" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="panelSociete_valid" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="tabbedPaneSociete" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -331,14 +389,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="panelSociete_sort" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="panelSociete_list" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="panelSociete_form" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="panelSociete_valid" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="tabbedPaneSociete" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -377,216 +428,478 @@
                 <Component class="javax.swing.JComboBox" name="comboBoxSociete_sort">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="4">
+                      <StringArray count="2">
                         <StringItem index="0" value="Item 1"/>
                         <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
                       </StringArray>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboBoxSociete_sortActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="panelSociete_list">
-              <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Liste des soci&#xe9;t&#xe9;s"/>
-                  </Border>
-                </Property>
-              </Properties>
+            <Container class="javax.swing.JTabbedPane" name="tabbedPaneSociete">
 
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="scrollPanelSociete_list" pref="476" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="scrollPanelSociete_list" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
               <SubComponents>
-                <Container class="javax.swing.JScrollPane" name="scrollPanelSociete_list">
-                  <AuxValues>
-                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                  </AuxValues>
+                <Container class="javax.swing.JPanel" name="panelAnnonceur">
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                      <JTabbedPaneConstraints tabName="Annonceurs">
+                        <Property name="tabTitle" type="java.lang.String" value="Annonceurs"/>
+                      </JTabbedPaneConstraints>
+                    </Constraint>
+                  </Constraints>
 
-                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <EmptySpace min="0" pref="971" max="32767" attributes="0"/>
+                          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="panelAnnonceur_list" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="panelAnnonceur_form" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="panelAnnonceur_valid" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <EmptySpace min="0" pref="640" max="32767" attributes="0"/>
+                          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="panelAnnonceur_list" alignment="0" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="panelAnnonceur_form" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="panelAnnonceur_valid" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JTable" name="tableSociete_list">
+                    <Container class="javax.swing.JPanel" name="panelAnnonceur_list">
                       <Properties>
-                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="2" rowCount="25">
-                            <Column editable="false" title="Raison Sociale" type="java.lang.String"/>
-                            <Column editable="false" title="Responsable" type="java.lang.String"/>
-                          </Table>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                            <TitledBorder title="Liste des annonceurs"/>
+                          </Border>
                         </Property>
                       </Properties>
-                    </Component>
-                  </SubComponents>
-                </Container>
-              </SubComponents>
-            </Container>
-            <Container class="javax.swing.JPanel" name="panelSociete_form">
-              <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Formulaire"/>
-                  </Border>
-                </Property>
-              </Properties>
 
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
+                      <Layout>
+                        <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="scrollPanelAnnonceur_list" pref="476" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                        <DimensionLayout dim="1">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="scrollPanelAnnonceur_list" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                      </Layout>
+                      <SubComponents>
+                        <Container class="javax.swing.JScrollPane" name="scrollPanelAnnonceur_list">
+                          <AuxValues>
+                            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                          </AuxValues>
+
+                          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                          <SubComponents>
+                            <Component class="javax.swing.JTable" name="tableAnnonceur_list">
+                              <Properties>
+                                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                                  <Table columnCount="3" rowCount="25">
+                                    <Column editable="false" title="Nom" type="java.lang.String"/>
+                                    <Column editable="false" title="Responsable" type="java.lang.String"/>
+                                    <Column editable="false" title="Siret" type="java.lang.String"/>
+                                  </Table>
+                                </Property>
+                              </Properties>
+                            </Component>
+                          </SubComponents>
+                        </Container>
+                      </SubComponents>
+                    </Container>
+                    <Container class="javax.swing.JPanel" name="panelAnnonceur_form">
+                      <Properties>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                            <TitledBorder title="Formulaire"/>
+                          </Border>
+                        </Property>
+                      </Properties>
+
+                      <Layout>
+                        <DimensionLayout dim="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="labelSociete_Nom" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <Component id="labelSociete_Responsable" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="labelAnnonceur_nom" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="labelAnnonceur_responsable" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="labelAnnonceur_siret" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="textFieldSociete_Nom" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                                      <Component id="textFieldSociete_Responsable" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="textFieldAnnonceur_siret" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="textFieldAnnonceur_nom" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="textFieldAnnonceur_responsable" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
                                   </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="labelSociete_Siret" min="-2" pref="150" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="textFieldSociete_Siret" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="textFieldSociete_Nom" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelSociete_Nom" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="textFieldSociete_Responsable" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelSociete_Responsable" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="textFieldSociete_Siret" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelSociete_Siret" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="312" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JLabel" name="labelSociete_Nom">
-                  <Properties>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value="Raison sociale"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="textFieldSociete_Nom">
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Raison sociale"/>
-                  </AccessibilityProperties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="labelSociete_Responsable">
-                  <Properties>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value="Responsable"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="textFieldSociete_Responsable">
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Responsable"/>
-                  </AccessibilityProperties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="labelSociete_Siret">
-                  <Properties>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value="Siret"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="textFieldSociete_Siret">
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Siret"/>
-                  </AccessibilityProperties>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Container class="javax.swing.JPanel" name="panelSociete_valid">
-              <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                    <TitledBorder title="Valider"/>
-                  </Border>
-                </Property>
-              </Properties>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="buttonSociete_insert" min="-2" pref="119" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="buttonSociete_update" min="-2" pref="118" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="buttonSociete_delete" min="-2" pref="119" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
+                        </DimensionLayout>
+                        <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="buttonSociete_insert" alignment="0" pref="81" max="32767" attributes="0"/>
-                              <Component id="buttonSociete_delete" alignment="0" max="32767" attributes="0"/>
-                              <Component id="buttonSociete_update" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="textFieldAnnonceur_nom" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="labelAnnonceur_nom" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="labelAnnonceur_responsable" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="textFieldAnnonceur_responsable" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="textFieldAnnonceur_siret" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="labelAnnonceur_siret" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace pref="298" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
+                        </DimensionLayout>
+                      </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JLabel" name="labelAnnonceur_nom">
+                          <Properties>
+                            <Property name="horizontalAlignment" type="int" value="4"/>
+                            <Property name="text" type="java.lang.String" value="Nom"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="textFieldAnnonceur_nom">
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="labelAnnonceur_responsable">
+                          <Properties>
+                            <Property name="horizontalAlignment" type="int" value="4"/>
+                            <Property name="text" type="java.lang.String" value="Responsable"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="textFieldAnnonceur_responsable">
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="labelAnnonceur_siret">
+                          <Properties>
+                            <Property name="horizontalAlignment" type="int" value="4"/>
+                            <Property name="text" type="java.lang.String" value="N&#xb0; Siret"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="textFieldAnnonceur_siret">
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                    <Container class="javax.swing.JPanel" name="panelAnnonceur_valid">
+                      <Properties>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                            <TitledBorder title="Valider"/>
+                          </Border>
+                        </Property>
+                      </Properties>
+
+                      <Layout>
+                        <DimensionLayout dim="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="buttonAnnonceur_insert" min="-2" pref="119" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="buttonAnnonceur_update" min="-2" pref="118" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="buttonAnnonceur_delete" min="-2" pref="119" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                        <DimensionLayout dim="1">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="buttonAnnonceur_insert" alignment="0" pref="36" max="32767" attributes="0"/>
+                                      <Component id="buttonAnnonceur_delete" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="buttonAnnonceur_update" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                      </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JButton" name="buttonAnnonceur_insert">
+                          <Properties>
+                            <Property name="label" type="java.lang.String" value="Ajouter"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="buttonAnnonceur_update">
+                          <Properties>
+                            <Property name="label" type="java.lang.String" value="Modifier"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="buttonAnnonceur_delete">
+                          <Properties>
+                            <Property name="label" type="java.lang.String" value="Supprimer"/>
+                          </Properties>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JPanel" name="panelDiffuseur">
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+                      <JTabbedPaneConstraints tabName="Diffuseurs">
+                        <Property name="tabTitle" type="java.lang.String" value="Diffuseurs"/>
+                      </JTabbedPaneConstraints>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <EmptySpace min="0" pref="971" max="32767" attributes="0"/>
+                          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="panelDiffuseur_list" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="panelDiffuseur_form" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="panelDiffuseur_valid" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JButton" name="buttonSociete_insert">
-                  <Properties>
-                    <Property name="label" type="java.lang.String" value="Ajouter"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="buttonSociete_delete">
-                  <Properties>
-                    <Property name="label" type="java.lang.String" value="Supprimer"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="buttonSociete_update">
-                  <Properties>
-                    <Property name="label" type="java.lang.String" value="Modifier"/>
-                  </Properties>
-                </Component>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <EmptySpace min="0" pref="640" max="32767" attributes="0"/>
+                          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="panelDiffuseur_list" alignment="0" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="panelDiffuseur_form" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="panelDiffuseur_valid" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Container class="javax.swing.JPanel" name="panelDiffuseur_list">
+                      <Properties>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                            <TitledBorder title="Liste des diffuseurs"/>
+                          </Border>
+                        </Property>
+                      </Properties>
+
+                      <Layout>
+                        <DimensionLayout dim="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="scrollPanelDiffuseur_list" pref="476" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                        <DimensionLayout dim="1">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="scrollPanelDiffuseur_list" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                      </Layout>
+                      <SubComponents>
+                        <Container class="javax.swing.JScrollPane" name="scrollPanelDiffuseur_list">
+                          <AuxValues>
+                            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                          </AuxValues>
+
+                          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                          <SubComponents>
+                            <Component class="javax.swing.JTable" name="tableDiffuseur_list">
+                              <Properties>
+                                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                                  <Table columnCount="2" rowCount="25">
+                                    <Column editable="false" title="Nom" type="java.lang.String"/>
+                                    <Column editable="false" title="Responsable" type="java.lang.String"/>
+                                  </Table>
+                                </Property>
+                              </Properties>
+                            </Component>
+                          </SubComponents>
+                        </Container>
+                      </SubComponents>
+                    </Container>
+                    <Container class="javax.swing.JPanel" name="panelDiffuseur_form">
+                      <Properties>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                            <TitledBorder title="Formulaire"/>
+                          </Border>
+                        </Property>
+                      </Properties>
+
+                      <Layout>
+                        <DimensionLayout dim="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="labelDiffuseur_nom" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="labelDiffuseur_responsable" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="textFieldDiffuseur_nom" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <Component id="textFieldDiffuseur_responsable" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                        <DimensionLayout dim="1">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="textFieldDiffuseur_nom" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="labelDiffuseur_nom" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="labelDiffuseur_responsable" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="textFieldDiffuseur_responsable" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace pref="349" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                      </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JLabel" name="labelDiffuseur_nom">
+                          <Properties>
+                            <Property name="horizontalAlignment" type="int" value="4"/>
+                            <Property name="text" type="java.lang.String" value="Nom"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="textFieldDiffuseur_nom">
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="labelDiffuseur_responsable">
+                          <Properties>
+                            <Property name="horizontalAlignment" type="int" value="4"/>
+                            <Property name="text" type="java.lang.String" value="Responsable"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="textFieldDiffuseur_responsable">
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                    <Container class="javax.swing.JPanel" name="panelDiffuseur_valid">
+                      <Properties>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                            <TitledBorder title="Valider"/>
+                          </Border>
+                        </Property>
+                      </Properties>
+
+                      <Layout>
+                        <DimensionLayout dim="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="buttonDiffuseur_insert" min="-2" pref="119" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="buttonDiffuseur_update" min="-2" pref="118" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="buttonDiffuseur_delete" min="-2" pref="119" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                        <DimensionLayout dim="1">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="buttonDiffuseur_insert" alignment="0" pref="36" max="32767" attributes="0"/>
+                                      <Component id="buttonDiffuseur_delete" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="buttonDiffuseur_update" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                      </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JButton" name="buttonDiffuseur_insert">
+                          <Properties>
+                            <Property name="label" type="java.lang.String" value="Ajouter"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="buttonDiffuseur_update">
+                          <Properties>
+                            <Property name="label" type="java.lang.String" value="Modifier"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="buttonDiffuseur_delete">
+                          <Properties>
+                            <Property name="label" type="java.lang.String" value="Supprimer"/>
+                          </Properties>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                  </SubComponents>
+                </Container>
               </SubComponents>
             </Container>
           </SubComponents>
@@ -763,10 +1076,10 @@
                               <Properties>
                                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                   <Table columnCount="4" rowCount="25">
-                                    <Column editable="false" title="Nom" type="java.lang.Object"/>
-                                    <Column editable="false" title="Pr&#xe9;nom" type="java.lang.Object"/>
-                                    <Column editable="false" title="Poste" type="java.lang.Object"/>
-                                    <Column editable="false" title="Habilitation" type="java.lang.Object"/>
+                                    <Column editable="false" title="Nom" type="java.lang.String"/>
+                                    <Column editable="false" title="Pr&#xe9;nom" type="java.lang.String"/>
+                                    <Column editable="false" title="Poste" type="java.lang.String"/>
+                                    <Column editable="false" title="Habilitation" type="java.lang.Integer"/>
                                   </Table>
                                 </Property>
                               </Properties>
@@ -912,14 +1225,14 @@
                             <Property name="label" type="java.lang.String" value="Ajouter"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JButton" name="buttonEmpl_delete">
-                          <Properties>
-                            <Property name="label" type="java.lang.String" value="Supprimer"/>
-                          </Properties>
-                        </Component>
                         <Component class="javax.swing.JButton" name="buttonEmpl_update">
                           <Properties>
                             <Property name="label" type="java.lang.String" value="Modifier"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="buttonEmpl_delete">
+                          <Properties>
+                            <Property name="label" type="java.lang.String" value="Supprimer"/>
                           </Properties>
                         </Component>
                       </SubComponents>
@@ -1158,14 +1471,14 @@
                             <Property name="label" type="java.lang.String" value="Ajouter"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JButton" name="buttonCand_delete">
-                          <Properties>
-                            <Property name="label" type="java.lang.String" value="Supprimer"/>
-                          </Properties>
-                        </Component>
                         <Component class="javax.swing.JButton" name="buttonCand_update">
                           <Properties>
                             <Property name="label" type="java.lang.String" value="Modifier"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JButton" name="buttonCand_delete">
+                          <Properties>
+                            <Property name="label" type="java.lang.String" value="Supprimer"/>
                           </Properties>
                         </Component>
                       </SubComponents>
@@ -1226,53 +1539,15 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jSplitPane2" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="0" pref="964" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jSplitPane2" pref="194" max="32767" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="0" pref="207" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
-              <SubComponents>
-                <Container class="javax.swing.JSplitPane" name="jSplitPane2">
-
-                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout"/>
-                  <SubComponents>
-                    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
-                      <AuxValues>
-                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                      </AuxValues>
-                      <Constraints>
-                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout$JSplitPaneConstraintsDescription">
-                          <JSplitPaneConstraints position="left"/>
-                        </Constraint>
-                      </Constraints>
-
-                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-                      <SubComponents>
-                        <Component class="javax.swing.JTable" name="jTable2">
-                          <Properties>
-                            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="1" rowCount="4">
-                                <Column editable="true" title="Libell&#xe9;" type="java.lang.Object"/>
-                              </Table>
-                            </Property>
-                          </Properties>
-                        </Component>
-                      </SubComponents>
-                    </Container>
-                  </SubComponents>
-                </Container>
-              </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="panelMetier">
               <Properties>
