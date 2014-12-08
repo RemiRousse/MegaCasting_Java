@@ -53,7 +53,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
     }
 
     /**
-     * refrech liste des Employe
+     * refrech list employe
      * @author Julien BUREAU <julien.bureau02@gmail.com>
      */
     public void refreshEmploye(){
@@ -72,14 +72,12 @@ public class jPanelPersonne extends javax.swing.JPanel {
                 e.getHabilitation(),
                 e.getPoste()
             });
-            
-
         }
     }
     
     
     /**
-     * refrech Candidat
+     * refrech list candidat
      * @author Julien BUREAU <julien.bureau02@gmail.com>
      */
     public void refreshCandidat() {
@@ -100,8 +98,6 @@ public class jPanelPersonne extends javax.swing.JPanel {
             });
         }
     }
-    
-    
     
     
     /**
