@@ -15,6 +15,7 @@ import java.sql.Statement;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+
 import megacasting.entity.Candidat;
 import megacasting.entity.Personne;
 
@@ -126,12 +127,19 @@ public class CandidatDAO {
         try {
             stmt = cnx.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT Identifiant, DateNaissance, Pays, Nom, Prenom "
-                    + "FROM Candidat");
+                    + " FROM Candidat");
             
-            while (rs.next()) {      
-                Candidat candidat = new Candidat(rs.getLong("Identifiant"), rs.getDate("DateNaissance"), rs.getString("Pays"), rs.getString("Nom"), rs.getString("Prenom"));
+            
+            while (rs.next()) {
+                Candidat candidat = new Candidat(
+                		rs.getLong("Identifiant"), 
+                		rs.getDate("DateNaissance"), 
+                		rs.getString("Pays"), 
+                		rs.getString("Nom"), 
+                		rs.getString("Prenom"));
                 set.add(candidat);
             }
+            
             
         } catch (Exception e) {
         } finally {

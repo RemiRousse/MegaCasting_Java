@@ -262,9 +262,9 @@ public class jPanelOffre extends javax.swing.JPanel {
     private javax.swing.JButton buttonOffre_delete;
     private javax.swing.JButton buttonOffre_insert;
     private javax.swing.JButton buttonOffre_update;
-    private javax.swing.JComboBox comboBoxOffre_contrat;
-    private javax.swing.JComboBox comboBoxOffre_domaine;
-    private javax.swing.JComboBox comboBoxOffre_metier;
+    private javax.swing.JComboBox<String> comboBoxOffre_contrat;
+    private javax.swing.JComboBox<String> comboBoxOffre_domaine;
+    private javax.swing.JComboBox<String> comboBoxOffre_metier;
     private javax.swing.JLabel labelOffre_contrat;
     private javax.swing.JLabel labelOffre_datePublication;
     private javax.swing.JLabel labelOffre_domaine;

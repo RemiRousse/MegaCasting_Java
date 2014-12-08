@@ -39,7 +39,7 @@ public class jPanelSociete extends javax.swing.JPanel {
     private void initComponents() {
 
         panelSociete_sort = new javax.swing.JPanel();
-        comboBoxSociete_sort = new javax.swing.JComboBox();
+        comboBoxSociete_sort = new javax.swing.JComboBox<String>();
         tabbedPaneSociete = new javax.swing.JTabbedPane();
         panelAnnonceur = new javax.swing.JPanel();
         panelAnnonceur_list = new javax.swing.JPanel();
@@ -72,7 +72,7 @@ public class jPanelSociete extends javax.swing.JPanel {
 
         panelSociete_sort.setBorder(javax.swing.BorderFactory.createTitledBorder("Tri"));
 
-        comboBoxSociete_sort.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2" }));
+        comboBoxSociete_sort.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "Item 1", "Item 2" }));
         comboBoxSociete_sort.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboBoxSociete_sortActionPerformed(evt);
