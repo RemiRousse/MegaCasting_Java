@@ -119,7 +119,7 @@ public class DiffuseurDAO {
         
         try {
             stmt = cnx.createStatement();
-            System.out.println("SQL test");
+
             ResultSet rs = stmt.executeQuery("SELECT Identifiant, Nom, Responsable "
                     + "FROM Diffuseur");
             

@@ -197,18 +197,18 @@ public class OffreDAO {
         try {
             stmt = cnx.createStatement();
             ResultSet rs = stmt.executeQuery(	"SELECT Identifiant, "
-							            		+ "LIBELLE, "
-												+ "REFERENCE, "
-												+ "DATEDEBPUBLICATION, "
-												+ "DATEDEBCONTRAT, "
-												+ "DATEFINCONTRAT, "
-												+ "DESCPOSTE, "
-												+ "DESCPROFIL,"
-												+ "IdentifiantAnnonceur,"
-												+ "IdentifiantContrat,"
-												+ "IdentifiantMetier,"
-												+ "IdentifiantDomaine "
-												+ "FROM Offre"
+								            		+ "LIBELLE, "
+													+ "REFERENCE, "
+													+ "DATEDEBPUBLICATION, "
+													+ "DATEDEBCONTRAT, "
+													+ "DATEFINCONTRAT, "
+													+ "DESCPOSTE, "
+													+ "DESCPROFIL,"
+													+ "IdentifiantAnnonceur,"
+													+ "IdentifiantContrat,"
+													+ "IdentifiantMetier,"
+													+ "IdentifiantDomaine "
+													+ "FROM Offre"
 											);
             while (rs.next()) {                
                 AnnonceurDAO a = new AnnonceurDAO();

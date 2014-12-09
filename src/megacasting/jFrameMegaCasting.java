@@ -18,19 +18,20 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
      * Creates new form jFrameMegaCasting
      */
     public jFrameMegaCasting() {
+    	
         initComponents();
         
         jPanelOffre offre = new jPanelOffre();
         tabbedPaneMain.add("Offres", offre);
         
         jPanelSociete societe = new jPanelSociete();
-        tabbedPaneMain.addTab("SociÃ©tÃ©s", societe);
+        tabbedPaneMain.addTab("Sociétés", societe);
         
         jPanelPersonne personne = new jPanelPersonne();
         tabbedPaneMain.addTab("Personnes", personne);
         
         jPanelParametres parametres = new jPanelParametres();
-        tabbedPaneMain.addTab("Contrats / MÃ©tiers", parametres);
+        tabbedPaneMain.addTab("Contrats / Métiers", parametres);
         
     }
 

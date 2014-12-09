@@ -6,19 +6,76 @@
 
 package megacasting;
 
+import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.table.DefaultTableModel;
+
+import megacasting.entity.Candidat;
+import megacasting.entity.Employe;
+import megacasting.entity.Offre;
+import megacasting.persistance.ConnectionBDD;
+import megacasting.persistance.EmployeDAO;
+import megacasting.persistance.OffreDAO;
+
 /**
  *
  * @author Mousse
  */
 public class jPanelOffre extends javax.swing.JPanel {
 
+	
+	private List<Offre> offres;
+    private Connection cnx;
+    
+    
     /**
      * Creates new form jPanelOffre
      */
     public jPanelOffre() {
         initComponents();
+        
+        //Connection a la base
+        ConnectionBDD connectionBDD = ConnectionBDD.getInstance();
+        cnx = connectionBDD.getConnection();
+        //Refrech des listes 
+        refreshOffre();
     }
 
+    
+    /**
+     * refrech list offre
+     * @author Julien BUREAU <julien.bureau02@gmail.com>
+     */
+    public void refreshOffre(){
+    	
+    	OffreDAO offreDAO = new OffreDAO();
+    	offres = new ArrayList<Offre>(offreDAO.list(cnx));
+                
+        DefaultTableModel model = (DefaultTableModel) tableOffre_list.getModel();
+        
+        model.setNumRows(0);
+        
+        for (Offre o : offres) {
+            model.addRow(new Object[] {
+                o.getAnnonceur(),
+                o.getContrat(),
+                o.getDateDebContrat(),
+                o.getDateDebPublication(), 
+                o.getDateFinContrat(),  
+                o.getDescPoste(),
+                o.getDescProfil(),  
+                o.getDomaine(),
+                o.getIdentifiant(),
+                o.getLibelle(), 
+                o.getMetier(),
+                o.getReference()
+            });
+        }
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

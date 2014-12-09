@@ -93,8 +93,8 @@ public class jPanelPersonne extends javax.swing.JPanel {
             model.addRow(new Object[] {
                 e.getNom(),
                 e.getPrenom(),
-                e.getPays(),
-                e.getDateNaissance()
+                e.getDateNaissance(),
+                e.getPays()
             });
         }
     }
@@ -148,7 +148,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
 
         panelPers_sort.setBorder(javax.swing.BorderFactory.createTitledBorder("Tri"));
 
-        comboBoxPers_sort.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "Item 1", "Item 2" }));
+        comboBoxPers_sort.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "Employés", "Candidats" }));
         comboBoxPers_sort.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboBoxPers_sortActionPerformed(evt);
@@ -171,7 +171,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        panelEmpl_list.setBorder(javax.swing.BorderFactory.createTitledBorder("Liste des employÃ©s"));
+        panelEmpl_list.setBorder(javax.swing.BorderFactory.createTitledBorder("Liste des employés"));
 
         tableEmpl_list.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
