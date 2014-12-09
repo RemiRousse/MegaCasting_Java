@@ -8,6 +8,10 @@ package megacasting;
 
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
 
+import megacasting.persistance.ConnectionBDD;
+
+import java.awt.Toolkit;
+
 /**
  *
  * @author Mousse
@@ -18,6 +22,7 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
      * Creates new form jFrameMegaCasting
      */
     public jFrameMegaCasting() {
+    	setIconImage(Toolkit.getDefaultToolkit().getImage(jFrameMegaCasting.class.getResource("/img/megacasting.ico")));
     	
         initComponents();
         
@@ -108,6 +113,15 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
         });
     }
 
+    /**
+     * @author Julien BUREAU <julien.bureau02@gmail.com>
+     * @param evt
+     */
+    private void fermeture(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_fermeture
+        ConnectionBDD.getInstance().closeConnection();
+    }//GEN-LAST:event_fermeture
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane tabbedPaneMain;
     // End of variables declaration//GEN-END:variables
