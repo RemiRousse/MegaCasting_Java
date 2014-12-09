@@ -258,6 +258,11 @@ public class jPanelOffre extends javax.swing.JPanel {
         panelOffre_valid.setBorder(javax.swing.BorderFactory.createTitledBorder("Valider"));
 
         buttonOffre_insert.setLabel("Ajouter");
+        buttonOffre_insert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonOffre_insertActionPerformed(evt);
+            }
+        });
 
         buttonOffre_update.setLabel("Modifier");
 
@@ -313,6 +318,16 @@ public class jPanelOffre extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonOffre_insertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOffre_insertActionPerformed
+        // TODO add your handling code here:
+        
+        
+        jFrameOffreDetails detailsOffre = new jFrameOffreDetails();
+        detailsOffre.setVisible(true);
+        
+        
+    }//GEN-LAST:event_buttonOffre_insertActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
