@@ -22,7 +22,6 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
      * Creates new form jFrameMegaCasting
      */
     public jFrameMegaCasting() {
-    	setIconImage(Toolkit.getDefaultToolkit().getImage(jFrameMegaCasting.class.getResource("/img/megacasting.ico")));
     	
         initComponents();
         

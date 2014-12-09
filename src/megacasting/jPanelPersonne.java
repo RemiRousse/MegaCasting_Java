@@ -569,6 +569,16 @@ public class jPanelPersonne extends javax.swing.JPanel {
         tabbedPanePers.setSelectedIndex(comboBoxPers_sort.getSelectedIndex());
     }//GEN-LAST:event_comboBoxPers_sortActionPerformed
 
+    /**
+     * @author Julien BUREAU <julien.bureau02@gmail.com>
+     * Event Click Insert
+     */
+    private void buttonEmpl_insert (java.awt.event.MouseEvent evt){
+    	String nom = labelEmpl_nom.getText();
+    	String prenom = labelEmpl_nom.getText();
+    	String nom = labelEmpl_nom.getText();
+    	String nom = labelEmpl_nom.getText();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCand_delete;

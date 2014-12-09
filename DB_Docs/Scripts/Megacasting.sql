@@ -1,12 +1,9 @@
 CREATE DATABASE MegaCasting_java;
-
 USE MegaCasting_java;
 
 /* ************** */
 /*      Info      */
 /* ************** */
-/* DROP TABLE `information`; */
-
 CREATE TABLE `information` (
 	`Identifiant` 		BIGINT NOT NULL auto_increment,
 	`Mail` 				VARCHAR(100) default NULL,
@@ -78,8 +75,6 @@ VALUES 						("faucibus.leo.in@actellus.edu",						"05 56 62 56 24",		"(293) 248
 /* ************** */
 /*     COMPTE     */
 /* ************** */
-/* DROP TABLE `compte`; */
-
 CREATE TABLE `compte` (
 	`Identifiant` 	BIGINT NOT NULL auto_increment,
 	`Login` 		VARCHAR(50) default NULL,
@@ -119,15 +114,9 @@ VALUES 					("Meloxicam",				"MRN48FPI6TZ",	4600),
 						("Annonce04",				"PSZ54OMD3RB",	3568),
 						("Annonce05",				"PQS98DTZ6EZ",	5333);
 
-
-		
-		
-		
 /* **************** */
 /*     CANDIDAT     */
 /* **************** */
-/* DROP TABLE `candidat`; */
-
 CREATE TABLE `candidat` (
 	`Identifiant` 				BIGINT NOT NULL auto_increment,
 	`Nom` 						VARCHAR(25) default NULL,
@@ -175,8 +164,6 @@ VALUES 					("Levy",		"Chadwick",		"France",				"1973-05-04",			1,						1),
 /* **************** */
 /*    ANNONCEUR     */
 /* **************** */
-/* DROP TABLE `annonceur`; */
-
 CREATE TABLE `annonceur` (
 	`Identifiant` 				BIGINT NOT NULL auto_increment,
 	`Siret` 					VARCHAR(100) default NULL,
@@ -207,11 +194,9 @@ VALUES 						("629.409.178.189",		"Nec Orci LLP",					"M. Cameron",		21,						21
 		
 /* **************** */
 /*     Diffuseur    */
-/* **************** */		
-/* DROP TABLE `diffuseur`; */
-
+/* **************** */
 CREATE TABLE `diffuseur` (
-	`Identifiant` 			BIGINT unsigned NOT NULL auto_increment,
+	`Identifiant` 			BIGINT NOT NULL auto_increment,
 	`Nom` 					VARCHAR(50),
 	`Responsable` 			VARCHAR(25) default NULL,
 	`IdentifiantInformation`	BIGINT,
@@ -234,8 +219,6 @@ INSERT INTO `diffuseur` (`Nom`,										`Responsable`,		`IdentifiantInformation
 /* **************** */
 /*      EMPLOYE     */
 /* **************** */
-/* DROP TABLE `employe`; */
-
 CREATE TABLE `employe` (
 	`Identifiant` 				BIGINT NOT NULL auto_increment,
 	`Nom` 						VARCHAR(50) default NULL,
@@ -269,13 +252,11 @@ VALUES 					("Brun",		"Françoise",	1,			2,					31),
 						
 						
 						
-						
-/* Contrat */
-
-DROP TABLE `contrat`;
-
+/* ******* */
+/* CONTRAT */
+/* ******* */
 CREATE TABLE `contrat` (
-	`Identifiant` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+	`Identifiant` BIGINT NOT NULL AUTO_INCREMENT,
 	`Libelle`		VARCHAR(25),
 	
 	PRIMARY KEY (`Identifiant`)
@@ -286,12 +267,11 @@ INSERT INTO `contrat`	(`Libelle`)
 						("CDD"),
 						("Interim");
 
-/* Domaine */
-
-DROP TABLE `domaine`;
-
+/* ******** */
+/* DOMMAINE */
+/* ******** */
 CREATE TABLE `domaine` (
-	`Identifiant` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+	`Identifiant` BIGINT NOT NULL AUTO_INCREMENT,
 	`Libelle`		VARCHAR(25),
 	
 	PRIMARY KEY (`Identifiant`)
@@ -301,20 +281,18 @@ INSERT INTO `domaine`	(`Libelle`)
 	VALUES				("Image"),
 						("Musique"),
 						("Cinéma");
-
-/* Metier */
-
-DROP TABLE `metier`;
-
+/* ******* */
+/* METIER */
+/* ******* */
 CREATE TABLE `metier` (
-	`Identifiant` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+	`Identifiant` BIGINT NOT NULL AUTO_INCREMENT,
 	`Libelle`		VARCHAR(25),
 	`IdentifiantDomaine` BIGINT,
 	
 	PRIMARY KEY (`Identifiant`),
 	
 	FOREIGN KEY (IdentifiantDomaine)
-		REFERENCES domaine(Identifiant)
+		REFERENCES domaine(`Identifiant`)
 		ON UPDATE CASCADE ON DELETE RESTRICT
 ) AUTO_INCREMENT=1;
 
