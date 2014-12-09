@@ -6,7 +6,6 @@
 
 package megacasting.entity;
 
-import java.util.logging.Logger;
 
 /**
  *

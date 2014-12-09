@@ -14,6 +14,7 @@ import java.sql.Statement;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+
 import megacasting.entity.Annonceur;
 
 /**
@@ -124,10 +125,10 @@ public class AnnonceurDAO {
                     + "FROM Annonceur");
             
             while (rs.next()) {                
-                Annonceur annonceur = new Annonceur(rs.getLong("Identifiant"), rs.getString("Nom"), rs.getString("Reponsable"), rs.getString("Siret"));
+                Annonceur annonceur = new Annonceur(rs.getLong("Identifiant"), rs.getString("Nom"), rs.getString("Responsable"), rs.getString("Siret"));
                 set.add(annonceur);
             }
-            
+
         } catch (Exception e) {
         } finally {
             if (stmt != null) {

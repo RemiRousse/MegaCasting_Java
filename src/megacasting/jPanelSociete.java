@@ -6,7 +6,22 @@
 
 package megacasting;
 
+import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
+import javax.swing.table.DefaultTableModel;
+
+import megacasting.entity.Annonceur;
+import megacasting.entity.Candidat;
+import megacasting.entity.Diffuseur;
+import megacasting.entity.Employe;
+import megacasting.persistance.AnnonceurDAO;
+import megacasting.persistance.CandidatDAO;
+import megacasting.persistance.ConnectionBDD;
+import megacasting.persistance.DiffuseurDAO;
+import megacasting.persistance.EmployeDAO;
 
 /**
  *
@@ -14,11 +29,22 @@ import javax.swing.plaf.basic.BasicTabbedPaneUI;
  */
 public class jPanelSociete extends javax.swing.JPanel {
 
+	private List<Annonceur> annonceurs;
+	private List<Diffuseur> diffuseurs;
+    private Connection cnx;
+	
     /**
      * Creates new form jPanelSociete
      */
     public jPanelSociete() {
         initComponents();
+        
+        //Connection a la base
+        ConnectionBDD connectionBDD = ConnectionBDD.getInstance();
+        cnx = connectionBDD.getConnection();
+        //Refrech des listes 
+        refreshAnnonceur();
+        refreshDiffuseur();
         
         tabbedPaneSociete.setUI(new BasicTabbedPaneUI() {
             
@@ -29,6 +55,52 @@ public class jPanelSociete extends javax.swing.JPanel {
         });
     }
 
+    
+    /**
+     * refrech list employe
+     * @author Julien BUREAU <julien.bureau02@gmail.com>
+     */
+    public void refreshAnnonceur(){
+    	
+    	AnnonceurDAO annonceurDAO = new AnnonceurDAO();
+    	annonceurs = new ArrayList<Annonceur>(annonceurDAO.list(cnx));
+                
+        DefaultTableModel model = (DefaultTableModel) tableAnnonceur_list.getModel();
+        
+        model.setNumRows(0);
+        
+        for (Annonceur a : annonceurs) {
+            model.addRow(new Object[] {
+                a.getNom(),
+                a.getResponsable(),
+                a.getSiret()
+            });
+        }
+    }
+    
+    
+    /**
+     * refrech list diffuseur
+     * @author Julien BUREAU <julien.bureau02@gmail.com>
+     */
+    public void refreshDiffuseur() {
+    	
+    	DiffuseurDAO diffuseurDAO = new DiffuseurDAO();
+    	diffuseurs = new ArrayList<Diffuseur>(diffuseurDAO.list(cnx));
+                
+        DefaultTableModel model = (DefaultTableModel) tableDiffuseur_list.getModel();
+        
+        model.setNumRows(0);
+        
+        for (Diffuseur d : diffuseurs) {
+            model.addRow(new Object[] {
+                d.getNom(),
+                d.getResponsable()
+            });
+        }
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,7 +111,7 @@ public class jPanelSociete extends javax.swing.JPanel {
     private void initComponents() {
 
         panelSociete_sort = new javax.swing.JPanel();
-        comboBoxSociete_sort = new javax.swing.JComboBox();
+        comboBoxSociete_sort = new javax.swing.JComboBox<String>();
         tabbedPaneSociete = new javax.swing.JTabbedPane();
         panelAnnonceur = new javax.swing.JPanel();
         panelAnnonceur_list = new javax.swing.JPanel();
@@ -72,7 +144,7 @@ public class jPanelSociete extends javax.swing.JPanel {
 
         panelSociete_sort.setBorder(javax.swing.BorderFactory.createTitledBorder("Tri"));
 
-        comboBoxSociete_sort.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2" }));
+        comboBoxSociete_sort.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "Item 1", "Item 2" }));
         comboBoxSociete_sort.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboBoxSociete_sortActionPerformed(evt);

@@ -14,6 +14,7 @@ import java.sql.Statement;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+
 import megacasting.entity.Diffuseur;
 
 /**
@@ -118,11 +119,12 @@ public class DiffuseurDAO {
         
         try {
             stmt = cnx.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT Identifiant, Nom, Responsable, Siret "
+            System.out.println("SQL test");
+            ResultSet rs = stmt.executeQuery("SELECT Identifiant, Nom, Responsable "
                     + "FROM Diffuseur");
             
             while (rs.next()) {                
-                Diffuseur diffuseur = new Diffuseur(rs.getLong("Identifiant"), rs.getString("Nom"), rs.getString("Reponsable"));
+                Diffuseur diffuseur = new Diffuseur(rs.getLong("Identifiant"), rs.getString("Nom"), rs.getString("Responsable"));
                 set.add(diffuseur);
             }
             
