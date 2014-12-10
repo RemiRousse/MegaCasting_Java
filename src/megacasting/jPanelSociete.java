@@ -9,6 +9,7 @@ package megacasting;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
 import javax.swing.table.DefaultTableModel;
@@ -216,6 +217,11 @@ public class jPanelSociete extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        tableAnnonceur_list.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableAnnonceur_listMouseClicked(evt);
+            }
+        });
         scrollPanelAnnonceur_list.setViewportView(tableAnnonceur_list);
 
         javax.swing.GroupLayout panelAnnonceur_listLayout = new javax.swing.GroupLayout(panelAnnonceur_list);
@@ -291,8 +297,18 @@ public class jPanelSociete extends javax.swing.JPanel {
         });
 
         buttonAnnonceur_update.setLabel("Modifier");
+        buttonAnnonceur_update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAnnonceur_updateActionPerformed(evt);
+            }
+        });
 
         buttonAnnonceur_delete.setLabel("Supprimer");
+        buttonAnnonceur_delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAnnonceur_deleteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelAnnonceur_validLayout = new javax.swing.GroupLayout(panelAnnonceur_valid);
         panelAnnonceur_valid.setLayout(panelAnnonceur_validLayout);
@@ -399,6 +415,11 @@ public class jPanelSociete extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        tableDiffuseur_list.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableDiffuseur_listMouseClicked(evt);
+            }
+        });
         scrollPanelDiffuseur_list.setViewportView(tableDiffuseur_list);
 
         javax.swing.GroupLayout panelDiffuseur_listLayout = new javax.swing.GroupLayout(panelDiffuseur_list);
@@ -465,8 +486,18 @@ public class jPanelSociete extends javax.swing.JPanel {
         });
 
         buttonDiffuseur_update.setLabel("Modifier");
+        buttonDiffuseur_update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDiffuseur_updateActionPerformed(evt);
+            }
+        });
 
         buttonDiffuseur_delete.setLabel("Supprimer");
+        buttonDiffuseur_delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDiffuseur_deleteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelDiffuseur_validLayout = new javax.swing.GroupLayout(panelDiffuseur_valid);
         panelDiffuseur_valid.setLayout(panelDiffuseur_validLayout);
@@ -565,7 +596,14 @@ public class jPanelSociete extends javax.swing.JPanel {
 	    annonceurDAO.insert(cnx, annonceur);
 	} catch (Exception e) {
 	// TODO: handle exception
-	}
+	} finally {
+            //Clear textField
+            textFieldAnnonceur_nom.setText("");
+            textFieldAnnonceur_responsable.setText("");
+            textFieldAnnonceur_siret.setText("");
+
+            refreshAnnonceur();
+        }
     }//GEN-LAST:event_buttonAnnonceur_insertActionPerformed
 
     private void buttonDiffuseur_insertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDiffuseur_insertActionPerformed
@@ -580,8 +618,145 @@ public class jPanelSociete extends javax.swing.JPanel {
 	    diffuseurDAO.insert(cnx, diffuseur);
 	} catch (Exception e) {
 	// TODO: handle exception
-	}
+	} finally {
+            //Clear textField
+            textFieldDiffuseur_nom.setText("");
+            textFieldDiffuseur_responsable.setText("");
+
+            refreshDiffuseur();
+        }
     }//GEN-LAST:event_buttonDiffuseur_insertActionPerformed
+
+    private void selectionAnnonceur(java.awt.event.MouseEvent evt) {                           
+        int row = tableAnnonceur_list.rowAtPoint(evt.getPoint());
+        Annonceur a = annonceurs.get(row);
+        
+        textFieldAnnonceur_nom.setText(a.getNom());
+        textFieldAnnonceur_responsable.setText(a.getResponsable());
+        textFieldAnnonceur_siret.setText(a.getSiret());
+    }
+    
+    private void selectionDiffuseur(java.awt.event.MouseEvent evt) {                           
+        int row = tableDiffuseur_list.rowAtPoint(evt.getPoint());
+        Diffuseur d = diffuseurs.get(row);
+        
+        textFieldDiffuseur_nom.setText(d.getNom());
+        textFieldDiffuseur_responsable.setText(d.getResponsable());
+    }
+    
+    private void buttonDiffuseur_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDiffuseur_updateActionPerformed
+        
+        int row = tableDiffuseur_list.getSelectedRow();
+    	Diffuseur diffuseur = diffuseurs.get(row);
+    	
+    	int identifiant = (int) diffuseur.getIdentifiant();
+    	String nom = textFieldDiffuseur_nom.getText();
+    	String responsable = textFieldDiffuseur_responsable.getText();
+
+    	try {
+    		
+            diffuseur.setNom(nom);
+            diffuseur.setResponsable(responsable);            
+            diffuseur.setIdentifiant(identifiant);
+
+            DiffuseurDAO diffuseurDAO = new DiffuseurDAO();
+            diffuseurDAO.update(cnx, diffuseur);
+
+        } catch (Exception ex) {
+
+        } finally {
+            //Clear textField
+            textFieldDiffuseur_nom.setText("");
+            textFieldDiffuseur_responsable.setText("");
+
+            refreshDiffuseur();
+        }
+    }//GEN-LAST:event_buttonDiffuseur_updateActionPerformed
+
+    private void buttonAnnonceur_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAnnonceur_updateActionPerformed
+        
+        int row = tableAnnonceur_list.getSelectedRow();
+    	Annonceur annonceur = annonceurs.get(row);
+    	
+    	int identifiant = (int) annonceur.getIdentifiant();
+    	String nom = textFieldAnnonceur_nom.getText();
+    	String responsable = textFieldAnnonceur_responsable.getText();
+        String siret = textFieldAnnonceur_siret.getText();
+
+    	try {
+    		
+            annonceur.setNom(nom);
+            annonceur.setResponsable(responsable);
+            annonceur.setIdentifiant(identifiant);
+            annonceur.setSiret(siret);
+
+            AnnonceurDAO annonceurDAO = new AnnonceurDAO();
+            annonceurDAO.update(cnx, annonceur);
+
+        } catch (Exception ex) {
+
+        } finally {
+            //Clear textField
+            textFieldAnnonceur_nom.setText("");
+            textFieldAnnonceur_responsable.setText("");
+            textFieldAnnonceur_siret.setText("");
+
+            refreshAnnonceur();
+        }
+    }//GEN-LAST:event_buttonAnnonceur_updateActionPerformed
+
+    private void tableAnnonceur_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableAnnonceur_listMouseClicked
+        // TODO add your handling code here:
+        selectionAnnonceur(evt);
+    }//GEN-LAST:event_tableAnnonceur_listMouseClicked
+
+    private void tableDiffuseur_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableDiffuseur_listMouseClicked
+        // TODO add your handling code here:
+        selectionDiffuseur(evt);
+    }//GEN-LAST:event_tableDiffuseur_listMouseClicked
+
+    private void buttonDiffuseur_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDiffuseur_deleteActionPerformed
+        
+        int row = tableDiffuseur_list.getSelectedRow();
+    	Diffuseur diffuseur = diffuseurs.get(row);
+
+    	try {
+
+            DiffuseurDAO diffuseurDAO = new DiffuseurDAO();
+            diffuseurDAO.delete(cnx, diffuseur);
+
+        } catch (Exception ex) {
+
+        } finally {
+            //Clear textField
+            textFieldDiffuseur_nom.setText("");
+            textFieldDiffuseur_responsable.setText("");
+
+            refreshDiffuseur();
+        }
+    }//GEN-LAST:event_buttonDiffuseur_deleteActionPerformed
+
+    private void buttonAnnonceur_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAnnonceur_deleteActionPerformed
+        
+        int row = tableAnnonceur_list.getSelectedRow();
+    	Annonceur annonceur = annonceurs.get(row);
+
+    	try {
+
+            AnnonceurDAO annonceurDAO = new AnnonceurDAO();
+            annonceurDAO.delete(cnx, annonceur);
+
+        } catch (Exception ex) {
+
+        } finally {
+            //Clear textField
+            textFieldAnnonceur_nom.setText("");
+            textFieldAnnonceur_responsable.setText("");
+            textFieldAnnonceur_siret.setText("");
+
+            refreshAnnonceur();
+        }
+    }//GEN-LAST:event_buttonAnnonceur_deleteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
