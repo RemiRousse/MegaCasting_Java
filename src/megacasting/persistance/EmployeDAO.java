@@ -130,7 +130,7 @@ public class EmployeDAO {
         }
     }
         
-        public Collection<Employe> list(Connection cnx) {
+    public Collection<Employe> list(Connection cnx) {
         Set<Employe> set = new HashSet<Employe>();
         
         Statement stmt = null;

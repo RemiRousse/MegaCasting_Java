@@ -204,7 +204,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Nom", "PrÃ©nom", "Poste", "Habilitation"
+                "Nom", "Prénom", "Poste", "Habilitation"
             }
         ) {
             Class[] types = new Class [] {
@@ -247,7 +247,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
         labelEmpl_nom.setText("Nom");
 
         labelEmpl_prenom.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelEmpl_prenom.setText("PrÃ©nom");
+        labelEmpl_prenom.setText("Prénom");
 
         labelEmpl_poste.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         labelEmpl_poste.setText("Poste");
@@ -391,7 +391,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Nom", "PrÃ©nom", "Date de naissance", "Pays"
+                "Nom", "Prénom", "Date de naissance", "Pays"
             }
         ) {
             Class[] types = new Class [] {
@@ -434,7 +434,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
         labelCand_nom.setText("Nom");
 
         labelCand_prenom.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelCand_prenom.setText("PrÃ©nom");
+        labelCand_prenom.setText("Prénom");
 
         labelCand_dateNaissance.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         labelCand_dateNaissance.setText("Date de naissance");
@@ -565,6 +565,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
                 .addContainerGap())
         );
         
+        
         /* EVENEMENTS */
         buttonEmpl_insert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -577,6 +578,28 @@ public class jPanelPersonne extends javax.swing.JPanel {
             }
         });
         
+        buttonEmpl_update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	buttonEmpl_update(evt);
+            }
+        });
+        buttonCand_update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	buttonCand_update(evt);
+            }
+        });
+        
+        tableCand_list.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                selectionCandidat(evt);
+            }
+        });
+        tableEmpl_list.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                selectionEmploye(evt);
+            }
+        });
+        
         
     
     }// </editor-fold>//GEN-END:initComponents
@@ -584,14 +607,20 @@ public class jPanelPersonne extends javax.swing.JPanel {
     
     
     //Fonction event
+    /**
+     * Switch Onglets
+     * @author Mousse
+     * @param evt
+     */
     private void comboBoxPers_sortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxPers_sortActionPerformed
         // TODO add your handling code here:
         tabbedPanePers.setSelectedIndex(comboBoxPers_sort.getSelectedIndex());
     }//GEN-LAST:event_comboBoxPers_sortActionPerformed
 
     /**
-     * @author Julien BUREAU <julien.bureau02@gmail.com>
      * Event Click Insert Employe
+     * @author Julien BUREAU <julien.bureau02@gmail.com>
+     * 
      */
     private void buttonEmpl_insert (ActionEvent evt){
     	String nom = textFieldEmpl_nom.getText();
@@ -614,12 +643,16 @@ public class jPanelPersonne extends javax.swing.JPanel {
 			textFieldEmpl_nom.setText("");
 			textFieldEmpl_prenom.setText("");
 			textFieldEmpl_poste.setText("");
+			textFieldEmpl_habilitation.setText("");
+			
+			refreshEmploye();
 		}
     }
 
     /**
-     * @author Julien BUREAU <julien.bureau02@gmail.com>
      * Event Click Insert Candidat
+     * @author Julien BUREAU <julien.bureau02@gmail.com>
+     * 
      */
     private void buttonCand_insert (ActionEvent evt){
     	String nom = textFieldCand_nom.getText();
@@ -645,11 +678,124 @@ public class jPanelPersonne extends javax.swing.JPanel {
 	    	textFieldCand_nom.setText("");
 	    	textFieldCand_prenom.setText("");
 	    	textFieldCand_pays.setText("");
+	    	
+	    	refreshCandidat();
 		}
     	
     }
     
+    /**
+     * Event Click Update Employe
+     * @author Julien BUREAU <julien.bureau02@gmail.com>
+     * 
+     */ 
+    private void buttonEmpl_update(ActionEvent evt) {
+    	
+    	int row = tableEmpl_list.getSelectedRow();
+    	Employe e = employes.get(row);
+    	
+    	int identifiant = (int) e.getIdentifiant();
+    	String nom = textFieldEmpl_nom.getText();
+    	String prenom = textFieldEmpl_prenom.getText();
+    	String poste = textFieldEmpl_poste.getText();
+    	
+    	
+    	try {
+    		int habilitation = Integer.parseInt(textFieldEmpl_habilitation.getText());
+    		
+    		Employe employe = new Employe(nom, prenom);
+	    	employe.setPoste(poste);
+	    	employe.setHabilitation(habilitation);
+	    	employe.setIdentifiant(identifiant);
+	    	
+	    	EmployeDAO employeDAO = new EmployeDAO();
+	    	employeDAO.update(cnx, employe);
+	    	
+		} catch (Exception ex) {
+			
+		} finally {
+			//Clear textField
+			textFieldEmpl_nom.setText("");
+			textFieldEmpl_prenom.setText("");
+			textFieldEmpl_poste.setText("");
+			textFieldEmpl_habilitation.setText("");
+			
+			refreshEmploye();
+		}
+    }
     
+    /**
+     * 
+     * @param evt
+     */
+    private void buttonCand_update(ActionEvent evt) {
+    	
+    	int row = tableCand_list.getSelectedRow();
+    	Candidat c = candidats.get(row);
+    	
+    	int identifiant = (int) c.getIdentifiant();
+    	String nom = textFieldEmpl_nom.getText();
+    	String prenom = textFieldEmpl_prenom.getText();
+    	String poste = textFieldEmpl_poste.getText();
+    	
+    	
+    	try {
+    		int habilitation = Integer.parseInt(textFieldEmpl_habilitation.getText());
+    		
+    		Employe employe = new Employe(nom, prenom);
+	    	employe.setPoste(poste);
+	    	employe.setHabilitation(habilitation);
+	    	employe.setIdentifiant(identifiant);
+	    	
+	    	EmployeDAO employeDAO = new EmployeDAO();
+	    	employeDAO.update(cnx, employe);
+	    	
+		} catch (Exception e) {
+			
+		} finally {
+			//Clear textField
+			textFieldEmpl_nom.setText("");
+			textFieldEmpl_prenom.setText("");
+			textFieldEmpl_poste.setText("");
+			textFieldEmpl_habilitation.setText("");
+			
+			refreshEmploye();
+		}
+    }
+    
+    
+    /**
+     * Event selection line candidat
+     * 
+     * @param evt
+     */
+    private void selectionCandidat(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_selection
+        int row = tableCand_list.rowAtPoint(evt.getPoint());
+        Candidat c = candidats.get(row);
+        
+        textFieldCand_nom.setText(c.getNom());
+        textFieldCand_prenom.setText(c.getPrenom());
+        textFieldCand_pays.setText(c.getPays());
+//        textFieldCand_dateNaissance.setText(c.getDateNaissance());
+    }
+    
+    /**
+     * Event selection line candidat
+     * 
+     * @param evt
+     */
+    private void selectionEmploye(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_selection
+        int row = tableEmpl_list.rowAtPoint(evt.getPoint());
+        Employe e = employes.get(row);
+        
+        textFieldEmpl_nom.setText(e.getNom());
+        textFieldEmpl_prenom.setText(e.getPrenom());
+        textFieldEmpl_poste.setText(e.getPoste());
+        
+        if (evt.getClickCount() > 1) {
+//        	tableCand_list.setS .setSelectedIndex(0);
+        }
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCand_delete;
