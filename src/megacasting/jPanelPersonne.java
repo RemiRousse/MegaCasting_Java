@@ -609,6 +609,11 @@ public class jPanelPersonne extends javax.swing.JPanel {
 	    	employeDAO.insert(cnx, employe);
 		} catch (Exception e) {
 			// TODO: handle exception
+		} finally {
+			//Clear textField
+			textFieldEmpl_nom.setText("");
+			textFieldEmpl_prenom.setText("");
+			textFieldEmpl_poste.setText("");
 		}
     }
 
@@ -632,10 +637,16 @@ public class jPanelPersonne extends javax.swing.JPanel {
 	    	
 	    	CandidatDAO candidatDAO = new CandidatDAO();
 	    	candidatDAO.insert(cnx, candidat);
-	    	
+
 		} catch (Exception e) {
 			// TODO: handle exception
+		} finally {
+			//Clear textField
+	    	textFieldCand_nom.setText("");
+	    	textFieldCand_prenom.setText("");
+	    	textFieldCand_pays.setText("");
 		}
+    	
     }
     
     
