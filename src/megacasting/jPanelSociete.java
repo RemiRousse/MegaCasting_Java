@@ -111,7 +111,7 @@ public class jPanelSociete extends javax.swing.JPanel {
     private void initComponents() {
 
         panelSociete_sort = new javax.swing.JPanel();
-        comboBoxSociete_sort = new javax.swing.JComboBox<String>();
+        comboBoxSociete_sort = new javax.swing.JComboBox();
         tabbedPaneSociete = new javax.swing.JTabbedPane();
         panelAnnonceur = new javax.swing.JPanel();
         panelAnnonceur_list = new javax.swing.JPanel();
@@ -144,7 +144,7 @@ public class jPanelSociete extends javax.swing.JPanel {
 
         panelSociete_sort.setBorder(javax.swing.BorderFactory.createTitledBorder("Tri"));
 
-        comboBoxSociete_sort.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "Item 1", "Item 2" }));
+        comboBoxSociete_sort.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2" }));
         comboBoxSociete_sort.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboBoxSociete_sortActionPerformed(evt);
@@ -284,6 +284,11 @@ public class jPanelSociete extends javax.swing.JPanel {
         panelAnnonceur_valid.setBorder(javax.swing.BorderFactory.createTitledBorder("Valider"));
 
         buttonAnnonceur_insert.setLabel("Ajouter");
+        buttonAnnonceur_insert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAnnonceur_insertActionPerformed(evt);
+            }
+        });
 
         buttonAnnonceur_update.setLabel("Modifier");
 
@@ -453,6 +458,11 @@ public class jPanelSociete extends javax.swing.JPanel {
         panelDiffuseur_valid.setBorder(javax.swing.BorderFactory.createTitledBorder("Valider"));
 
         buttonDiffuseur_insert.setLabel("Ajouter");
+        buttonDiffuseur_insert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDiffuseur_insertActionPerformed(evt);
+            }
+        });
 
         buttonDiffuseur_update.setLabel("Modifier");
 
@@ -531,7 +541,7 @@ public class jPanelSociete extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(panelSociete_sort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tabbedPaneSociete, javax.swing.GroupLayout.DEFAULT_SIZE, 659, Short.MAX_VALUE)
+                .addComponent(tabbedPaneSociete)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -540,6 +550,38 @@ public class jPanelSociete extends javax.swing.JPanel {
         // TODO add your handling code here:
         tabbedPaneSociete.setSelectedIndex(comboBoxSociete_sort.getSelectedIndex());
     }//GEN-LAST:event_comboBoxSociete_sortActionPerformed
+
+    private void buttonAnnonceur_insertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAnnonceur_insertActionPerformed
+        
+        String nom = textFieldAnnonceur_nom.getText();
+    	String responsable = textFieldAnnonceur_responsable.getText();
+    	String siret = textFieldAnnonceur_siret.getText();
+    	
+    	try {
+            Annonceur annonceur = new Annonceur(nom, responsable);
+	    annonceur.setSiret(siret);
+	    
+	    AnnonceurDAO annonceurDAO = new AnnonceurDAO();
+	    annonceurDAO.insert(cnx, annonceur);
+	} catch (Exception e) {
+	// TODO: handle exception
+	}
+    }//GEN-LAST:event_buttonAnnonceur_insertActionPerformed
+
+    private void buttonDiffuseur_insertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDiffuseur_insertActionPerformed
+        
+        String nom = textFieldDiffuseur_nom.getText();
+    	String responsable = textFieldDiffuseur_responsable.getText();
+    	
+    	try {
+            Diffuseur diffuseur = new Diffuseur(nom, responsable);
+	    
+	    DiffuseurDAO diffuseurDAO = new DiffuseurDAO();
+	    diffuseurDAO.insert(cnx, diffuseur);
+	} catch (Exception e) {
+	// TODO: handle exception
+	}
+    }//GEN-LAST:event_buttonDiffuseur_insertActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

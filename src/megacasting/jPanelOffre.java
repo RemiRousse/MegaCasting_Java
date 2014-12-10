@@ -59,18 +59,12 @@ public class jPanelOffre extends javax.swing.JPanel {
         
         for (Offre o : offres) {
             model.addRow(new Object[] {
-                o.getAnnonceur(),
-                o.getContrat(),
-                o.getDateDebContrat(),
-                o.getDateDebPublication(), 
-                o.getDateFinContrat(),  
-                o.getDescPoste(),
-                o.getDescProfil(),  
-                o.getDomaine(),
-                o.getIdentifiant(),
+                o.getReference(),
                 o.getLibelle(), 
-                o.getMetier(),
-                o.getReference()
+                o.getDateDebPublication(),  
+                o.getDomaine().getLibelle(),
+                o.getMetier().getLibelle(),
+                o.getContrat().getLibelle()
             });
         }
     }

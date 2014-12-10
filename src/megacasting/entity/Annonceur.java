@@ -24,7 +24,6 @@ public class Annonceur extends Entreprise {
         this.identifiant = identifiant;
         this.siret = siret;
     }
-       
     
 	/**
 	 * @return the identifiant

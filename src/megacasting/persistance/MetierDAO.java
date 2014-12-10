@@ -153,7 +153,7 @@ public class MetierDAO {
             
             pstmt = cnx.prepareStatement("SELECT Identifiant, Libelle, IdentifiantDomaine "
                     + "FROM Metier "
-                    + "WHERE Identifiant ?");
+                    + "WHERE Identifiant = ?");
             pstmt.setLong(1, id);
             
             ResultSet rs = pstmt.executeQuery();
