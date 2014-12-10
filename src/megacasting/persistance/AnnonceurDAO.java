@@ -148,7 +148,7 @@ public class AnnonceurDAO {
         PreparedStatement pstmt = null;
         
         try {
-            pstmt = cnx.prepareStatement("SELECT Identifiant, Nom, Reponsable, Siret "
+            pstmt = cnx.prepareStatement("SELECT Identifiant, Nom, Responsable, Siret "
                     + " FROM Annonceur "
                     + " WHERE Identifiant = ?");
             pstmt.setLong(1, id);

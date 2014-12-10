@@ -147,7 +147,7 @@ public class DiffuseurDAO {
         PreparedStatement pstmt = null;
         
         try {
-            pstmt = cnx.prepareStatement("SELECT Identifiant, Nom, Reponsable, Siret "
+            pstmt = cnx.prepareStatement("SELECT Identifiant, Nom, Responsable, Siret "
                     + " FROM Diffuseur "
                     + " WHERE Identifiant = ?");
             pstmt.setLong(1, id);

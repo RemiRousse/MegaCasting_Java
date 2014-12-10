@@ -6,6 +6,7 @@
 
 package megacasting;
 
+import java.awt.event.ActionEvent;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
@@ -562,8 +563,22 @@ public class jPanelPersonne extends javax.swing.JPanel {
                 .addComponent(tabbedPanePers, javax.swing.GroupLayout.DEFAULT_SIZE, 659, Short.MAX_VALUE)
                 .addContainerGap())
         );
+        
+        //Event
+        buttonEmpl_insert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	buttonEmpl_insert(evt);
+            }
+        });
+        
+        
+        
+    
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
+    //Fonction event
     private void comboBoxPers_sortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxPers_sortActionPerformed
         // TODO add your handling code here:
         tabbedPanePers.setSelectedIndex(comboBoxPers_sort.getSelectedIndex());
@@ -573,11 +588,23 @@ public class jPanelPersonne extends javax.swing.JPanel {
      * @author Julien BUREAU <julien.bureau02@gmail.com>
      * Event Click Insert
      */
-    private void buttonEmpl_insert (java.awt.event.MouseEvent evt){
-    	String nom = labelEmpl_nom.getText();
-    	String prenom = labelEmpl_nom.getText();
-    	String nom = labelEmpl_nom.getText();
-    	String nom = labelEmpl_nom.getText();
+    private void buttonEmpl_insert (ActionEvent evt){
+    	String nom = textFieldEmpl_nom.getText();
+    	String prenom = textFieldEmpl_prenom.getText();
+    	String poste = textFieldEmpl_poste.getText();
+    	
+    	try {
+    		int habilitation = Integer.parseInt(textFieldEmpl_habilitation.getText());
+	    	
+	    	Employe employe = new Employe(nom, prenom);
+	    	employe.setPoste(poste);
+	    	employe.setHabilitation(habilitation);
+	    	
+	    	EmployeDAO employeDAO = new EmployeDAO();
+	    	employeDAO.insert(cnx, employe);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
