@@ -11,7 +11,11 @@ import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Properties;
 
+import javafx.scene.control.DatePicker;
+
+import javax.swing.JLabel;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
 import javax.swing.table.DefaultTableModel;
 
@@ -76,7 +80,6 @@ public class jPanelPersonne extends javax.swing.JPanel {
             });
         }
     }
-    
     
     /**
      * refrech list candidat
@@ -147,6 +150,9 @@ public class jPanelPersonne extends javax.swing.JPanel {
         buttonCand_insert = new javax.swing.JButton();
         buttonCand_update = new javax.swing.JButton();
         buttonCand_delete = new javax.swing.JButton();
+        
+        
+
 
         panelPers_sort.setBorder(javax.swing.BorderFactory.createTitledBorder("Tri"));
 
@@ -599,10 +605,8 @@ public class jPanelPersonne extends javax.swing.JPanel {
                 selectionEmploye(evt);
             }
         });
-        
-        
-    
-    }// </editor-fold>//GEN-END:initComponents
+
+    }
 
     
     
@@ -739,35 +743,32 @@ public class jPanelPersonne extends javax.swing.JPanel {
     	Candidat c = candidats.get(row);
     	
     	int identifiant = (int) c.getIdentifiant();
-    	String nom = textFieldEmpl_nom.getText();
-    	String prenom = textFieldEmpl_prenom.getText();
-    	String poste = textFieldEmpl_poste.getText();
-    	
+    	String nom = textFieldCand_nom.getText();
+    	String prenom = textFieldCand_prenom.getText();
+    	String pays = textFieldCand_pays.getText();
+//    	Date dateNaissance = testFieldCand_dateNaissance.getDate();
     	
     	try {
-    		int habilitation = Integer.parseInt(textFieldEmpl_habilitation.getText());
     		
-    		Employe employe = new Employe(nom, prenom);
-	    	employe.setPoste(poste);
-	    	employe.setHabilitation(habilitation);
-	    	employe.setIdentifiant(identifiant);
+    		//Creation de l'employe
+    		Candidat candidat = new Candidat(nom, prenom);
+	    	candidat.setPays(pays);
+	    	candidat.setIdentifiant(identifiant);
 	    	
-	    	EmployeDAO employeDAO = new EmployeDAO();
-	    	employeDAO.update(cnx, employe);
+	    	CandidatDAO candidatDAO = new CandidatDAO();
+	    	candidatDAO.update(cnx, candidat);
 	    	
-		} catch (Exception e) {
+		} catch (Exception ex) {
 			
 		} finally {
 			//Clear textField
-			textFieldEmpl_nom.setText("");
-			textFieldEmpl_prenom.setText("");
-			textFieldEmpl_poste.setText("");
-			textFieldEmpl_habilitation.setText("");
+			textFieldCand_nom.setText("");
+			textFieldCand_prenom.setText("");
+			textFieldCand_pays.setText("");
 			
-			refreshEmploye();
+			refreshCandidat();
 		}
     }
-    
     
     /**
      * Event selection line employe
