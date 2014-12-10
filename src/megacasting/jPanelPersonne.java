@@ -698,14 +698,18 @@ public class jPanelPersonne extends javax.swing.JPanel {
     	String nom = textFieldEmpl_nom.getText();
     	String prenom = textFieldEmpl_prenom.getText();
     	String poste = textFieldEmpl_poste.getText();
-    	
-    	
+
     	try {
-    		int habilitation = Integer.parseInt(textFieldEmpl_habilitation.getText());
     		
+    		//Creation de l'employe
     		Employe employe = new Employe(nom, prenom);
 	    	employe.setPoste(poste);
-	    	employe.setHabilitation(habilitation);
+	    	
+	    	if(textFieldEmpl_habilitation.getText() != null){
+    			int habilitation = Integer.parseInt(textFieldEmpl_habilitation.getText());
+    			employe.setHabilitation(habilitation);
+    		}
+	    	
 	    	employe.setIdentifiant(identifiant);
 	    	
 	    	EmployeDAO employeDAO = new EmployeDAO();
@@ -725,7 +729,8 @@ public class jPanelPersonne extends javax.swing.JPanel {
     }
     
     /**
-     * 
+     * Event Click Update employe
+     * @author Julien BUREAU <julien.bureau02@gmail.com>
      * @param evt
      */
     private void buttonCand_update(ActionEvent evt) {
@@ -765,8 +770,8 @@ public class jPanelPersonne extends javax.swing.JPanel {
     
     
     /**
-     * Event selection line candidat
-     * 
+     * Event selection line employe
+     * @author Julien BUREAU <julien.bureau02@gmail.com>
      * @param evt
      */
     private void selectionCandidat(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_selection
@@ -781,7 +786,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
     
     /**
      * Event selection line candidat
-     * 
+     * @author Julien BUREAU <julien.bureau02@gmail.com>
      * @param evt
      */
     private void selectionEmploye(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_selection

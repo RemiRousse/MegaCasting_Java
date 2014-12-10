@@ -79,7 +79,7 @@ public class EmployeDAO {
 		 
 		 try {
             pstmt = cnx.prepareStatement("UPDATE Employe SET "
-                    + "Libelle = ? "
+                    + "Nom = ?, Prenom = ?, Poste = ?, Habilitation = ? "
                     + "WHERE Identifiant = ?");
             pstmt.setString(1, employe.getNom());
             pstmt.setString(2, employe.getPrenom());
