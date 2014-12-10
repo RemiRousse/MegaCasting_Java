@@ -30,7 +30,7 @@ public class DiffuseurDAO {
 
         try {
             pstmt = cnx.prepareStatement("INSERT INTO Diffuseur (Nom, Responsable) "
-                    + "VALUES (?, ?, ?)");
+                    + "VALUES (?, ?)");
             pstmt.setString(1, diffuseur.getNom());
             pstmt.setString(2, diffuseur.getResponsable());
 
