@@ -9,6 +9,7 @@ package megacasting;
 import java.awt.event.ActionEvent;
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
@@ -564,13 +565,17 @@ public class jPanelPersonne extends javax.swing.JPanel {
                 .addContainerGap())
         );
         
-        //Event
+        /* EVENEMENTS */
         buttonEmpl_insert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
             	buttonEmpl_insert(evt);
             }
         });
-        
+        buttonCand_insert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	buttonCand_insert(evt);
+            }
+        });
         
         
     
@@ -586,7 +591,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
 
     /**
      * @author Julien BUREAU <julien.bureau02@gmail.com>
-     * Event Click Insert
+     * Event Click Insert Employe
      */
     private void buttonEmpl_insert (ActionEvent evt){
     	String nom = textFieldEmpl_nom.getText();
@@ -607,6 +612,34 @@ public class jPanelPersonne extends javax.swing.JPanel {
 		}
     }
 
+    /**
+     * @author Julien BUREAU <julien.bureau02@gmail.com>
+     * Event Click Insert Candidat
+     */
+    private void buttonCand_insert (ActionEvent evt){
+    	String nom = textFieldCand_nom.getText();
+    	String prenom = textFieldCand_prenom.getText();
+    	String pays = textFieldCand_pays.getText();
+//    	String dateNaissance = labelCand_dateNaissance.getText();
+    	
+    	try {
+    		
+//    		int dateNaissance = Date.parse (textFieldEmpl_habilitation.getText());
+	    	
+	    	Candidat candidat = new Candidat(nom, prenom);
+	    	candidat.setPays(pays);
+//	    	candidat.setDateNaissance(dateNaissance);
+	    	
+	    	CandidatDAO candidatDAO = new CandidatDAO();
+	    	candidatDAO.insert(cnx, candidat);
+	    	
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+    }
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCand_delete;
     private javax.swing.JButton buttonCand_insert;
