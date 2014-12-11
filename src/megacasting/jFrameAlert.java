@@ -18,11 +18,12 @@ public class jFrameAlert extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args, String message) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					jFrameAlert frame = new jFrameAlert();
+					
+					jFrameAlert frame = new jFrameAlert(message);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -34,7 +35,7 @@ public class jFrameAlert extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public jFrameAlert() {
+	public jFrameAlert(String message) {
 		setType(Type.POPUP);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -44,7 +45,7 @@ public class jFrameAlert extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		JLabel labelAlert = new JLabel("");
+		JLabel labelAlert = new JLabel(message);
 		labelAlert.setFont(new Font("Calibri", Font.BOLD, 17));
 		labelAlert.setForeground(Color.RED);
 		contentPane.add(labelAlert, BorderLayout.CENTER);

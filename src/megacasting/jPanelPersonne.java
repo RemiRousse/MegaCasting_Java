@@ -649,7 +649,8 @@ public class jPanelPersonne extends javax.swing.JPanel {
     	String nom = textFieldEmpl_nom.getText();
     	String prenom = textFieldEmpl_prenom.getText();
     	String poste = textFieldEmpl_poste.getText();
-    	
+    	jFrameAlert jFrameAlert = new jFrameAlert("insert ok");
+    	jFrameAlert.setVisible(true);
     	try {
     		int habilitation = Integer.parseInt(textFieldEmpl_habilitation.getText());
 	    	
@@ -660,7 +661,8 @@ public class jPanelPersonne extends javax.swing.JPanel {
 	    	EmployeDAO employeDAO = new EmployeDAO();
 	    	employeDAO.insert(cnx, employe);
 		} catch (Exception e) {
-			// TODO: handle exception
+
+
 		} finally {
 			//Clear textField
 			textFieldEmpl_nom.setText("");
@@ -734,7 +736,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
             		int habilitationParse = Integer.parseInt(habilitation);
                     employe.setHabilitation(habilitationParse);
 				} catch (Exception e2) {
-					//message erreur
+					jFrameAlert jFrameAlert = new jFrameAlert("bonjour");
 				}
             }
 
@@ -744,7 +746,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
             employeDAO.update(cnx, employe);
 
         } catch (Exception ex) {
-
+        	jFrameAlert jFrameAlert = new jFrameAlert("bonjour 2");
         } finally {
             //Clear textField
             textFieldEmpl_nom.setText("");
