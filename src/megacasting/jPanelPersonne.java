@@ -704,7 +704,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
 			    	candidatDAO.insert(cnx, candidat);
 
 				} catch (Exception e) {
-			    	jFrameAlert jFrameAlert = new jFrameAlert("L'ajout a échoué. Rééssayez 1 .");
+			    	jFrameAlert jFrameAlert = new jFrameAlert("L'ajout a échoué. Rééssayez.");
 			    	jFrameAlert.setVisible(true);
 				} finally {
 					//Clear textField
