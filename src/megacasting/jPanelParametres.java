@@ -6,17 +6,111 @@
 
 package megacasting;
 
+import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import megacasting.entity.Contrat;
+import megacasting.entity.Domaine;
+import megacasting.entity.Metier;
+import megacasting.persistance.ConnectionBDD;
+import megacasting.persistance.ContratDAO;
+import megacasting.persistance.DomaineDAO;
+import megacasting.persistance.MetierDAO;
+
 /**
  *
  * @author Mousse
  */
 public class jPanelParametres extends javax.swing.JPanel {
 
+    private List<Contrat> contrats;
+    private List<Metier> metiers;
+    private List<Domaine> domaines;
+    private Connection cnx;
+    
     /**
      * Creates new form jPanelParametres
      */
     public jPanelParametres() {
         initComponents();
+        
+        //Connection a la base
+        ConnectionBDD connectionBDD = ConnectionBDD.getInstance();
+        cnx = connectionBDD.getConnection();
+        //Refrech des listes 
+        refreshParams();
+    }
+    
+    public void refreshParams(){
+    	
+        //Initialisation de la table des contrats
+    	ContratDAO contratDAO = new ContratDAO();
+    	contrats = new ArrayList<Contrat>(contratDAO.list(cnx));
+                
+        DefaultTableModel modelContrat = (DefaultTableModel) tableContrat.getModel();
+        
+        modelContrat.setNumRows(0);
+        
+        for (Contrat c : contrats) {
+            modelContrat.addRow(new Object[] {
+                c.getLibelle()
+            });
+        }
+        
+        //Initialisation de la table des metiers
+    	MetierDAO metierDAO = new MetierDAO();
+    	metiers = new ArrayList<Metier>(metierDAO.list(cnx));
+                
+        DefaultTableModel modelMetier = (DefaultTableModel) tableMetier.getModel();
+        
+        modelMetier.setNumRows(0);
+        
+        for (Metier m : metiers) {
+            modelMetier.addRow(new Object[] {
+                m.getLibelle(),
+                m.getDomaine().getLibelle()
+            });
+        }
+        
+        //Initialisation de la table des domaines
+    	DomaineDAO domaineDAO = new DomaineDAO();
+    	domaines = new ArrayList<Domaine>(domaineDAO.list(cnx));
+                
+        DefaultTableModel modelDomaine = (DefaultTableModel) tableDomaine.getModel();
+        
+        modelDomaine.setNumRows(0);
+        
+        for (Domaine d : domaines) {
+            modelDomaine.addRow(new Object[] {
+                d.getLibelle()
+            });
+            
+            //Initialisation de la comboBox des domaines dans le formulaire des metiers
+            comboBoxMetier_domaine.addItem(d.getLibelle());
+        }
+    }
+    
+    private void selectionContrat(java.awt.event.MouseEvent evt) {                           
+        int row = tableContrat.rowAtPoint(evt.getPoint());
+        Contrat c = contrats.get(row);
+        
+        textFieldContrat_libelle.setText(c.getLibelle());
+    }
+    
+    private void selectionMetier(java.awt.event.MouseEvent evt) {                           
+        int row = tableMetier.rowAtPoint(evt.getPoint());
+        Metier m = metiers.get(row);
+        
+        textFieldMetier_libelle.setText(m.getLibelle());
+        comboBoxMetier_domaine.setSelectedItem(m.getDomaine().getLibelle());
+    }
+    
+    private void selectionDomaine(java.awt.event.MouseEvent evt) {                           
+        int row = tableDomaine.rowAtPoint(evt.getPoint());
+        Domaine d = domaines.get(row);
+        
+        textFieldDomaine_libelle.setText(d.getLibelle());
     }
 
     /**
@@ -29,19 +123,35 @@ public class jPanelParametres extends javax.swing.JPanel {
     private void initComponents() {
 
         panelContrat = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        scrollPaneContrat = new javax.swing.JScrollPane();
+        tableContrat = new javax.swing.JTable();
+        labelContrat_libelle = new javax.swing.JLabel();
+        textFieldContrat_libelle = new javax.swing.JTextField();
+        buttonContrat_insert = new javax.swing.JButton();
+        buttonContrat_update = new javax.swing.JButton();
+        buttonContrat_delete = new javax.swing.JButton();
         panelMetier = new javax.swing.JPanel();
+        scrollPaneMetier = new javax.swing.JScrollPane();
+        tableMetier = new javax.swing.JTable();
+        labelMetier_libelle = new javax.swing.JLabel();
+        textFieldMetier_libelle = new javax.swing.JTextField();
+        labelMetier_domaine = new javax.swing.JLabel();
+        comboBoxMetier_domaine = new javax.swing.JComboBox();
+        buttonMetier_insert = new javax.swing.JButton();
+        buttonMetier_update = new javax.swing.JButton();
+        buttonMetier_delete = new javax.swing.JButton();
         panelDomaine = new javax.swing.JPanel();
+        scrollPaneDomaine = new javax.swing.JScrollPane();
+        tableDomaine = new javax.swing.JTable();
+        labelDomaine_libelle = new javax.swing.JLabel();
+        textFieldDomaine_libelle = new javax.swing.JTextField();
+        buttonDomaine_insert = new javax.swing.JButton();
+        buttonDomaine_update = new javax.swing.JButton();
+        buttonDomaine_delete = new javax.swing.JButton();
 
         panelContrat.setBorder(javax.swing.BorderFactory.createTitledBorder("Contrats"));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableContrat.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
                 {null},
@@ -67,21 +177,36 @@ public class jPanelParametres extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        tableContrat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableContratMouseClicked(evt);
+            }
+        });
+        scrollPaneContrat.setViewportView(tableContrat);
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel1.setText("Libellé");
+        labelContrat_libelle.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labelContrat_libelle.setText("Libellé");
 
-        jButton1.setText("Ajouter");
-
-        jButton2.setText("Modifier");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        buttonContrat_insert.setText("Ajouter");
+        buttonContrat_insert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                buttonContrat_insertActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Supprimer");
+        buttonContrat_update.setText("Modifier");
+        buttonContrat_update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonContrat_updateActionPerformed(evt);
+            }
+        });
+
+        buttonContrat_delete.setText("Supprimer");
+        buttonContrat_delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonContrat_deleteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelContratLayout = new javax.swing.GroupLayout(panelContrat);
         panelContrat.setLayout(panelContratLayout);
@@ -89,65 +214,254 @@ public class jPanelParametres extends javax.swing.JPanel {
             panelContratLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelContratLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(panelContratLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addGap(18, 18, 18)
+                .addComponent(scrollPaneContrat, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(panelContratLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelContratLayout.createSequentialGroup()
-                        .addComponent(jButton2)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton3)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(labelContrat_libelle, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(textFieldContrat_libelle, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(76, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelContratLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buttonContrat_insert)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonContrat_update)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonContrat_delete)
+                        .addGap(37, 37, 37))))
         );
         panelContratLayout.setVerticalGroup(
             panelContratLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelContratLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelContratLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelContratLayout.createSequentialGroup()
+                .addGroup(panelContratLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelContratLayout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addGroup(panelContratLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelContrat_libelle)
+                            .addComponent(textFieldContrat_libelle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
                         .addGroup(panelContratLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2)
-                            .addComponent(jButton3)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(buttonContrat_insert)
+                            .addComponent(buttonContrat_update)
+                            .addComponent(buttonContrat_delete)))
+                    .addComponent(scrollPaneContrat, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         panelMetier.setBorder(javax.swing.BorderFactory.createTitledBorder("Métiers"));
         panelMetier.setPreferredSize(new java.awt.Dimension(12, 231));
 
+        tableMetier.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                "Libellé"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableMetier.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableMetierMouseClicked(evt);
+            }
+        });
+        scrollPaneMetier.setViewportView(tableMetier);
+
+        labelMetier_libelle.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labelMetier_libelle.setText("Libellé");
+
+        labelMetier_domaine.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labelMetier_domaine.setText("Domaine");
+
+        buttonMetier_insert.setText("Ajouter");
+        buttonMetier_insert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonMetier_insertActionPerformed(evt);
+            }
+        });
+
+        buttonMetier_update.setText("Modifier");
+        buttonMetier_update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonMetier_updateActionPerformed(evt);
+            }
+        });
+
+        buttonMetier_delete.setText("Supprimer");
+        buttonMetier_delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonMetier_deleteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelMetierLayout = new javax.swing.GroupLayout(panelMetier);
         panelMetier.setLayout(panelMetierLayout);
         panelMetierLayout.setHorizontalGroup(
             panelMetierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 751, Short.MAX_VALUE)
+            .addGroup(panelMetierLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(scrollPaneMetier, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelMetierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMetierLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buttonMetier_insert)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonMetier_update)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonMetier_delete)
+                        .addGap(38, 38, 38))
+                    .addGroup(panelMetierLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(panelMetierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(panelMetierLayout.createSequentialGroup()
+                                .addComponent(labelMetier_domaine, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(comboBoxMetier_domaine, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(panelMetierLayout.createSequentialGroup()
+                                .addComponent(labelMetier_libelle, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(textFieldMetier_libelle, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         panelMetierLayout.setVerticalGroup(
             panelMetierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 206, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMetierLayout.createSequentialGroup()
+                .addGroup(panelMetierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelMetierLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(panelMetierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelMetier_libelle)
+                            .addComponent(textFieldMetier_libelle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelMetierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelMetier_domaine)
+                            .addComponent(comboBoxMetier_domaine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                        .addGroup(panelMetierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(buttonMetier_insert)
+                            .addComponent(buttonMetier_update)
+                            .addComponent(buttonMetier_delete)))
+                    .addComponent(scrollPaneMetier, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         panelDomaine.setBorder(javax.swing.BorderFactory.createTitledBorder("Domaines de métiers"));
         panelDomaine.setPreferredSize(new java.awt.Dimension(12, 230));
 
+        tableDomaine.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                "Libellé"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableDomaine.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableDomaineMouseClicked(evt);
+            }
+        });
+        scrollPaneDomaine.setViewportView(tableDomaine);
+
+        labelDomaine_libelle.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labelDomaine_libelle.setText("Libellé");
+
+        buttonDomaine_insert.setText("Ajouter");
+        buttonDomaine_insert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDomaine_insertActionPerformed(evt);
+            }
+        });
+
+        buttonDomaine_update.setText("Modifier");
+        buttonDomaine_update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDomaine_updateActionPerformed(evt);
+            }
+        });
+
+        buttonDomaine_delete.setText("Supprimer");
+        buttonDomaine_delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDomaine_deleteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelDomaineLayout = new javax.swing.GroupLayout(panelDomaine);
         panelDomaine.setLayout(panelDomaineLayout);
         panelDomaineLayout.setHorizontalGroup(
             panelDomaineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(panelDomaineLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(scrollPaneDomaine, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelDomaineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelDomaineLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(labelDomaine_libelle, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(textFieldDomaine_libelle, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(76, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDomaineLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buttonDomaine_insert)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonDomaine_update)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonDomaine_delete)
+                        .addGap(35, 35, 35))))
         );
         panelDomaineLayout.setVerticalGroup(
             panelDomaineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 205, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDomaineLayout.createSequentialGroup()
+                .addGroup(panelDomaineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelDomaineLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(panelDomaineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelDomaine_libelle)
+                            .addComponent(textFieldDomaine_libelle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                        .addGroup(panelDomaineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(buttonDomaine_insert)
+                            .addComponent(buttonDomaine_update)
+                            .addComponent(buttonDomaine_delete)))
+                    .addComponent(scrollPaneDomaine, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -175,21 +489,181 @@ public class jPanelParametres extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void buttonContrat_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonContrat_updateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_buttonContrat_updateActionPerformed
+
+    private void buttonMetier_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMetier_updateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonMetier_updateActionPerformed
+
+    private void buttonDomaine_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDomaine_updateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonDomaine_updateActionPerformed
+
+    private void buttonContrat_insertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonContrat_insertActionPerformed
+        
+        String libelle = textFieldContrat_libelle.getText();
+    	
+    	try {
+            Contrat contrat = new Contrat(libelle);
+	    
+	    ContratDAO contratDAO = new ContratDAO();
+	    contratDAO.insert(cnx, contrat);
+	} catch (Exception e) {
+	// TODO: handle exception
+	} finally {
+            //Clear textField
+            textFieldContrat_libelle.setText("");
+
+            refreshParams();
+        }
+    }//GEN-LAST:event_buttonContrat_insertActionPerformed
+
+    private void buttonMetier_insertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMetier_insertActionPerformed
+        
+        String libelle = textFieldMetier_libelle.getText();
+        String libDomaine = comboBoxMetier_domaine.getSelectedItem().toString();
+        
+        DomaineDAO domaineDAO = new DomaineDAO();
+        Domaine domaine = domaineDAO.findFromLibelle(cnx, libDomaine);
+        
+        try {
+            Metier metier = new Metier(libelle, domaine);
+	    
+	    MetierDAO metierDAO = new MetierDAO();
+	    metierDAO.insert(cnx, metier);
+	} catch (Exception e) {
+	// TODO: handle exception
+	} finally {
+            //Clear textField
+            textFieldMetier_libelle.setText("");
+
+            refreshParams();
+        }
+    }//GEN-LAST:event_buttonMetier_insertActionPerformed
+
+    private void buttonDomaine_insertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDomaine_insertActionPerformed
+        
+        String libelle = textFieldDomaine_libelle.getText();
+        
+        try {
+            Domaine domaine = new Domaine(libelle);
+	    
+	    DomaineDAO domaineDAO = new DomaineDAO();
+	    domaineDAO.insert(cnx, domaine);
+	} catch (Exception e) {
+	// TODO: handle exception
+	} finally {
+            //Clear textField
+            textFieldDomaine_libelle.setText("");
+
+            refreshParams();
+        }
+    }//GEN-LAST:event_buttonDomaine_insertActionPerformed
+
+    private void buttonContrat_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonContrat_deleteActionPerformed
+        
+        int row = tableContrat.getSelectedRow();
+    	Contrat contrat = contrats.get(row);
+
+    	try {
+
+            ContratDAO contratDAO = new ContratDAO();
+            contratDAO.delete(cnx, contrat);
+
+        } catch (Exception ex) {
+
+        } finally {
+            //Clear textField
+            textFieldContrat_libelle.setText("");
+
+            //refreshParams();
+        }
+    }//GEN-LAST:event_buttonContrat_deleteActionPerformed
+
+    private void buttonMetier_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMetier_deleteActionPerformed
+        
+        int row = tableMetier.getSelectedRow();
+    	Metier metier = metiers.get(row);
+
+    	try {
+
+            MetierDAO metierDAO = new MetierDAO();
+            metierDAO.delete(cnx, metier);
+
+        } catch (Exception ex) {
+
+        } finally {
+            //Clear textField
+            textFieldMetier_libelle.setText("");
+
+            //refreshParams();
+        }
+    }//GEN-LAST:event_buttonMetier_deleteActionPerformed
+
+    private void buttonDomaine_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDomaine_deleteActionPerformed
+        
+        int row = tableDomaine.getSelectedRow();
+    	Domaine domaine = domaines.get(row);
+
+    	try {
+
+            DomaineDAO domaineDAO = new DomaineDAO();
+            domaineDAO.delete(cnx, domaine);
+
+        } catch (Exception ex) {
+
+        } finally {
+            //Clear textField
+            textFieldDomaine_libelle.setText("");
+
+            //refreshParams();
+        }
+    }//GEN-LAST:event_buttonDomaine_deleteActionPerformed
+
+    private void tableContratMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableContratMouseClicked
+        
+        selectionContrat(evt);
+    }//GEN-LAST:event_tableContratMouseClicked
+
+    private void tableMetierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMetierMouseClicked
+        
+        selectionMetier(evt);
+    }//GEN-LAST:event_tableMetierMouseClicked
+
+    private void tableDomaineMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableDomaineMouseClicked
+        
+        selectionDomaine(evt);
+    }//GEN-LAST:event_tableDomaineMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton buttonContrat_delete;
+    private javax.swing.JButton buttonContrat_insert;
+    private javax.swing.JButton buttonContrat_update;
+    private javax.swing.JButton buttonDomaine_delete;
+    private javax.swing.JButton buttonDomaine_insert;
+    private javax.swing.JButton buttonDomaine_update;
+    private javax.swing.JButton buttonMetier_delete;
+    private javax.swing.JButton buttonMetier_insert;
+    private javax.swing.JButton buttonMetier_update;
+    private javax.swing.JComboBox comboBoxMetier_domaine;
+    private javax.swing.JLabel labelContrat_libelle;
+    private javax.swing.JLabel labelDomaine_libelle;
+    private javax.swing.JLabel labelMetier_domaine;
+    private javax.swing.JLabel labelMetier_libelle;
     private javax.swing.JPanel panelContrat;
     private javax.swing.JPanel panelDomaine;
     private javax.swing.JPanel panelMetier;
+    private javax.swing.JScrollPane scrollPaneContrat;
+    private javax.swing.JScrollPane scrollPaneDomaine;
+    private javax.swing.JScrollPane scrollPaneMetier;
+    private javax.swing.JTable tableContrat;
+    private javax.swing.JTable tableDomaine;
+    private javax.swing.JTable tableMetier;
+    private javax.swing.JTextField textFieldContrat_libelle;
+    private javax.swing.JTextField textFieldDomaine_libelle;
+    private javax.swing.JTextField textFieldMetier_libelle;
     // End of variables declaration//GEN-END:variables
 }
