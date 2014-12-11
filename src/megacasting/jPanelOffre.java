@@ -7,16 +7,22 @@
 package megacasting;
 
 import java.sql.Connection;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
 import javax.swing.table.DefaultTableModel;
+
 import megacasting.entity.Contrat;
 import megacasting.entity.Domaine;
+import megacasting.entity.Employe;
 import megacasting.entity.Metier;
 import megacasting.entity.Offre;
 import megacasting.persistance.ConnectionBDD;
 import megacasting.persistance.ContratDAO;
 import megacasting.persistance.DomaineDAO;
+import megacasting.persistance.EmployeDAO;
 import megacasting.persistance.MetierDAO;
 import megacasting.persistance.OffreDAO;
 
@@ -371,13 +377,45 @@ public class jPanelOffre extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * @author Julien Bureau <julien.bureau02@gmail.com>
+     * @param evt
+     */
     private void buttonOffre_insertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOffre_insertActionPerformed
         // TODO add your handling code here:
         
-        
-        jFrameOffreDetails detailsOffre = new jFrameOffreDetails();
-        detailsOffre.setVisible(true);
-        
+    	
+    	//test not null
+    	if ((textFieldOffre_libelle.getText().equals("")) || (textFieldOffre_reference.getText().equals("")) || (formattedTFOffre_datePublication.getText().equals(""))) {
+    		jFrameAlert jFrameAlertNull = new jFrameAlert("Vous ne pouvez laisser de champs vide.");
+    		jFrameAlertNull.setVisible(true);
+		}
+    	else {
+    		//test date convert
+	    	SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+	    	String dateString = formattedTFOffre_datePublication.getText();
+    		
+	    	try {
+	    		Date datePublication = formatter.parse(dateString);
+	    	
+	    		String libelle = textFieldOffre_libelle.getText();
+	    		String reference = textFieldOffre_reference.getText();
+	        	
+	        	Contrat contrat = (Contrat) comboBoxOffre_contrat.getSelectedItem();
+	        	Metier metier = (Metier) comboBoxOffre_metier.getSelectedItem();
+	        	Domaine domaine = (Domaine) comboBoxOffre_domaine.getSelectedItem();
+	        	
+//	        	Offre offre = new Offre(libelle, reference, datePublication, contrat, metier, domaine);
+	        	
+	        	
+//	        	jFrameOffreDetails detailsOffre = new jFrameOffreDetails(offre);
+//	            detailsOffre.setVisible(true);
+	    	} catch (Exception e) {
+	    		jFrameAlert jFrameAlertNull = new jFrameAlert("Date !!!!!.");
+	    		jFrameAlertNull.setVisible(true);
+	    	}
+		}//end else
+	    	
         
     }//GEN-LAST:event_buttonOffre_insertActionPerformed
 
@@ -387,7 +425,7 @@ public class jPanelOffre extends javax.swing.JPanel {
         
         textFieldOffre_libelle.setText(o.getLibelle());
         textFieldOffre_reference.setText(o.getReference());
-        formattedTFOffre_datePublication.setText(o.getDateDebContrat());
+        formattedTFOffre_datePublication.setValue(o.getDateDebContrat());
         comboBoxOffre_contrat.setSelectedItem(o.getContrat());
         comboBoxOffre_domaine.setSelectedItem(o.getDomaine());
         comboBoxOffre_metier.setSelectedItem(o.getMetier());
