@@ -53,6 +53,10 @@ public class jPanelOffre extends javax.swing.JPanel {
         //Refrech des listes 
         refreshOffre();
         
+        buttonOffre_insert.setEnabled(true);
+        buttonOffre_update.setEnabled(false);
+        buttonOffre_delete.setEnabled(false);
+        
     }
 
     
@@ -427,6 +431,10 @@ public class jPanelOffre extends javax.swing.JPanel {
         comboBoxOffre_contrat.setSelectedItem(o.getContrat());
         comboBoxOffre_domaine.setSelectedItem(o.getDomaine());
         comboBoxOffre_metier.setSelectedItem(o.getMetier());
+        
+        buttonOffre_insert.setEnabled(false);
+        buttonOffre_update.setEnabled(true);
+        buttonOffre_delete.setEnabled(true);
         
         return o.getDomaine().getIdentifiant();
         

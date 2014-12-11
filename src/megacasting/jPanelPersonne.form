@@ -327,11 +327,13 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="buttonEmpl_update">
                   <Properties>
+                    <Property name="enabled" type="boolean" value="false"/>
                     <Property name="label" type="java.lang.String" value="Modifier"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="buttonEmpl_delete">
                   <Properties>
+                    <Property name="enabled" type="boolean" value="false"/>
                     <Property name="label" type="java.lang.String" value="Supprimer"/>
                   </Properties>
                 </Component>

@@ -40,6 +40,18 @@ public class jPanelParametres extends javax.swing.JPanel {
         cnx = connectionBDD.getConnection();
         //Refrech des listes 
         refreshParams();
+        
+        buttonContrat_insert.setEnabled(true);
+        buttonContrat_update.setEnabled(false);
+        buttonContrat_delete.setEnabled(false);
+        
+        buttonMetier_insert.setEnabled(true);
+        buttonMetier_update.setEnabled(false);
+        buttonMetier_delete.setEnabled(false);
+        
+        buttonDomaine_insert.setEnabled(true);
+        buttonDomaine_update.setEnabled(false);
+        buttonDomaine_delete.setEnabled(false);
     }
     
     public void refreshParams(){
@@ -96,6 +108,10 @@ public class jPanelParametres extends javax.swing.JPanel {
         Contrat c = contrats.get(row);
         
         textFieldContrat_libelle.setText(c.getLibelle());
+        
+        buttonContrat_insert.setEnabled(false);
+        buttonContrat_update.setEnabled(true);
+        buttonContrat_delete.setEnabled(true);
     }
     
     private void selectionMetier(java.awt.event.MouseEvent evt) {                           
@@ -104,6 +120,10 @@ public class jPanelParametres extends javax.swing.JPanel {
         
         textFieldMetier_libelle.setText(m.getLibelle());
         comboBoxMetier_domaine.setSelectedItem(m.getDomaine().getLibelle());
+        
+        buttonMetier_insert.setEnabled(false);
+        buttonMetier_update.setEnabled(true);
+        buttonMetier_delete.setEnabled(true);
     }
     
     private void selectionDomaine(java.awt.event.MouseEvent evt) {                           
@@ -111,6 +131,10 @@ public class jPanelParametres extends javax.swing.JPanel {
         Domaine d = domaines.get(row);
         
         textFieldDomaine_libelle.setText(d.getLibelle());
+        
+        buttonDomaine_insert.setEnabled(false);
+        buttonDomaine_update.setEnabled(true);
+        buttonDomaine_delete.setEnabled(true);
     }
 
     /**
@@ -254,20 +278,20 @@ public class jPanelParametres extends javax.swing.JPanel {
 
         tableMetier.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "Libellé"
+                "Libellé", "Domaine"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class
+                java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false
+                false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -490,15 +514,96 @@ public class jPanelParametres extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonContrat_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonContrat_updateActionPerformed
-        // TODO add your handling code here:
+        
+        int row = tableContrat.getSelectedRow();
+    	Contrat contrat = contrats.get(row);
+    	
+    	int identifiant = (int) contrat.getIdentifiant();
+    	String libelle = textFieldContrat_libelle.getText();
+
+    	try {
+    		
+            contrat.setLibelle(libelle);         
+            contrat.setIdentifiant(identifiant);
+
+            ContratDAO contratDAO = new ContratDAO();
+            contratDAO.update(cnx, contrat);
+
+        } catch (Exception ex) {
+
+        } finally {
+            //Clear textField
+            textFieldContrat_libelle.setText("");
+
+            buttonContrat_insert.setEnabled(true);
+            buttonContrat_update.setEnabled(false);
+            buttonContrat_delete.setEnabled(false);
+            
+            refreshParams();
+        }
     }//GEN-LAST:event_buttonContrat_updateActionPerformed
 
     private void buttonMetier_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMetier_updateActionPerformed
-        // TODO add your handling code here:
+        int row = tableMetier.getSelectedRow();
+    	Metier metier = metiers.get(row);
+    	
+    	int identifiant = (int) metier.getIdentifiant();
+    	String libelle = textFieldMetier_libelle.getText();
+        String libelleDomaine = comboBoxMetier_domaine.getSelectedItem().toString();
+
+    	try {
+    		
+            metier.setLibelle(libelle);
+            metier.setIdentifiant(identifiant);
+            
+            DomaineDAO domaineDAO = new DomaineDAO();
+            Domaine domaine = domaineDAO.findFromLibelle(cnx, libelleDomaine);
+            metier.setDomaine(domaine);
+            
+            MetierDAO metierDAO = new MetierDAO();
+            metierDAO.update(cnx, metier);
+
+        } catch (Exception ex) {
+
+        } finally {
+            //Clear textField
+            textFieldMetier_libelle.setText("");
+
+            buttonMetier_insert.setEnabled(true);
+            buttonMetier_update.setEnabled(false);
+            buttonMetier_delete.setEnabled(false);
+            
+            refreshParams();
+        }
     }//GEN-LAST:event_buttonMetier_updateActionPerformed
 
     private void buttonDomaine_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDomaine_updateActionPerformed
-        // TODO add your handling code here:
+        int row = tableDomaine.getSelectedRow();
+    	Domaine domaine = domaines.get(row);
+    	
+    	int identifiant = (int) domaine.getIdentifiant();
+    	String libelle = textFieldDomaine_libelle.getText();
+
+    	try {
+    		
+            domaine.setLibelle(libelle);         
+            domaine.setIdentifiant(identifiant);
+
+            DomaineDAO domaineDAO = new DomaineDAO();
+            domaineDAO.update(cnx, domaine);
+
+        } catch (Exception ex) {
+
+        } finally {
+            //Clear textField
+            textFieldDomaine_libelle.setText("");
+
+            buttonDomaine_insert.setEnabled(true);
+            buttonDomaine_update.setEnabled(false);
+            buttonDomaine_delete.setEnabled(false);
+            
+            refreshParams();
+        }
     }//GEN-LAST:event_buttonDomaine_updateActionPerformed
 
     private void buttonContrat_insertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonContrat_insertActionPerformed
@@ -577,8 +682,12 @@ public class jPanelParametres extends javax.swing.JPanel {
         } finally {
             //Clear textField
             textFieldContrat_libelle.setText("");
+            
+            buttonContrat_insert.setEnabled(true);
+            buttonContrat_update.setEnabled(false);
+            buttonContrat_delete.setEnabled(false);
 
-            //refreshParams();
+            refreshParams();
         }
     }//GEN-LAST:event_buttonContrat_deleteActionPerformed
 
@@ -598,7 +707,11 @@ public class jPanelParametres extends javax.swing.JPanel {
             //Clear textField
             textFieldMetier_libelle.setText("");
 
-            //refreshParams();
+            buttonMetier_insert.setEnabled(true);
+            buttonMetier_update.setEnabled(false);
+            buttonMetier_delete.setEnabled(false);
+
+            refreshParams();
         }
     }//GEN-LAST:event_buttonMetier_deleteActionPerformed
 
@@ -618,7 +731,11 @@ public class jPanelParametres extends javax.swing.JPanel {
             //Clear textField
             textFieldDomaine_libelle.setText("");
 
-            //refreshParams();
+            buttonDomaine_insert.setEnabled(true);
+            buttonDomaine_update.setEnabled(false);
+            buttonDomaine_delete.setEnabled(false);
+
+            refreshParams();
         }
     }//GEN-LAST:event_buttonDomaine_deleteActionPerformed
 

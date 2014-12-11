@@ -50,6 +50,14 @@ public class jPanelSociete extends javax.swing.JPanel {
                 return 0; //To change body of generated methods, choose Tools | Templates.
             }
         });
+        
+        buttonAnnonceur_insert.setEnabled(true);
+        buttonAnnonceur_update.setEnabled(false);
+        buttonAnnonceur_delete.setEnabled(false);
+        
+        buttonDiffuseur_insert.setEnabled(true);
+        buttonDiffuseur_update.setEnabled(false);
+        buttonDiffuseur_delete.setEnabled(false);
     }
 
     
@@ -636,6 +644,10 @@ public class jPanelSociete extends javax.swing.JPanel {
         textFieldAnnonceur_nom.setText(a.getNom());
         textFieldAnnonceur_responsable.setText(a.getResponsable());
         textFieldAnnonceur_siret.setText(a.getSiret());
+        
+        buttonAnnonceur_insert.setEnabled(false);
+        buttonAnnonceur_update.setEnabled(true);
+        buttonAnnonceur_delete.setEnabled(true);
     }
     
     private void selectionDiffuseur(java.awt.event.MouseEvent evt) {                           
@@ -644,6 +656,10 @@ public class jPanelSociete extends javax.swing.JPanel {
         
         textFieldDiffuseur_nom.setText(d.getNom());
         textFieldDiffuseur_responsable.setText(d.getResponsable());
+        
+        buttonDiffuseur_insert.setEnabled(false);
+        buttonDiffuseur_update.setEnabled(true);
+        buttonDiffuseur_delete.setEnabled(true);
     }
     
     private void buttonDiffuseur_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDiffuseur_updateActionPerformed
@@ -672,6 +688,10 @@ public class jPanelSociete extends javax.swing.JPanel {
             textFieldDiffuseur_responsable.setText("");
 
             refreshDiffuseur();
+        
+        buttonDiffuseur_insert.setEnabled(true);
+        buttonDiffuseur_update.setEnabled(false);
+        buttonDiffuseur_delete.setEnabled(false);
         }
     }//GEN-LAST:event_buttonDiffuseur_updateActionPerformed
 
@@ -704,6 +724,10 @@ public class jPanelSociete extends javax.swing.JPanel {
             textFieldAnnonceur_siret.setText("");
 
             refreshAnnonceur();
+            
+            buttonAnnonceur_insert.setEnabled(true);
+        buttonAnnonceur_update.setEnabled(false);
+        buttonAnnonceur_delete.setEnabled(false);
         }
     }//GEN-LAST:event_buttonAnnonceur_updateActionPerformed
 
@@ -733,6 +757,10 @@ public class jPanelSociete extends javax.swing.JPanel {
             //Clear textField
             textFieldDiffuseur_nom.setText("");
             textFieldDiffuseur_responsable.setText("");
+            
+            buttonDiffuseur_insert.setEnabled(true);
+        buttonDiffuseur_update.setEnabled(false);
+        buttonDiffuseur_delete.setEnabled(false);
 
             refreshDiffuseur();
         }
@@ -755,6 +783,10 @@ public class jPanelSociete extends javax.swing.JPanel {
             textFieldAnnonceur_nom.setText("");
             textFieldAnnonceur_responsable.setText("");
             textFieldAnnonceur_siret.setText("");
+            
+            buttonAnnonceur_insert.setEnabled(true);
+        buttonAnnonceur_update.setEnabled(false);
+        buttonAnnonceur_delete.setEnabled(false);
 
             refreshAnnonceur();
         }
