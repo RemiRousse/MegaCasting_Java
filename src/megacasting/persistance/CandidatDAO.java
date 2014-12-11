@@ -22,6 +22,7 @@ import megacasting.entity.Personne;
 /**
  *
  * @author Mousse
+ * @author Julien Bureau <julien.bureau02@gmail.com>
  */
 public class CandidatDAO {
     
@@ -30,14 +31,17 @@ public class CandidatDAO {
         Statement stmt = null;
         PreparedStatement pstmt = null;
 
+        //convert Date into sqlDate
+        java.sql.Date sqlDateNaissance = new java.sql.Date(candidat.getDateNaissance().getTime());
+        
         try {
             pstmt = cnx.prepareStatement("INSERT INTO Candidat (DateNaissance, Pays, Nom, Prenom) "
                     + "VALUES (?, ?, ?, ?)");
-            pstmt.setDate(1, (Date) candidat.getDateNaissance());
+            
+            pstmt.setDate(1, sqlDateNaissance);
             pstmt.setString(2, candidat.getPays());
             pstmt.setString(3, candidat.getNom());
             pstmt.setString(4, candidat.getPrenom());
-            
 
             int nb = pstmt.executeUpdate();
 
@@ -71,12 +75,15 @@ public class CandidatDAO {
     public void update(Connection cnx, Candidat candidat) {
         
         PreparedStatement pstmt = null;
-
+        
+      //convert Date into sqlDate
+        java.sql.Date sqlDateNaissance = new java.sql.Date(candidat.getDateNaissance().getTime());
+        
         try {
             pstmt = cnx.prepareStatement("UPDATE Candidat SET "
                     + "DateNaissance = ?, Pays = ?, Nom = ?, Prenom = ? "
                     + "WHERE Identifiant = ?");
-            pstmt.setDate(1, (Date) candidat.getDateNaissance());
+            pstmt.setDate(1, sqlDateNaissance);
             pstmt.setString(2, candidat.getPays());
             pstmt.setString(3, candidat.getNom());
             pstmt.setString(4, candidat.getPrenom());

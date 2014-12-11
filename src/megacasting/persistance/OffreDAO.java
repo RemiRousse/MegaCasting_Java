@@ -199,9 +199,6 @@ public class OffreDAO {
         ResultSet rs = stmt.executeQuery(	"SELECT Identifiant, "
                                             + "LIBELLE, "
                                             + "REFERENCE, "
-//                                            + "DATE_FORMAT(DATEDEBPUBLICATION, '%d/%m/%Y'), "
-//                                            + "DATE_FORMAT(DATEDEBCONTRAT, '%d/%m/%Y'), "
-//                                            + "DATE_FORMAT(DATEFINCONTRAT, '%d/%m/%Y'), "
                                             + "DATEDEBPUBLICATION, "
                                             + "DATEDEBCONTRAT,"
                                             + "DATEFINCONTRAT,"
@@ -211,8 +208,9 @@ public class OffreDAO {
                                             + "IdentifiantContrat,"
                                             + "IdentifiantMetier,"
                                             + "IdentifiantDomaine "
-                                            + "FROM Offre "
+                                            + "FROM Offre"
                                             );
+        
         while (rs.next()) {                
             AnnonceurDAO a = new AnnonceurDAO();
             Annonceur annonceur = a.find(cnx, rs.getInt("IdentifiantAnnonceur"));

@@ -26,6 +26,7 @@ import megacasting.persistance.EmployeDAO;
 /**
  *
  * @author Mousse
+ * @author Julien BUREAU <julien.bureau02@gmail.com>
  */
 public class jPanelPersonne extends javax.swing.JPanel {
 
@@ -46,6 +47,13 @@ public class jPanelPersonne extends javax.swing.JPanel {
         //Refrech des listes 
         refreshEmploye();
         refreshCandidat();
+        
+        buttonEmpl_insert.setEnabled(true);
+        buttonEmpl_update.setEnabled(false);
+        buttonEmpl_delete.setEnabled(false);
+        buttonCand_insert.setEnabled(true);
+        buttonCand_update.setEnabled(false);
+        buttonCand_delete.setEnabled(false);
         
         tabbedPanePers.setUI(new BasicTabbedPaneUI() {
 
@@ -101,7 +109,6 @@ public class jPanelPersonne extends javax.swing.JPanel {
             });
         }
     }
-    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -631,31 +638,37 @@ public class jPanelPersonne extends javax.swing.JPanel {
      * 
      */
     private void buttonEmpl_insert (ActionEvent evt){
-    	String nom = textFieldEmpl_nom.getText();
-    	String prenom = textFieldEmpl_prenom.getText();
-    	String poste = textFieldEmpl_poste.getText();
-
-    	try {
-    		int habilitation = Integer.parseInt(textFieldEmpl_habilitation.getText());
-	    	
-	    	Employe employe = new Employe(nom, prenom);
-	    	employe.setPoste(poste);
-	    	employe.setHabilitation(habilitation);
-	    	
-	    	EmployeDAO employeDAO = new EmployeDAO();
-	    	employeDAO.insert(cnx, employe);
-		} catch (Exception e) {
-			jFrameAlert jFrameAlert = new jFrameAlert("L'ajout a échoué. Rééssayez.");
-	    	jFrameAlert.setVisible(true);
-		} finally {
-			//Clear textField
-			textFieldEmpl_nom.setText("");
-			textFieldEmpl_prenom.setText("");
-			textFieldEmpl_poste.setText("");
-			textFieldEmpl_habilitation.setText("");
-			
-			refreshEmploye();
+    	
+    	//test not null
+    	if ((textFieldEmpl_nom.getText().equals("")) || (textFieldEmpl_prenom.getText().equals("")) || (textFieldEmpl_poste.getText().equals("")) || (textFieldEmpl_habilitation.getText().equals(""))) {
+    		jFrameAlert jFrameAlertNull = new jFrameAlert("Vous ne pouvez laisser de champs vide.");
+    		jFrameAlertNull.setVisible(true);
 		}
+    	else {
+	    		String nom = textFieldEmpl_nom.getText();
+	        	String prenom = textFieldEmpl_prenom.getText();
+	        	String poste = textFieldEmpl_poste.getText();
+	        	
+	        	Employe employe = new Employe(nom, prenom);
+	        	employe.setPoste(poste);
+		    	
+		    	try {
+		    		EmployeDAO employeDAO = new EmployeDAO();
+			    	employeDAO.insert(cnx, employe);
+
+				} catch (Exception e) {
+			    	jFrameAlert jFrameAlert = new jFrameAlert("L'ajout a échoué. Rééssayez.");
+			    	jFrameAlert.setVisible(true);
+				} finally {
+					//Clear textField
+			    	textFieldEmpl_nom.setText("");
+			    	textFieldEmpl_prenom.setText("");
+			    	textFieldEmpl_poste.setText("");
+			    	
+			    	refreshEmploye();
+				}//end try-catch-finally
+
+		}//end else
     }
 
     /**
@@ -665,15 +678,12 @@ public class jPanelPersonne extends javax.swing.JPanel {
      */
     private void buttonCand_insert (ActionEvent evt){
     	
-    	int verif = 0;
-    	
     	//test not null
-    	if ((textFieldCand_nom.getText() == null) && (textFieldCand_prenom.getText() == null) && (textFieldCand_pays.getText() == null) && (textFieldCand_dateNaissance.getText() == null)) {
+    	if ((textFieldCand_nom.getText().equals("")) || (textFieldCand_prenom.getText().equals("")) || (textFieldCand_pays.getText().equals("")) || (textFieldCand_dateNaissance.getText().equals(""))) {
     		jFrameAlert jFrameAlertNull = new jFrameAlert("Vous ne pouvez laisser de champs vide.");
     		jFrameAlertNull.setVisible(true);
 		}
     	else {
-    		
     		//test date convert
 	    	SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 	    	String dateString = textFieldCand_dateNaissance.getText();
@@ -706,7 +716,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
 				}//end try-catch-finally
 		    	
 	    	} catch (ParseException e) {
-	    		jFrameAlert jFrameAlertDate = new jFrameAlert("Le format de la date est mauvais.");
+	    		jFrameAlert jFrameAlertDate = new jFrameAlert("L'ajout a échoué. Rééssayez 2 .");
 	    		jFrameAlertDate.setVisible(true);
 	    	}//end try-catch
 	    	
@@ -719,52 +729,58 @@ public class jPanelPersonne extends javax.swing.JPanel {
      * 
      */ 
     private void buttonEmpl_update(ActionEvent evt) {
-    	
-    	int row = tableEmpl_list.getSelectedRow();
-    	Employe e = employes.get(row);
-    	
-    	int identifiant = (int) e.getIdentifiant();
-    	String nom = textFieldEmpl_nom.getText();
-    	String prenom = textFieldEmpl_prenom.getText();
-    	String poste = textFieldEmpl_poste.getText();
-    	String habilitation = textFieldEmpl_habilitation.getText();
-    	
-    	try {
-    		
-            //Creation de l'employe
-            Employe employe = new Employe(nom, prenom);
-            employe.setPoste(poste);
+    	  	
+    	if ((textFieldEmpl_nom.getText().equals("")) || (textFieldEmpl_prenom.getText().equals("")) || (textFieldEmpl_poste.getText().equals(""))) {
+    		jFrameAlert jFrameAlertNull = new jFrameAlert("Vous ne pouvez laisser de champs vide.");
+    		jFrameAlertNull.setVisible(true);
+		}
+    	else {
+	    	int row = tableEmpl_list.getSelectedRow();
+	    	Employe e = employes.get(row);
+	    	
+	    	int identifiant = (int) e.getIdentifiant();
+	    	String nom = textFieldEmpl_nom.getText();
+	    	String prenom = textFieldEmpl_prenom.getText();
+	    	String poste = textFieldEmpl_poste.getText();
+	    	String habilitation = textFieldEmpl_habilitation.getText();
+	    	
+	    	try {
 
-            if(textFieldEmpl_habilitation.getText() != null){
-            	try {
-            		int habilitationParse = Integer.parseInt(habilitation);
-                    employe.setHabilitation(habilitationParse);
-				} catch (Exception e2) {
-
-				}
-            }
-
-            employe.setIdentifiant(identifiant);
-
-            EmployeDAO employeDAO = new EmployeDAO();
-            employeDAO.update(cnx, employe);
-
-        } catch (Exception ex) {
-
-        } finally {
-            //Clear textField
-            textFieldEmpl_nom.setText("");
-            textFieldEmpl_prenom.setText("");
-            textFieldEmpl_poste.setText("");
-            textFieldEmpl_habilitation.setText("");
-
-            buttonEmpl_insert.setEnabled(true);
-            buttonEmpl_update.setEnabled(false);
-            buttonEmpl_delete.setEnabled(false);
-            
-            
-            refreshEmploye();
-        }
+	            //Creation de l'employe
+	            Employe employe = new Employe(nom, prenom);
+	            employe.setPoste(poste);
+	
+	            if(textFieldEmpl_habilitation.getText() != null){
+	            	try {
+	            		int habilitationParse = Integer.parseInt(habilitation);
+	                    employe.setHabilitation(habilitationParse);
+					} catch (Exception e2) {
+	
+					}
+	            }
+	
+	            employe.setIdentifiant(identifiant);
+	
+	            EmployeDAO employeDAO = new EmployeDAO();
+	            employeDAO.update(cnx, employe);
+	
+	        } catch (Exception ex) {
+	        	jFrameAlert jFrameAlertNull = new jFrameAlert("Echec de la mise a jour.");
+	    		jFrameAlertNull.setVisible(true);
+	        } finally {
+	            //Clear textField
+	            textFieldEmpl_nom.setText("");
+	            textFieldEmpl_prenom.setText("");
+	            textFieldEmpl_poste.setText("");
+	            textFieldEmpl_habilitation.setText("");
+	
+	            buttonEmpl_insert.setEnabled(true);
+	            buttonEmpl_update.setEnabled(false);
+	            buttonEmpl_delete.setEnabled(false);
+	            
+	            refreshEmploye();
+	        }
+    	}
     }
     
     /**
@@ -774,39 +790,55 @@ public class jPanelPersonne extends javax.swing.JPanel {
      */
     private void buttonCand_update(ActionEvent evt) {
     	
-    	int row = tableCand_list.getSelectedRow();
-    	Candidat c = candidats.get(row);
-    	
-    	int identifiant = (int) c.getIdentifiant();
-    	String nom = textFieldCand_nom.getText();
-    	String prenom = textFieldCand_prenom.getText();
-    	String pays = textFieldCand_pays.getText();
-//    	Date dateNaissance = testFieldCand_dateNaissance.getDate();
-    	
-    	try {
-    		
-    		//Creation de l'employe
-    		Candidat candidat = new Candidat(nom, prenom);
-	    	candidat.setPays(pays);
-	    	candidat.setIdentifiant(identifiant);
-	    	
-	    	CandidatDAO candidatDAO = new CandidatDAO();
-	    	candidatDAO.update(cnx, candidat);
-	    	
-		} catch (Exception ex) {
-			
-		} finally {
-			//Clear textField
-			textFieldCand_nom.setText("");
-			textFieldCand_prenom.setText("");
-			textFieldCand_pays.setText("");
-			
-			buttonCand_insert.setEnabled(true);
-            buttonCand_update.setEnabled(false);
-            buttonCand_delete.setEnabled(false);
-			
-			refreshCandidat();
+    	if ((textFieldCand_nom.getText().equals("")) || (textFieldCand_prenom.getText().equals("")) || (textFieldCand_pays.getText().equals("")) || (textFieldCand_dateNaissance.getText().equals(""))) {
+    		jFrameAlert jFrameAlertNull = new jFrameAlert("Vous ne pouvez laisser de champs vide.");
+    		jFrameAlertNull.setVisible(true);
 		}
+    	else {
+    		//test date convert
+	    	SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+	    	String dateString = textFieldCand_dateNaissance.getText();
+	    	
+	    	try {
+	    		int row = tableCand_list.getSelectedRow();
+		    	Candidat c = candidats.get(row);
+		    	
+		    	int identifiant = (int) c.getIdentifiant();
+		    	String nom = textFieldCand_nom.getText();
+		    	String prenom = textFieldCand_prenom.getText();
+		    	String pays = textFieldCand_pays.getText();
+		    	
+	    		Date dateNaissance = formatter.parse(dateString);
+	        	
+	    		//Creation de l'employe
+		    	c.setPays(pays);
+		    	c.setDateNaissance(dateNaissance);
+	    		
+		    	try {
+
+			    	CandidatDAO candidatDAO = new CandidatDAO();
+			    	candidatDAO.update(cnx, c);
+			    	
+				} catch (Exception ex) {
+					jFrameAlert jFrameAlertNull = new jFrameAlert("Modification Impossible.");
+		    		jFrameAlertNull.setVisible(true);
+				} finally {
+					//Clear textField
+					textFieldCand_nom.setText("");
+					textFieldCand_prenom.setText("");
+					textFieldCand_pays.setText("");
+					
+					buttonCand_insert.setEnabled(true);
+		            buttonCand_update.setEnabled(false);
+		            buttonCand_delete.setEnabled(false);
+					
+					refreshCandidat();
+				}
+	    	} catch (Exception ex) {
+	    		jFrameAlert jFrameAlertNull = new jFrameAlert("Modification Impossible.");
+	    		jFrameAlertNull.setVisible(true);
+	    	}
+    	}
     }
     
     /**
