@@ -214,8 +214,23 @@ INSERT INTO `diffuseur` (`Nom`,										`Responsable`,		`IdentifiantInformation
 						("Dictum Ultricies Ligula PC",				"M. Little",		29),
 						("Lorem Ipsum Inc.",						"Mme. Rollins",		30);
 
+						
+/* ************** */
+/*      POSTE     */
+/* ************** */
+CREATE TABLE `poste` (
+  `Identifiant` 			BIGINT 			NOT NULL auto_increment,
+  `Libelle` 				VARCHAR(100) 	NOT NULL,
+PRIMARY KEY (`Identifiant`)
+) AUTO_INCREMENT=1;
 
-
+INSERT INTO `poste` (`Libelle`) VALUES
+			("Chargé de recrutement"),
+			("Responsable"),
+			("Cadre");
+			
+			
+			
 /* **************** */
 /*      EMPLOYE     */
 /* **************** */

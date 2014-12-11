@@ -42,6 +42,14 @@ public class jPanelPersonne extends javax.swing.JPanel {
     public jPanelPersonne() {
         initComponents();
         
+        buttonEmpl_insert.setEnabled(true);
+        buttonEmpl_update.setEnabled(false);
+        buttonEmpl_delete.setEnabled(false);
+        
+        buttonCand_insert.setEnabled(true);
+        buttonCand_update.setEnabled(false);
+        buttonCand_delete.setEnabled(false);
+        
         //Connection a la base
         ConnectionBDD connectionBDD = ConnectionBDD.getInstance();
         cnx = connectionBDD.getConnection();
@@ -713,7 +721,8 @@ public class jPanelPersonne extends javax.swing.JPanel {
     	String nom = textFieldEmpl_nom.getText();
     	String prenom = textFieldEmpl_prenom.getText();
     	String poste = textFieldEmpl_poste.getText();
-
+    	String habilitation = textFieldEmpl_habilitation.getText();
+    	
     	try {
     		
             //Creation de l'employe
@@ -721,8 +730,12 @@ public class jPanelPersonne extends javax.swing.JPanel {
             employe.setPoste(poste);
 
             if(textFieldEmpl_habilitation.getText() != null){
-                int habilitation = Integer.parseInt(textFieldEmpl_habilitation.getText());
-                employe.setHabilitation(habilitation);
+            	try {
+            		int habilitationParse = Integer.parseInt(habilitation);
+                    employe.setHabilitation(habilitationParse);
+				} catch (Exception e2) {
+					//message erreur
+				}
             }
 
             employe.setIdentifiant(identifiant);
@@ -739,6 +752,11 @@ public class jPanelPersonne extends javax.swing.JPanel {
             textFieldEmpl_poste.setText("");
             textFieldEmpl_habilitation.setText("");
 
+            buttonEmpl_insert.setEnabled(true);
+            buttonEmpl_update.setEnabled(false);
+            buttonEmpl_delete.setEnabled(false);
+            
+            
             refreshEmploye();
         }
     }
@@ -777,6 +795,10 @@ public class jPanelPersonne extends javax.swing.JPanel {
 			textFieldCand_prenom.setText("");
 			textFieldCand_pays.setText("");
 			
+			buttonCand_insert.setEnabled(true);
+            buttonCand_update.setEnabled(false);
+            buttonCand_delete.setEnabled(false);
+			
 			refreshCandidat();
 		}
     }
@@ -786,7 +808,8 @@ public class jPanelPersonne extends javax.swing.JPanel {
      * @author Julien BUREAU <julien.bureau02@gmail.com>
      * @param evt
      */
-    private void selectionCandidat(java.awt.event.MouseEvent evt) {                           
+    private void selectionCandidat(java.awt.event.MouseEvent evt) {
+    	
         int row = tableCand_list.rowAtPoint(evt.getPoint());
         Candidat c = candidats.get(row);
         
@@ -794,6 +817,12 @@ public class jPanelPersonne extends javax.swing.JPanel {
         textFieldCand_prenom.setText(c.getPrenom());
         textFieldCand_pays.setText(c.getPays());
 //        textFieldCand_dateNaissance.setText(c.getDateNaissance());
+        
+        
+        //desactivation du bouton Insert
+        buttonCand_insert.setEnabled(false);
+        buttonCand_update.setEnabled(true);
+        buttonCand_delete.setEnabled(true);
     }
     
     /**
@@ -801,17 +830,19 @@ public class jPanelPersonne extends javax.swing.JPanel {
      * @author Julien BUREAU <julien.bureau02@gmail.com>
      * @param evt
      */
-    private void selectionEmploye(java.awt.event.MouseEvent evt) {                           
+    private void selectionEmploye(java.awt.event.MouseEvent evt) { 
         int row = tableEmpl_list.rowAtPoint(evt.getPoint());
         Employe e = employes.get(row);
         
         textFieldEmpl_nom.setText(e.getNom());
         textFieldEmpl_prenom.setText(e.getPrenom());
         textFieldEmpl_poste.setText(e.getPoste());
+        textFieldEmpl_habilitation.setText(Integer.toString(e.getHabilitation()));
         
-        if (evt.getClickCount() > 1) {
-//        	tableCand_list.setS .setSelectedIndex(0);
-        }
+        buttonEmpl_insert.setEnabled(false);
+        buttonEmpl_update.setEnabled(true);
+        buttonEmpl_delete.setEnabled(true);
+        
     }
     
     /**
@@ -845,6 +876,10 @@ public class jPanelPersonne extends javax.swing.JPanel {
             textFieldEmpl_poste.setText("");
             textFieldEmpl_habilitation.setText("");
 
+            buttonEmpl_insert.setEnabled(true);
+            buttonEmpl_update.setEnabled(false);
+            buttonEmpl_delete.setEnabled(false);
+            
             refreshEmploye();
         }
     }
@@ -879,6 +914,10 @@ public class jPanelPersonne extends javax.swing.JPanel {
             textFieldCand_prenom.setText("");
             textFieldCand_pays.setText("");
 
+            buttonCand_insert.setEnabled(true);
+            buttonCand_update.setEnabled(false);
+            buttonCand_delete.setEnabled(false);
+            
             refreshCandidat();
         }
     }
