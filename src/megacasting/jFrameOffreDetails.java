@@ -24,6 +24,11 @@ public class jFrameOffreDetails extends javax.swing.JFrame {
         
         initComponents();
         
+        textFieldInsertOffre_libelle.setText(offre.getLibelle());
+        textFieldInsertOffre_reference.setText(offre.getReference());
+        
+        
+        
         tabbedPaneOffreDetails.setUI(new BasicTabbedPaneUI() {
 
             @Override

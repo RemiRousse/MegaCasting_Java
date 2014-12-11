@@ -166,14 +166,14 @@ public class Offre {
      * @param metier
      * @param domaine
      */
-//	public Offre(String libelle, String reference, Date datePublication, Contrat contrat, Metier metier, Domaine domaine) {
-//		this.libelle = libelle;
-//        this.reference = reference;
-//        this.dateDebPublication = datePublication;
-//        this.contrat = contrat;
-//        this.metier = metier;
-//        this.domaine = domaine;
-//	}
+	public Offre(String libelle, String reference, Date datePublication, Contrat contrat, Metier metier, Domaine domaine) {
+		this.libelle = libelle;
+        this.reference = reference;
+        this.dateDebPublication = datePublication;
+        this.contrat = contrat;
+        this.metier = metier;
+        this.domaine = domaine;
+	}
     
 
 }

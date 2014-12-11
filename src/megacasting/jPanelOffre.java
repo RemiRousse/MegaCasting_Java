@@ -383,8 +383,8 @@ public class jPanelOffre extends javax.swing.JPanel {
      */
     private void buttonOffre_insertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOffre_insertActionPerformed
         // TODO add your handling code here:
-        
-    	
+         
+     	
     	//test not null
     	if ((textFieldOffre_libelle.getText().equals("")) || (textFieldOffre_reference.getText().equals("")) || (formattedTFOffre_datePublication.getText().equals(""))) {
     		jFrameAlert jFrameAlertNull = new jFrameAlert("Vous ne pouvez laisser de champs vide.");
@@ -400,23 +400,25 @@ public class jPanelOffre extends javax.swing.JPanel {
 	    	
 	    		String libelle = textFieldOffre_libelle.getText();
 	    		String reference = textFieldOffre_reference.getText();
+	    		
+	    		Object contrat = comboBoxOffre_contrat.getSelectedItem();
+	        	Object metier = comboBoxOffre_metier.getSelectedItem();
+	        	Object domaine = comboBoxOffre_domaine.getSelectedItem();
 	        	
-	        	Contrat contrat = (Contrat) comboBoxOffre_contrat.getSelectedItem();
-	        	Metier metier = (Metier) comboBoxOffre_metier.getSelectedItem();
-	        	Domaine domaine = (Domaine) comboBoxOffre_domaine.getSelectedItem();
+//	        	Contrat contrat = (Contrat) comboBoxOffre_contrat.getSelectedItem();
+//	        	Metier metier = (Metier) comboBoxOffre_metier.getSelectedItem();
+//	        	Domaine domaine = (Domaine) comboBoxOffre_domaine.getSelectedItem();
 	        	
 //	        	Offre offre = new Offre(libelle, reference, datePublication, contrat, metier, domaine);
-	        	
 	        	
 //	        	jFrameOffreDetails detailsOffre = new jFrameOffreDetails(offre);
 //	            detailsOffre.setVisible(true);
 	    	} catch (Exception e) {
-	    		jFrameAlert jFrameAlertNull = new jFrameAlert("Date !!!!!.");
+	    		jFrameAlert jFrameAlertNull = new jFrameAlert("Impossible de créer l'objet Offre. jPanelOffre.java ligne 400.");
 	    		jFrameAlertNull.setVisible(true);
 	    	}
 		}//end else
-	    	
-        
+	
     }//GEN-LAST:event_buttonOffre_insertActionPerformed
 
     private Long selectionOffre(java.awt.event.MouseEvent evt) {                           
