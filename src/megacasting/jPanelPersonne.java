@@ -856,7 +856,6 @@ public class jPanelPersonne extends javax.swing.JPanel {
         textFieldCand_pays.setText(c.getPays());
         textFieldCand_dateNaissance.setValue(c.getDateNaissance());
         
-        
         //desactivation du bouton Insert
         buttonCand_insert.setEnabled(false);
         buttonCand_update.setEnabled(true);
