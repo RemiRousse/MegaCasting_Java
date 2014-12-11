@@ -21,12 +21,12 @@ public class jFrameAlert extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args, String message1) {
+	public static void main(String[] args, String message) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					
-					jFrameAlert frame = new jFrameAlert(message1);
+					jFrameAlert frame = new jFrameAlert(message);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

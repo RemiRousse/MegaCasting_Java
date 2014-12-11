@@ -66,9 +66,9 @@ public class OffreDAO {
 			
 	        pstmt.setString(1, offre.getLibelle());
 	        pstmt.setString(2, offre.getReference());
-	        pstmt.setString(3, offre.getDateDebPublication());
-	        pstmt.setString(4, offre.getDateDebContrat());
-	        pstmt.setString(4, offre.getDateFinContrat());
+	        pstmt.setDate(3, (Date) offre.getDateDebPublication());
+	        pstmt.setDate(4, (Date) offre.getDateDebContrat());
+	        pstmt.setDate(4, (Date) offre.getDateFinContrat());
 	        pstmt.setString(5, offre.getDescPoste());
 	        pstmt.setString(6, offre.getDescProfil());
 	        pstmt.setLong(7, offre.getAnnonceur().getIdentifiant());
@@ -134,9 +134,9 @@ public class OffreDAO {
 			
 		        pstmt.setString(1, offre.getLibelle());
 		        pstmt.setString(2, offre.getReference());
-		        pstmt.setString(3, offre.getDateDebPublication());
-		        pstmt.setString(4, offre.getDateDebContrat());
-		        pstmt.setString(4, offre.getDateFinContrat());
+		        pstmt.setDate(3, (Date) offre.getDateDebPublication());
+		        pstmt.setDate(4, (Date) offre.getDateDebContrat());
+		        pstmt.setDate(4, (Date) offre.getDateFinContrat());
 		        pstmt.setString(5, offre.getDescPoste());
 		        pstmt.setString(6, offre.getDescProfil());
 		        pstmt.setLong(7, offre.getAnnonceur().getIdentifiant());
@@ -228,9 +228,9 @@ public class OffreDAO {
                             rs.getLong("Identifiant"),
                             rs.getString("Libelle"),
                             rs.getString("Reference"),
-                            rs.getDate("dateDebPublication").toString(),
-                            rs.getDate("dateDebContrat").toString(),
-                            rs.getDate("dateFinContrat").toString(),
+                            rs.getDate("dateDebPublication"),
+                            rs.getDate("dateDebContrat"),
+                            rs.getDate("dateFinContrat"),
                             rs.getString("DescPoste"),
                             rs.getString("DescProfil"),
                             annonceur,
@@ -303,9 +303,9 @@ public class OffreDAO {
                     rs.getLong("Identifiant"),
                     rs.getString("Libelle"),
                     rs.getString("Reference"),
-                    rs.getDate("dateDebPublication").toString(),
-                    rs.getDate("dateDebContrat").toString(),
-                    rs.getDate("dateFinContrat").toString(),
+                    rs.getDate("dateDebPublication"),
+                    rs.getDate("dateDebContrat"),
+                    rs.getDate("dateFinContrat"),
                     rs.getString("DescPoste"),
                     rs.getString("DescProfil"),
                     annonceur,
