@@ -17,15 +17,19 @@ public class Offre {
     private long identifiant;
     private String libelle;
     private String reference;
-    private Date dateDebPublication;
-    private Date dateDebContrat;
-    private Date dateFinContrat;
+    private String dateDebPublication;
+    private String dateDebContrat;
+    private String dateFinContrat;
     private String descPoste;
     private String descProfil;
     private Annonceur annonceur;
     private Contrat contrat;
     private Metier metier;
     private Domaine domaine;
+
+    public String toString(Date date) {
+        return "" + date + "";
+    }
 
     public long getIdentifiant() {
         return identifiant;
@@ -51,27 +55,27 @@ public class Offre {
         this.reference = reference;
     }
 
-    public Date getDateDebPublication() {
+    public String getDateDebPublication() {
         return dateDebPublication;
     }
 
-    public void setDateDebPublication(Date dateDebPublication) {
+    public void setDateDebPublication(String dateDebPublication) {
         this.dateDebPublication = dateDebPublication;
     }
 
-    public Date getDateDebContrat() {
+    public String getDateDebContrat() {
         return dateDebContrat;
     }
 
-    public void setDateDebContrat(Date dateDebContrat) {
+    public void setDateDebContrat(String dateDebContrat) {
         this.dateDebContrat = dateDebContrat;
     }
 
-    public Date getDateFinContrat() {
+    public String getDateFinContrat() {
         return dateFinContrat;
     }
 
-    public void setDateFinContrat(Date dateFinContrat) {
+    public void setDateFinContrat(String dateFinContrat) {
         this.dateFinContrat = dateFinContrat;
     }
 
@@ -123,16 +127,20 @@ public class Offre {
         this.domaine = domaine;
     }
 
-    public Offre(long identifiant, String libelle, String reference, Date dateDebPublication, Date dateDebContrat, Annonceur annonceur, Contrat contrat, Metier metier, Domaine domaine) {
+    public Offre(long identifiant, String libelle, String reference, String dateDebPublication, String dateDebContrat, String dateFinContrat, String descPoste, String descProfil, Annonceur annonceur, Contrat contrat, Metier metier, Domaine domaine) {
         this.identifiant = identifiant;
         this.libelle = libelle;
         this.reference = reference;
         this.dateDebPublication = dateDebPublication;
         this.dateDebContrat = dateDebContrat;
+        this.dateFinContrat = dateFinContrat;
+        this.descPoste = descPoste;
+        this.descProfil = descProfil;
         this.annonceur = annonceur;
         this.contrat = contrat;
         this.metier = metier;
         this.domaine = domaine;
     }
+    
 
 }

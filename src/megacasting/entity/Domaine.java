@@ -15,6 +15,11 @@ public class Domaine {
     private long identifiant;
     private String libelle;
 
+    @Override
+    public String toString() {
+        return libelle;
+    }
+
     public long getIdentifiant() {
         return identifiant;
     }

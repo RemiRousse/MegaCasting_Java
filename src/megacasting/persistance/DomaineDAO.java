@@ -167,4 +167,35 @@ public class DomaineDAO {
         
         return domaine;
     }
+    
+    public Domaine findFromLibelle(Connection cnx, String libelle) {
+        Domaine domaine = null;
+        
+        PreparedStatement pstmt = null;
+        
+        try {
+            pstmt = cnx.prepareStatement("SELECT Identifiant, Libelle "
+                    + " FROM Domaine "
+                    + " WHERE Libelle = ?");
+            pstmt.setString(1, libelle);
+            
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                domaine = new Domaine(rs.getLong("Identifiant"), rs.getString("Libelle"));
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (pstmt != null) {
+                    pstmt.close();
+                }
+            } catch (Exception e) {
+            }
+
+        }
+        
+        return domaine;
+    }
 }

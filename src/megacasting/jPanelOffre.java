@@ -9,14 +9,15 @@ package megacasting;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.swing.table.DefaultTableModel;
-
-import megacasting.entity.Candidat;
-import megacasting.entity.Employe;
+import megacasting.entity.Contrat;
+import megacasting.entity.Domaine;
+import megacasting.entity.Metier;
 import megacasting.entity.Offre;
 import megacasting.persistance.ConnectionBDD;
-import megacasting.persistance.EmployeDAO;
+import megacasting.persistance.ContratDAO;
+import megacasting.persistance.DomaineDAO;
+import megacasting.persistance.MetierDAO;
 import megacasting.persistance.OffreDAO;
 
 /**
@@ -27,6 +28,10 @@ public class jPanelOffre extends javax.swing.JPanel {
 
 	
 	private List<Offre> offres;
+        private List<Domaine> domaines;
+        private List<Metier> metiers;
+        private List<Contrat> contrats;
+        
     private Connection cnx;
     
     
@@ -41,6 +46,7 @@ public class jPanelOffre extends javax.swing.JPanel {
         cnx = connectionBDD.getConnection();
         //Refrech des listes 
         refreshOffre();
+        
     }
 
     
@@ -50,6 +56,7 @@ public class jPanelOffre extends javax.swing.JPanel {
      */
     public void refreshOffre(){
     	
+        //Initialisation de la table des offres
     	OffreDAO offreDAO = new OffreDAO();
     	offres = new ArrayList<Offre>(offreDAO.list(cnx));
                 
@@ -67,6 +74,41 @@ public class jPanelOffre extends javax.swing.JPanel {
                 o.getContrat().getLibelle()
             });
         }
+        
+        //Initialisation de la combo box des domaines
+        DomaineDAO domaineDAO = new DomaineDAO();
+        domaines = new ArrayList<Domaine>(domaineDAO.list(cnx));
+        
+        for (Domaine d : domaines) {
+            comboBoxOffre_domaine.addItem(d.getLibelle());
+        }
+        
+        //Initialisation de la combo box des metiers
+        metiers = refreshListMetiers();
+        
+        //Initialisation de la combo box des contrats
+        ContratDAO contratDAO = new ContratDAO();
+        contrats = new ArrayList<Contrat>(contratDAO.list(cnx));
+        
+        for (Contrat c : contrats) {
+            comboBoxOffre_contrat.addItem(c.getLibelle());
+        }
+    }
+    
+    private List<Metier> refreshListMetiers() {
+        
+        comboBoxOffre_metier.removeAllItems();
+        
+        MetierDAO metierDAO = new MetierDAO();
+        
+        String domaineSelected = comboBoxOffre_domaine.getSelectedItem().toString();
+        List<Metier> mesMetiers = new ArrayList<Metier>(metierDAO.listOfDomain(cnx, domaineSelected));
+        
+        for (Metier m : mesMetiers) {
+            comboBoxOffre_metier.addItem(m.getLibelle());
+        }
+        
+        return mesMetiers;
     }
     
     
@@ -88,6 +130,7 @@ public class jPanelOffre extends javax.swing.JPanel {
         labelOffre_libelle = new javax.swing.JLabel();
         textFieldOffre_libelle = new javax.swing.JTextField();
         labelOffre_datePublication = new javax.swing.JLabel();
+        formattedTFOffre_datePublication = new javax.swing.JFormattedTextField();
         labelOffre_domaine = new javax.swing.JLabel();
         comboBoxOffre_domaine = new javax.swing.JComboBox();
         labelOffre_metier = new javax.swing.JLabel();
@@ -148,6 +191,12 @@ public class jPanelOffre extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        tableOffre_list.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tableOffre_list.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableOffre_listMouseClicked(evt);
+            }
+        });
         scrollPanelOffre_list.setViewportView(tableOffre_list);
 
         javax.swing.GroupLayout panelOffre_listLayout = new javax.swing.GroupLayout(panelOffre_list);
@@ -178,20 +227,22 @@ public class jPanelOffre extends javax.swing.JPanel {
         labelOffre_datePublication.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         labelOffre_datePublication.setText("Date de publication");
 
+        formattedTFOffre_datePublication.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
+
         labelOffre_domaine.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         labelOffre_domaine.setText("Domaine");
 
-        comboBoxOffre_domaine.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboBoxOffre_domaine.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxOffre_domaineActionPerformed(evt);
+            }
+        });
 
         labelOffre_metier.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         labelOffre_metier.setText("Métier");
 
-        comboBoxOffre_metier.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         labelOffre_contrat.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         labelOffre_contrat.setText("Contrat");
-
-        comboBoxOffre_contrat.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout panelOffre_formLayout = new javax.swing.GroupLayout(panelOffre_form);
         panelOffre_form.setLayout(panelOffre_formLayout);
@@ -210,11 +261,12 @@ public class jPanelOffre extends javax.swing.JPanel {
                         .addGroup(panelOffre_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(textFieldOffre_reference, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                             .addComponent(textFieldOffre_libelle, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(comboBoxOffre_domaine, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(comboBoxOffre_domaine, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(formattedTFOffre_datePublication)))
                     .addGroup(panelOffre_formLayout.createSequentialGroup()
                         .addComponent(labelOffre_metier, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(comboBoxOffre_metier, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(comboBoxOffre_metier, 0, 150, Short.MAX_VALUE))
                     .addGroup(panelOffre_formLayout.createSequentialGroup()
                         .addComponent(labelOffre_contrat, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -232,9 +284,11 @@ public class jPanelOffre extends javax.swing.JPanel {
                 .addGroup(panelOffre_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelOffre_libelle)
                     .addComponent(textFieldOffre_libelle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(labelOffre_datePublication)
-                .addGap(34, 34, 34)
+                .addGap(29, 29, 29)
+                .addGroup(panelOffre_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelOffre_datePublication)
+                    .addComponent(formattedTFOffre_datePublication, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
                 .addGroup(panelOffre_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelOffre_domaine)
                     .addComponent(comboBoxOffre_domaine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -323,14 +377,39 @@ public class jPanelOffre extends javax.swing.JPanel {
         
     }//GEN-LAST:event_buttonOffre_insertActionPerformed
 
+    private Long selectionOffre(java.awt.event.MouseEvent evt) {                           
+        int row = tableOffre_list.rowAtPoint(evt.getPoint());
+        Offre o = offres.get(row);
+        
+        textFieldOffre_libelle.setText(o.getLibelle());
+        textFieldOffre_reference.setText(o.getReference());
+        formattedTFOffre_datePublication.setText(o.getDateDebContrat());
+        comboBoxOffre_contrat.setSelectedItem(o.getContrat());
+        comboBoxOffre_domaine.setSelectedItem(o.getDomaine());
+        comboBoxOffre_metier.setSelectedItem(o.getMetier());
+        
+        return o.getDomaine().getIdentifiant();
+        
+    }
+    
+    private void tableOffre_listMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableOffre_listMouseClicked
+        // TODO add your handling code here:
+        selectionOffre(evt);
+    }//GEN-LAST:event_tableOffre_listMouseClicked
+
+    private void comboBoxOffre_domaineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxOffre_domaineActionPerformed
+        refreshListMetiers();// TODO add your handling code here:
+    }//GEN-LAST:event_comboBoxOffre_domaineActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonOffre_delete;
     private javax.swing.JButton buttonOffre_insert;
     private javax.swing.JButton buttonOffre_update;
-    private javax.swing.JComboBox<String> comboBoxOffre_contrat;
-    private javax.swing.JComboBox<String> comboBoxOffre_domaine;
-    private javax.swing.JComboBox<String> comboBoxOffre_metier;
+    private javax.swing.JComboBox comboBoxOffre_contrat;
+    private javax.swing.JComboBox comboBoxOffre_domaine;
+    private javax.swing.JComboBox comboBoxOffre_metier;
+    private javax.swing.JFormattedTextField formattedTFOffre_datePublication;
     private javax.swing.JLabel labelOffre_contrat;
     private javax.swing.JLabel labelOffre_datePublication;
     private javax.swing.JLabel labelOffre_domaine;

@@ -144,6 +144,45 @@ public class MetierDAO {
         return set;
     }
     
+    public Collection<Metier> listOfDomain(Connection cnx, String str) {
+        
+        Set<Metier> set = new HashSet<Metier>();
+        
+        PreparedStatement pstmt = null;
+        
+        DomaineDAO domaineDAO = new DomaineDAO();
+        Domaine domaine = domaineDAO.findFromLibelle(cnx, str);
+        
+        try {
+            pstmt = cnx.prepareStatement("SELECT Identifiant, Libelle, IdentifiantDomaine "
+                    + "FROM Metier "
+                    + "WHERE IdentifiantDomaine = ?");
+            
+            pstmt.setLong(1, domaine.getIdentifiant());
+            
+            ResultSet rs = pstmt.executeQuery();
+            
+            while (rs.next()) {                
+                DomaineDAO d = new DomaineDAO();
+                domaine = d.find(cnx, rs.getInt("IdentifiantDomaine"));
+                
+                Metier metier = new Metier(rs.getLong("Identifiant"), rs.getString("Libelle"), domaine);
+                set.add(metier);
+            }
+            
+        } catch (Exception e) {
+        } finally {
+            if (pstmt != null) {
+                try {
+                    pstmt.close();
+                } catch (Exception e) {
+                }
+            }
+        }
+        
+        return set;
+    }
+    
     public Metier find(Connection cnx, long id) {
         Metier metier = null;
         
