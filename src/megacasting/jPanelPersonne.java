@@ -8,14 +8,12 @@ package megacasting;
 
 import java.awt.event.ActionEvent;
 import java.sql.Connection;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Properties;
 
-import javafx.scene.control.DatePicker;
-
-import javax.swing.JLabel;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
 import javax.swing.table.DefaultTableModel;
 
@@ -32,8 +30,8 @@ import megacasting.persistance.EmployeDAO;
 public class jPanelPersonne extends javax.swing.JPanel {
 
 	
-	private List<Employe> employes;
-	private List<Candidat> candidats;
+    private List<Employe> employes;
+    private List<Candidat> candidats;
     private Connection cnx;
 	
     /**
@@ -41,14 +39,6 @@ public class jPanelPersonne extends javax.swing.JPanel {
      */
     public jPanelPersonne() {
         initComponents();
-        
-        buttonEmpl_insert.setEnabled(true);
-        buttonEmpl_update.setEnabled(false);
-        buttonEmpl_delete.setEnabled(false);
-        
-        buttonCand_insert.setEnabled(true);
-        buttonCand_update.setEnabled(false);
-        buttonCand_delete.setEnabled(false);
         
         //Connection a la base
         ConnectionBDD connectionBDD = ConnectionBDD.getInstance();
@@ -123,7 +113,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
     private void initComponents() {
 
         panelPers_sort = new javax.swing.JPanel();
-        comboBoxPers_sort = new javax.swing.JComboBox<String>();
+        comboBoxPers_sort = new javax.swing.JComboBox();
         tabbedPanePers = new javax.swing.JTabbedPane();
         panelEmpl = new javax.swing.JPanel();
         panelEmpl_list = new javax.swing.JPanel();
@@ -154,17 +144,15 @@ public class jPanelPersonne extends javax.swing.JPanel {
         labelCand_dateNaissance = new javax.swing.JLabel();
         labelCand_pays = new javax.swing.JLabel();
         textFieldCand_pays = new javax.swing.JTextField();
+        textFieldCand_dateNaissance = new javax.swing.JFormattedTextField();
         panelCand_valid = new javax.swing.JPanel();
         buttonCand_insert = new javax.swing.JButton();
         buttonCand_update = new javax.swing.JButton();
         buttonCand_delete = new javax.swing.JButton();
-        
-        
-
 
         panelPers_sort.setBorder(javax.swing.BorderFactory.createTitledBorder("Tri"));
 
-        comboBoxPers_sort.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "Employï¿½s", "Candidats" }));
+        comboBoxPers_sort.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2" }));
         comboBoxPers_sort.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboBoxPers_sortActionPerformed(evt);
@@ -187,7 +175,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        panelEmpl_list.setBorder(javax.swing.BorderFactory.createTitledBorder("Liste des employï¿½s"));
+        panelEmpl_list.setBorder(javax.swing.BorderFactory.createTitledBorder("Liste des employÃ©s"));
 
         tableEmpl_list.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -218,7 +206,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Nom", "Prï¿½nom", "Poste", "Habilitation"
+                "Nom", "PrÃ©nom", "Poste", "Habilitation"
             }
         ) {
             Class[] types = new Class [] {
@@ -261,7 +249,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
         labelEmpl_nom.setText("Nom");
 
         labelEmpl_prenom.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelEmpl_prenom.setText("Prï¿½nom");
+        labelEmpl_prenom.setText("PrÃ©nom");
 
         labelEmpl_poste.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         labelEmpl_poste.setText("Poste");
@@ -405,7 +393,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Nom", "Prï¿½nom", "Date de naissance", "Pays"
+                "Nom", "PrÃ©nom", "Date de naissance", "Pays"
             }
         ) {
             Class[] types = new Class [] {
@@ -448,13 +436,15 @@ public class jPanelPersonne extends javax.swing.JPanel {
         labelCand_nom.setText("Nom");
 
         labelCand_prenom.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelCand_prenom.setText("Prï¿½nom");
+        labelCand_prenom.setText("PrÃ©nom");
 
         labelCand_dateNaissance.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         labelCand_dateNaissance.setText("Date de naissance");
 
         labelCand_pays.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         labelCand_pays.setText("Pays");
+
+        textFieldCand_dateNaissance.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
 
         javax.swing.GroupLayout panelCand_formLayout = new javax.swing.GroupLayout(panelCand_form);
         panelCand_form.setLayout(panelCand_formLayout);
@@ -468,10 +458,11 @@ public class jPanelPersonne extends javax.swing.JPanel {
                     .addComponent(labelCand_dateNaissance, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelCand_pays, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(panelCand_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textFieldCand_nom, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textFieldCand_prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textFieldCand_pays, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelCand_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(textFieldCand_nom, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(textFieldCand_prenom, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(textFieldCand_pays, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(textFieldCand_dateNaissance))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelCand_formLayout.setVerticalGroup(
@@ -485,9 +476,11 @@ public class jPanelPersonne extends javax.swing.JPanel {
                 .addGroup(panelCand_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelCand_prenom)
                     .addComponent(textFieldCand_prenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(labelCand_dateNaissance)
-                .addGap(34, 34, 34)
+                .addGap(29, 29, 29)
+                .addGroup(panelCand_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelCand_dateNaissance)
+                    .addComponent(textFieldCand_dateNaissance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
                 .addGroup(panelCand_formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(textFieldCand_pays, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelCand_pays))
@@ -575,10 +568,9 @@ public class jPanelPersonne extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(panelPers_sort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tabbedPanePers, javax.swing.GroupLayout.DEFAULT_SIZE, 659, Short.MAX_VALUE)
+                .addComponent(tabbedPanePers)
                 .addContainerGap())
         );
-        
         
         /* EVENEMENTS */
         buttonEmpl_insert.addActionListener(new java.awt.event.ActionListener() {
@@ -623,22 +615,15 @@ public class jPanelPersonne extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 selectionEmploye(evt);
             }
-        });
+        });        
+        
+    }// </editor-fold>//GEN-END:initComponents
 
-    }
-
-    
-    
-    //Fonction event
-    /**
-     * Switch Onglets
-     * @author Mousse
-     * @param evt
-     */
     private void comboBoxPers_sortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxPers_sortActionPerformed
         // TODO add your handling code here:
         tabbedPanePers.setSelectedIndex(comboBoxPers_sort.getSelectedIndex());
     }//GEN-LAST:event_comboBoxPers_sortActionPerformed
+
 
     /**
      * Event Click Insert Employe
@@ -649,8 +634,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
     	String nom = textFieldEmpl_nom.getText();
     	String prenom = textFieldEmpl_prenom.getText();
     	String poste = textFieldEmpl_poste.getText();
-    	jFrameAlert jFrameAlert = new jFrameAlert("insert ok");
-    	jFrameAlert.setVisible(true);
+
     	try {
     		int habilitation = Integer.parseInt(textFieldEmpl_habilitation.getText());
 	    	
@@ -661,8 +645,8 @@ public class jPanelPersonne extends javax.swing.JPanel {
 	    	EmployeDAO employeDAO = new EmployeDAO();
 	    	employeDAO.insert(cnx, employe);
 		} catch (Exception e) {
-
-
+			jFrameAlert jFrameAlert = new jFrameAlert("L'ajout a échoué. Rééssayez.");
+	    	jFrameAlert.setVisible(true);
 		} finally {
 			//Clear textField
 			textFieldEmpl_nom.setText("");
@@ -680,33 +664,53 @@ public class jPanelPersonne extends javax.swing.JPanel {
      * 
      */
     private void buttonCand_insert (ActionEvent evt){
-    	String nom = textFieldCand_nom.getText();
-    	String prenom = textFieldCand_prenom.getText();
-    	String pays = textFieldCand_pays.getText();
-//    	String dateNaissance = labelCand_dateNaissance.getText();
     	
-    	try {
-    		
-//    		int dateNaissance = Date.parse (textFieldEmpl_habilitation.getText());
-	    	
-	    	Candidat candidat = new Candidat(nom, prenom);
-	    	candidat.setPays(pays);
-//	    	candidat.setDateNaissance(dateNaissance);
-	    	
-	    	CandidatDAO candidatDAO = new CandidatDAO();
-	    	candidatDAO.insert(cnx, candidat);
-
-		} catch (Exception e) {
-			// TODO: handle exception
-		} finally {
-			//Clear textField
-	    	textFieldCand_nom.setText("");
-	    	textFieldCand_prenom.setText("");
-	    	textFieldCand_pays.setText("");
-	    	
-	    	refreshCandidat();
+    	int verif = 0;
+    	
+    	//test not null
+    	if ((textFieldCand_nom.getText() == null) && (textFieldCand_prenom.getText() == null) && (textFieldCand_pays.getText() == null) && (textFieldCand_dateNaissance.getText() == null)) {
+    		jFrameAlert jFrameAlertNull = new jFrameAlert("Vous ne pouvez laisser de champs vide.");
+    		jFrameAlertNull.setVisible(true);
 		}
-    	
+    	else {
+    		
+    		//test date convert
+	    	SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+	    	String dateString = textFieldCand_dateNaissance.getText();
+	    	
+	    	try {
+	    		Date dateNaissance = formatter.parse(dateString);
+	       		
+	    		String nom = textFieldCand_nom.getText();
+	        	String prenom = textFieldCand_prenom.getText();
+	        	String pays = textFieldCand_pays.getText();
+	        	
+	        	Candidat candidat = new Candidat(nom, prenom);
+		    	candidat.setPays(pays);
+		    	candidat.setDateNaissance(dateNaissance);
+		    	
+		    	try {
+			    	CandidatDAO candidatDAO = new CandidatDAO();
+			    	candidatDAO.insert(cnx, candidat);
+
+				} catch (Exception e) {
+			    	jFrameAlert jFrameAlert = new jFrameAlert("L'ajout a échoué. Rééssayez.");
+			    	jFrameAlert.setVisible(true);
+				} finally {
+					//Clear textField
+			    	textFieldCand_nom.setText("");
+			    	textFieldCand_prenom.setText("");
+			    	textFieldCand_pays.setText("");
+			    	
+			    	refreshCandidat();
+				}//end try-catch-finally
+		    	
+	    	} catch (ParseException e) {
+	    		jFrameAlert jFrameAlertDate = new jFrameAlert("Le format de la date est mauvais.");
+	    		jFrameAlertDate.setVisible(true);
+	    	}//end try-catch
+	    	
+		}//end else
     }
     
     /**
@@ -736,7 +740,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
             		int habilitationParse = Integer.parseInt(habilitation);
                     employe.setHabilitation(habilitationParse);
 				} catch (Exception e2) {
-					jFrameAlert jFrameAlert = new jFrameAlert("bonjour");
+
 				}
             }
 
@@ -746,7 +750,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
             employeDAO.update(cnx, employe);
 
         } catch (Exception ex) {
-        	jFrameAlert jFrameAlert = new jFrameAlert("bonjour 2");
+
         } finally {
             //Clear textField
             textFieldEmpl_nom.setText("");
@@ -818,7 +822,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
         textFieldCand_nom.setText(c.getNom());
         textFieldCand_prenom.setText(c.getPrenom());
         textFieldCand_pays.setText(c.getPays());
-//        textFieldCand_dateNaissance.setText(c.getDateNaissance());
+        textFieldCand_dateNaissance.setValue(c.getDateNaissance());
         
         
         //desactivation du bouton Insert
@@ -924,6 +928,8 @@ public class jPanelPersonne extends javax.swing.JPanel {
         }
     }
     
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCand_delete;
     private javax.swing.JButton buttonCand_insert;
@@ -931,7 +937,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
     private javax.swing.JButton buttonEmpl_delete;
     private javax.swing.JButton buttonEmpl_insert;
     private javax.swing.JButton buttonEmpl_update;
-    private javax.swing.JComboBox<String> comboBoxPers_sort;
+    private javax.swing.JComboBox comboBoxPers_sort;
     private javax.swing.JLabel labelCand_dateNaissance;
     private javax.swing.JLabel labelCand_nom;
     private javax.swing.JLabel labelCand_pays;
@@ -954,6 +960,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
     private javax.swing.JTabbedPane tabbedPanePers;
     private javax.swing.JTable tableCand_list;
     private javax.swing.JTable tableEmpl_list;
+    private javax.swing.JFormattedTextField textFieldCand_dateNaissance;
     private javax.swing.JTextField textFieldCand_nom;
     private javax.swing.JTextField textFieldCand_pays;
     private javax.swing.JTextField textFieldCand_prenom;

@@ -6,8 +6,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import java.awt.Window.Type;
+
 import javax.swing.JLabel;
+
 import java.awt.Color;
 import java.awt.Font;
 
@@ -18,12 +21,12 @@ public class jFrameAlert extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args, String message) {
+	public static void main(String[] args, String message1) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					
-					jFrameAlert frame = new jFrameAlert(message);
+					jFrameAlert frame = new jFrameAlert(message1);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,10 +48,13 @@ public class jFrameAlert extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		JLabel labelAlert = new JLabel(message);
-		labelAlert.setFont(new Font("Calibri", Font.BOLD, 17));
-		labelAlert.setForeground(Color.RED);
-		contentPane.add(labelAlert, BorderLayout.CENTER);
+		JLabel labelAlert1 = new JLabel(message);
+		labelAlert1.setFont(new Font("Calibri", Font.BOLD, 17));
+		labelAlert1.setForeground(Color.RED);
+		contentPane.add(labelAlert1, BorderLayout.CENTER);
+		
+		JLabel labelAlert2 = new JLabel("Si le probléme perciste, contactez votre administrateur.");
+		labelAlert2.setFont(new Font("Calibri", Font.PLAIN, 11));
+		contentPane.add(labelAlert2, BorderLayout.SOUTH);
 	}
-
 }
