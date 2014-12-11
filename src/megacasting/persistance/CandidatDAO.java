@@ -75,12 +75,15 @@ public class CandidatDAO {
     public void update(Connection cnx, Candidat candidat) {
         
         PreparedStatement pstmt = null;
-
+        
+      //convert Date into sqlDate
+        java.sql.Date sqlDateNaissance = new java.sql.Date(candidat.getDateNaissance().getTime());
+        
         try {
             pstmt = cnx.prepareStatement("UPDATE Candidat SET "
                     + "DateNaissance = ?, Pays = ?, Nom = ?, Prenom = ? "
                     + "WHERE Identifiant = ?");
-            pstmt.setDate(1, (Date) candidat.getDateNaissance());
+            pstmt.setDate(1, sqlDateNaissance);
             pstmt.setString(2, candidat.getPays());
             pstmt.setString(3, candidat.getNom());
             pstmt.setString(4, candidat.getPrenom());
