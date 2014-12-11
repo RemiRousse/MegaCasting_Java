@@ -595,6 +595,17 @@ public class jPanelPersonne extends javax.swing.JPanel {
             }
         });
         
+        buttonEmpl_delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	buttonEmpl_delete(evt);
+            }
+        });
+        buttonCand_delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	buttonCand_delete(evt);
+            }
+        });
+        
         tableCand_list.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 selectionCandidat(evt);
@@ -800,6 +811,75 @@ public class jPanelPersonne extends javax.swing.JPanel {
         
         if (evt.getClickCount() > 1) {
 //        	tableCand_list.setS .setSelectedIndex(0);
+        }
+    }
+    
+    /**
+     * 
+     * @param evt
+     */
+    private void buttonEmpl_delete(ActionEvent evt) {
+    	
+    	int row = tableEmpl_list.getSelectedRow();
+    	Employe e = employes.get(row);
+    	
+    	int identifiant = (int) e.getIdentifiant();
+    	String nom = textFieldEmpl_nom.getText();
+    	String prenom = textFieldEmpl_prenom.getText();
+
+    	try {
+    		
+            //Creation de l'employe
+            Employe employe = new Employe(nom, prenom);
+            employe.setIdentifiant(identifiant);
+
+            EmployeDAO employeDAO = new EmployeDAO();
+            employeDAO.delete(cnx, employe);
+
+        } catch (Exception ex) {
+
+        } finally {
+            //Clear textField
+            textFieldEmpl_nom.setText("");
+            textFieldEmpl_prenom.setText("");
+            textFieldEmpl_poste.setText("");
+            textFieldEmpl_habilitation.setText("");
+
+            refreshEmploye();
+        }
+    }
+    
+    /**
+     * 
+     * @param evt
+     */
+    private void buttonCand_delete(ActionEvent evt) {
+    	
+    	int row = tableCand_list.getSelectedRow();
+    	Candidat c = candidats.get(row);
+    	
+    	int identifiant = (int) c.getIdentifiant();
+    	String nom = textFieldCand_nom.getText();
+    	String prenom = textFieldCand_prenom.getText();
+
+    	try {
+    		
+            //Creation de l'employe
+            Candidat candidat = new Candidat(nom, prenom);
+            candidat.setIdentifiant(identifiant);
+
+            CandidatDAO candidatDAO = new CandidatDAO();
+            candidatDAO.delete(cnx, candidat);
+
+        } catch (Exception ex) {
+
+        } finally {
+            //Clear textField
+            textFieldCand_nom.setText("");
+            textFieldCand_prenom.setText("");
+            textFieldCand_pays.setText("");
+
+            refreshCandidat();
         }
     }
     
