@@ -15,14 +15,10 @@ import javax.swing.plaf.basic.BasicTabbedPaneUI;
 import javax.swing.table.DefaultTableModel;
 
 import megacasting.entity.Annonceur;
-import megacasting.entity.Candidat;
 import megacasting.entity.Diffuseur;
-import megacasting.entity.Employe;
 import megacasting.persistance.AnnonceurDAO;
-import megacasting.persistance.CandidatDAO;
 import megacasting.persistance.ConnectionBDD;
 import megacasting.persistance.DiffuseurDAO;
-import megacasting.persistance.EmployeDAO;
 
 /**
  *
@@ -145,7 +141,7 @@ public class jPanelSociete extends javax.swing.JPanel {
 
         panelSociete_sort.setBorder(javax.swing.BorderFactory.createTitledBorder("Tri"));
 
-        comboBoxSociete_sort.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2" }));
+        comboBoxSociete_sort.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Annonceurs", "Diffuseurs" }));
         comboBoxSociete_sort.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboBoxSociete_sortActionPerformed(evt);
@@ -217,6 +213,7 @@ public class jPanelSociete extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        tableAnnonceur_list.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tableAnnonceur_list.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tableAnnonceur_listMouseClicked(evt);
@@ -296,6 +293,7 @@ public class jPanelSociete extends javax.swing.JPanel {
             }
         });
 
+        buttonAnnonceur_update.setEnabled(false);
         buttonAnnonceur_update.setLabel("Modifier");
         buttonAnnonceur_update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -303,6 +301,7 @@ public class jPanelSociete extends javax.swing.JPanel {
             }
         });
 
+        buttonAnnonceur_delete.setEnabled(false);
         buttonAnnonceur_delete.setLabel("Supprimer");
         buttonAnnonceur_delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -415,6 +414,7 @@ public class jPanelSociete extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        tableDiffuseur_list.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tableDiffuseur_list.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tableDiffuseur_listMouseClicked(evt);
@@ -485,6 +485,7 @@ public class jPanelSociete extends javax.swing.JPanel {
             }
         });
 
+        buttonDiffuseur_update.setEnabled(false);
         buttonDiffuseur_update.setLabel("Modifier");
         buttonDiffuseur_update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -492,6 +493,7 @@ public class jPanelSociete extends javax.swing.JPanel {
             }
         });
 
+        buttonDiffuseur_delete.setEnabled(false);
         buttonDiffuseur_delete.setLabel("Supprimer");
         buttonDiffuseur_delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

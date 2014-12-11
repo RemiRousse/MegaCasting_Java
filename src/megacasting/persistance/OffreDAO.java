@@ -52,9 +52,9 @@ public class OffreDAO {
 					"INSERT INTO Offre ("
 							+ "LIBELLE, "
 							+ "REFERENCE, "
-							+ "DATEDEBPUBLICATION, "
-							+ "DATEDEBCONTRAT, "
-							+ "DATEFINCONTRAT, "
+							+ "STR_TO_DATE('DATEDEBPUBLICATION', '%d/%m/%Y'), "
+							+ "STR_TO_DATE('DATEDEBCONTRAT', '%d/%m/%Y'), "
+							+ "STR_TO_DATE('DATEFINCONTRAT', '%d/%m/%Y'), "
 							+ "DESCPOSTE, "
 							+ "DESCPROFIL,"
 							+ "IdentifiantAnnonceur,"
@@ -66,9 +66,9 @@ public class OffreDAO {
 			
 	        pstmt.setString(1, offre.getLibelle());
 	        pstmt.setString(2, offre.getReference());
-	        pstmt.setDate(3, (Date) offre.getDateDebPublication());
-	        pstmt.setDate(4, (Date) offre.getDateDebContrat());
-	        pstmt.setDate(4, (Date) offre.getDateFinContrat());
+	        pstmt.setString(3, offre.getDateDebPublication());
+	        pstmt.setString(4, offre.getDateDebContrat());
+	        pstmt.setString(4, offre.getDateFinContrat());
 	        pstmt.setString(5, offre.getDescPoste());
 	        pstmt.setString(6, offre.getDescProfil());
 	        pstmt.setLong(7, offre.getAnnonceur().getIdentifiant());
@@ -120,9 +120,9 @@ public class OffreDAO {
 					"UPDATE Offre SET ("
 							+ "LIBELLE, "
 							+ "REFERENCE, "
-							+ "DATEDEBPUBLICATION, "
-							+ "DATEDEBCONTRAT, "
-							+ "DATEFINCONTRAT, "
+							+ "STR_TO_DATE('DATEDEBPUBLICATION', '%d/%m/%Y'), "
+							+ "STR_TO_DATE('DATEDEBCONTRAT', '%d/%m/%Y'), "
+							+ "STR_TO_DATE('DATEFINCONTRAT', '%d/%m/%Y'), "
 							+ "DESCPOSTE, "
 							+ "DESCPROFIL,"
 							+ "IdentifiantAnnonceur,"
@@ -134,9 +134,9 @@ public class OffreDAO {
 			
 		        pstmt.setString(1, offre.getLibelle());
 		        pstmt.setString(2, offre.getReference());
-		        pstmt.setDate(3, (Date) offre.getDateDebPublication());
-		        pstmt.setDate(4, (Date) offre.getDateDebContrat());
-		        pstmt.setDate(4, (Date) offre.getDateFinContrat());
+		        pstmt.setString(3, offre.getDateDebPublication());
+		        pstmt.setString(4, offre.getDateDebContrat());
+		        pstmt.setString(4, offre.getDateFinContrat());
 		        pstmt.setString(5, offre.getDescPoste());
 		        pstmt.setString(6, offre.getDescProfil());
 		        pstmt.setLong(7, offre.getAnnonceur().getIdentifiant());
@@ -183,132 +183,140 @@ public class OffreDAO {
         }
     }
 
-	/**
-	 * colection offre
-	 * @param cnx
-	 * @return
-	 */
-	public Collection<Offre> list(Connection cnx) {
-        
-        Set<Offre> set = new HashSet<Offre>();
-        
-        Statement stmt = null;
-        
-        try {
-            stmt = cnx.createStatement();
-            ResultSet rs = stmt.executeQuery(	"SELECT Identifiant, "
-						+ "LIBELLE, "
-                                                + "REFERENCE, "
-						+ "DATEDEBPUBLICATION, "
-						+ "DATEDEBCONTRAT, "
-						+ "DATEFINCONTRAT, "
-						+ "DESCPOSTE, "
-						+ "DESCPROFIL,"
-                                                + "IdentifiantAnnonceur,"
-                                                + "IdentifiantContrat,"
-                                                + "IdentifiantMetier,"
-                                                + "IdentifiantDomaine "
-                                                + "FROM Offre "
-                                                //+ "ORDER BY DateDebPublication DESC"
-						);
-            while (rs.next()) {                
-                AnnonceurDAO a = new AnnonceurDAO();
-                Annonceur annonceur = a.find(cnx, rs.getInt("IdentifiantAnnonceur"));
-                
-                ContratDAO c = new ContratDAO();
-                Contrat contrat = c.find(cnx, rs.getInt("IdentifiantContrat"));
-                
-                MetierDAO m = new MetierDAO();
-                Metier metier = m.find(cnx, rs.getInt("IdentifiantMetier"));
-                
-                DomaineDAO d = new DomaineDAO();
-                Domaine domaine = d.find(cnx, rs.getInt("IdentifiantDomaine"));
-                
-                Offre offre = new Offre(
-                		rs.getLong("Identifiant"),
-                		rs.getString("Libelle"),
-                		rs.getString("Reference"),
-                		rs.getDate("dateDebPublication"),
-                		rs.getDate("dateDebContrat"),
-                		annonceur,
-                		contrat,
-                		metier,
-                		domaine
-                	);
-                set.add(offre);
-            }
-            
-        } catch (Exception e) {
-        } finally {
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (Exception e) {
-                }
+    /**
+     * colection offre
+     * @param cnx
+     * @return
+     */
+    public Collection<Offre> list(Connection cnx) {
+
+    Set<Offre> set = new HashSet<Offre>();
+
+    Statement stmt = null;
+
+    try {
+        stmt = cnx.createStatement();
+        ResultSet rs = stmt.executeQuery(	"SELECT Identifiant, "
+                                            + "LIBELLE, "
+                                            + "REFERENCE, "
+//                                            + "DATE_FORMAT(DATEDEBPUBLICATION, '%d/%m/%Y'), "
+//                                            + "DATE_FORMAT(DATEDEBCONTRAT, '%d/%m/%Y'), "
+//                                            + "DATE_FORMAT(DATEFINCONTRAT, '%d/%m/%Y'), "
+                                            + "DATEDEBPUBLICATION, "
+                                            + "DATEDEBCONTRAT,"
+                                            + "DATEFINCONTRAT,"
+                                            + "DESCPOSTE, "
+                                            + "DESCPROFIL,"
+                                            + "IdentifiantAnnonceur,"
+                                            + "IdentifiantContrat,"
+                                            + "IdentifiantMetier,"
+                                            + "IdentifiantDomaine "
+                                            + "FROM Offre "
+                                            );
+        while (rs.next()) {                
+            AnnonceurDAO a = new AnnonceurDAO();
+            Annonceur annonceur = a.find(cnx, rs.getInt("IdentifiantAnnonceur"));
+
+            ContratDAO c = new ContratDAO();
+            Contrat contrat = c.find(cnx, rs.getInt("IdentifiantContrat"));
+
+            MetierDAO m = new MetierDAO();
+            Metier metier = m.find(cnx, rs.getInt("IdentifiantMetier"));
+
+            DomaineDAO d = new DomaineDAO();
+            Domaine domaine = d.find(cnx, rs.getInt("IdentifiantDomaine"));
+
+            Offre offre = new Offre(
+                            rs.getLong("Identifiant"),
+                            rs.getString("Libelle"),
+                            rs.getString("Reference"),
+                            rs.getDate("dateDebPublication").toString(),
+                            rs.getDate("dateDebContrat").toString(),
+                            rs.getDate("dateFinContrat").toString(),
+                            rs.getString("DescPoste"),
+                            rs.getString("DescProfil"),
+                            annonceur,
+                            contrat,
+                            metier,
+                            domaine
+                    );
+            set.add(offre);
+        }
+
+    } catch (Exception e) {
+    } finally {
+        if (stmt != null) {
+            try {
+                stmt.close();
+            } catch (Exception e) {
             }
         }
-        
-        return set;
     }
-	
-	/**
-	 * Find Offre
-	 * @param cnx
-	 * @param id
-	 * @return
-	 */
-	public Offre find(Connection cnx, long id) {
-		
-		Offre offre = null;
-		
-		PreparedStatement pstmt = null;
-        
+
+    return set;
+}
+
+    /**
+     * Find Offre
+     * @param cnx
+     * @param id
+     * @return
+     */
+    public Offre find(Connection cnx, long id) {
+
+        Offre offre = null;
+
+        PreparedStatement pstmt = null;
+
         try {
 
             pstmt = cnx.prepareStatement("SELECT Identifiant, "
-							            		+ "LIBELLE, "
-												+ "REFERENCE, "
-												+ "DATEDEBPUBLICATION, "
-												+ "DATEDEBCONTRAT, "
-												+ "DATEFINCONTRAT, "
-												+ "DESCPOSTE, "
-												+ "DESCPROFIL,"
-												+ "IdentifiantAnnonceur,"
-												+ "IdentifiantContrat,"
-												+ "IdentifiantMetier,"
-												+ "IdentifiantDomaine "
-										+ "FROM Offre "
-										+ "WHERE Identifiant = ?");
+                                        +   "LIBELLE, "
+                                        +   "REFERENCE, "
+                                        +   "DATE_FORMAT(DATEDEBPUBLICATION, '%d/%m/%Y'), "
+                                        +   "DATE_FORMAT(DATEDEBCONTRAT, '%d/%m/%Y'), "
+                                        +   "DATE_FORMAT(DATEFINCONTRAT, '%d/%m/%Y'), "
+                                        +   "DESCPOSTE, "
+                                        +   "DESCPROFIL,"
+                                        +   "IdentifiantAnnonceur,"
+                                        +   "IdentifiantContrat,"
+                                        +   "IdentifiantMetier,"
+                                        +   "IdentifiantDomaine "
+                                        + "FROM Offre "
+                                        + "WHERE Identifiant = ?");
             pstmt.setLong(1, id);
-            
+
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
-            	
-            	AnnonceurDAO a = new AnnonceurDAO();
-            	Annonceur annonceur = a.find(cnx, rs.getInt("IdentifiantAnnonceur"));
-            
-	            ContratDAO c = new ContratDAO();
-	            Contrat contrat = c.find(cnx, rs.getInt("IdentifiantContrat"));
-	            
-	            MetierDAO m = new MetierDAO();
-	            Metier metier = m.find(cnx, rs.getInt("IdentifiantMetier"));
-	            
-	            DomaineDAO d = new DomaineDAO();
-	            Domaine domaine = d.find(cnx, rs.getInt("IdentifiantDomaine"));
-            	
-	            offre = new Offre(
-		            			rs.getLong("Identifiant"),
-		                		rs.getString("Libelle"),
-		                		rs.getString("Reference"),
-		                		rs.getDate("dateDebPublication"),
-		                		rs.getDate("dateDebContrat"),
-		                		annonceur,
-		                		contrat,
-		                		metier,
-		                		domaine
-            				);
+
+                AnnonceurDAO a = new AnnonceurDAO();
+                Annonceur annonceur = a.find(cnx, rs.getInt("IdentifiantAnnonceur"));
+
+                ContratDAO c = new ContratDAO();
+                Contrat contrat = c.find(cnx, rs.getInt("IdentifiantContrat"));
+
+                MetierDAO m = new MetierDAO();
+                Metier metier = m.find(cnx, rs.getInt("IdentifiantMetier"));
+
+                DomaineDAO d = new DomaineDAO();
+                Domaine domaine = d.find(cnx, rs.getInt("IdentifiantDomaine"));
+
+                offre = new Offre(
+                    rs.getLong("Identifiant"),
+                    rs.getString("Libelle"),
+                    rs.getString("Reference"),
+                    rs.getDate("dateDebPublication").toString(),
+                    rs.getDate("dateDebContrat").toString(),
+                    rs.getDate("dateFinContrat").toString(),
+                    rs.getString("DescPoste"),
+                    rs.getString("DescProfil"),
+                    annonceur,
+                    contrat,
+                    metier,
+                    domaine
+                );
             }
-            
+
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -320,7 +328,7 @@ public class OffreDAO {
             }
 
         }
-        
+
         return offre;
-	}
+    }
 }
