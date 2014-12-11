@@ -144,14 +144,14 @@ public class MetierDAO {
         return set;
     }
     
-    public Collection<Metier> listOfDomain(Connection cnx, String str) {
+    public Collection<Metier> listOfDomain(Connection cnx, String libelleDomaine) {
         
         Set<Metier> set = new HashSet<Metier>();
         
         PreparedStatement pstmt = null;
         
         DomaineDAO domaineDAO = new DomaineDAO();
-        Domaine domaine = domaineDAO.findFromLibelle(cnx, str);
+        Domaine domaine = domaineDAO.findFromLibelle(cnx, libelleDomaine);
         
         try {
             pstmt = cnx.prepareStatement("SELECT Identifiant, Libelle, IdentifiantDomaine "
