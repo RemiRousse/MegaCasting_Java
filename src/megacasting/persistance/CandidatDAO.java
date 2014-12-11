@@ -37,7 +37,6 @@ public class CandidatDAO {
             pstmt.setString(2, candidat.getPays());
             pstmt.setString(3, candidat.getNom());
             pstmt.setString(4, candidat.getPrenom());
-            
 
             int nb = pstmt.executeUpdate();
 
