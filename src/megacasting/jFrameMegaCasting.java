@@ -29,14 +29,20 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
         tabbedPaneMain.add("Offres", offre);
         
         jPanelSociete societe = new jPanelSociete();
-        tabbedPaneMain.addTab("Sociétés", societe);
+        tabbedPaneMain.addTab("Sociï¿½tï¿½s", societe);
         
         jPanelPersonne personne = new jPanelPersonne();
         tabbedPaneMain.addTab("Personnes", personne);
         
         jPanelParametres parametres = new jPanelParametres();
-        tabbedPaneMain.addTab("Contrats / Métiers", parametres);
+        tabbedPaneMain.addTab("Contrats / Mï¿½tiers", parametres);
         
+        jMenu1.setText("Fichier");
+        
+        jMenu2.setText("Configuration");
+        jMenu2.add("Identifiants");
+        jMenu2.add("Base de donnÃ©es");
+                
     }
 
     /**
@@ -49,6 +55,9 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
     private void initComponents() {
 
         tabbedPaneMain = new javax.swing.JTabbedPane();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1000, 800));
@@ -56,6 +65,14 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
 
         tabbedPaneMain.setName(""); // NOI18N
         tabbedPaneMain.setPreferredSize(new java.awt.Dimension(1000, 800));
+
+        jMenu1.setText("File");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -68,9 +85,9 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tabbedPaneMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(tabbedPaneMain, javax.swing.GroupLayout.DEFAULT_SIZE, 774, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -122,6 +139,9 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JTabbedPane tabbedPaneMain;
     // End of variables declaration//GEN-END:variables
 }
