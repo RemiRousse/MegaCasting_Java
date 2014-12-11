@@ -309,8 +309,10 @@ public class jPanelPersonne extends javax.swing.JPanel {
 
         buttonEmpl_insert.setLabel("Ajouter");
 
+        buttonEmpl_update.setEnabled(false);
         buttonEmpl_update.setLabel("Modifier");
 
+        buttonEmpl_delete.setEnabled(false);
         buttonEmpl_delete.setLabel("Supprimer");
 
         javax.swing.GroupLayout panelEmpl_validLayout = new javax.swing.GroupLayout(panelEmpl_valid);
@@ -452,6 +454,11 @@ public class jPanelPersonne extends javax.swing.JPanel {
         labelCand_pays.setText("Pays");
 
         textFieldCand_dateNaissance.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
+        textFieldCand_dateNaissance.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textFieldCand_dateNaissanceActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelCand_formLayout = new javax.swing.GroupLayout(panelCand_form);
         panelCand_form.setLayout(panelCand_formLayout);
@@ -578,52 +585,6 @@ public class jPanelPersonne extends javax.swing.JPanel {
                 .addComponent(tabbedPanePers)
                 .addContainerGap())
         );
-        
-        /* EVENEMENTS */
-        buttonEmpl_insert.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-            	buttonEmpl_insert(evt);
-            }
-        });
-        buttonCand_insert.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-            	buttonCand_insert(evt);
-            }
-        });
-        
-        buttonEmpl_update.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-            	buttonEmpl_update(evt);
-            }
-        });
-        buttonCand_update.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-            	buttonCand_update(evt);
-            }
-        });
-        
-        buttonEmpl_delete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-            	buttonEmpl_delete(evt);
-            }
-        });
-        buttonCand_delete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-            	buttonCand_delete(evt);
-            }
-        });
-        
-        tableCand_list.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                selectionCandidat(evt);
-            }
-        });
-        tableEmpl_list.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                selectionEmploye(evt);
-            }
-        });        
-        
     }// </editor-fold>//GEN-END:initComponents
 
     private void comboBoxPers_sortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxPers_sortActionPerformed
@@ -657,7 +618,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
 			    	employeDAO.insert(cnx, employe);
 
 				} catch (Exception e) {
-			    	jFrameAlert jFrameAlert = new jFrameAlert("L'ajout a échoué. Rééssayez.");
+			    	jFrameAlert jFrameAlert = new jFrameAlert("L'ajout a ï¿½chouï¿½. Rï¿½ï¿½ssayez.");
 			    	jFrameAlert.setVisible(true);
 				} finally {
 					//Clear textField
@@ -704,7 +665,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
 			    	candidatDAO.insert(cnx, candidat);
 
 				} catch (Exception e) {
-			    	jFrameAlert jFrameAlert = new jFrameAlert("L'ajout a échoué. Rééssayez.");
+			    	jFrameAlert jFrameAlert = new jFrameAlert("L'ajout a ï¿½chouï¿½. Rï¿½ï¿½ssayez.");
 			    	jFrameAlert.setVisible(true);
 				} finally {
 					//Clear textField
@@ -716,7 +677,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
 				}//end try-catch-finally
 		    	
 	    	} catch (ParseException e) {
-	    		jFrameAlert jFrameAlertDate = new jFrameAlert("L'ajout a échoué. Rééssayez 2 .");
+	    		jFrameAlert jFrameAlertDate = new jFrameAlert("L'ajout a ï¿½chouï¿½. Rï¿½ï¿½ssayez 2 .");
 	    		jFrameAlertDate.setVisible(true);
 	    	}//end try-catch
 	    	
