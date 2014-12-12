@@ -11,6 +11,9 @@ import javax.swing.plaf.basic.BasicTabbedPaneUI;
 import megacasting.persistance.ConnectionBDD;
 
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JMenuItem;
 
 /**
  *
@@ -37,12 +40,46 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
         jPanelParametres parametres = new jPanelParametres();
         tabbedPaneMain.addTab("Contrats / M�tiers", parametres);
         
-        jMenu1.setText("Fichier");
+        // Création des sous-menus
+        JMenuItem menuItemPassword = new JMenuItem("Changer mon mot de passe");
+        JMenuItem menuItemChooseDB = new JMenuItem("Choix base de données");
+        JMenuItem menuItemFullScreen = new JMenuItem("Mode plein écran");
         
-        jMenu2.setText("Configuration");
-        jMenu2.add("Identifiants");
-        jMenu2.add("Base de données");
-                
+        // Affectation au menu Configuration
+        menuConfiguration.add(menuItemPassword);
+        menuConfiguration.add(menuItemChooseDB);
+        menuConfiguration.add(menuItemFullScreen);
+        
+        // Evenements des sous-menus
+        menuItemPassword.addActionListener( new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new jFrameChangePassword().setVisible(true);
+                //jFrameMegaCasting.this.setEnabled(false);
+            }
+        });
+        
+        menuItemChooseDB.addActionListener( new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new jFrameChooseDB().setVisible(true);
+                //jFrameMegaCasting.this.setEnabled(false);
+            }
+        });
+        
+        menuItemFullScreen.addActionListener( new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jFrameMegaCasting.this.setExtendedState(jFrameMegaCasting.MAXIMIZED_BOTH);
+            }
+        });
+        
+        
+        
+        
     }
 
     /**
@@ -55,9 +92,10 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
     private void initComponents() {
 
         tabbedPaneMain = new javax.swing.JTabbedPane();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        menuBarMain = new javax.swing.JMenuBar();
+        menuFichier = new javax.swing.JMenu();
+        menuConfiguration = new javax.swing.JMenu();
+        menuAide = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1000, 800));
@@ -66,13 +104,21 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
         tabbedPaneMain.setName(""); // NOI18N
         tabbedPaneMain.setPreferredSize(new java.awt.Dimension(1000, 800));
 
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
+        menuFichier.setText("Fichier");
+        menuBarMain.add(menuFichier);
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        menuConfiguration.setText("Configuration");
+        menuConfiguration.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuConfigurationMouseClicked(evt);
+            }
+        });
+        menuBarMain.add(menuConfiguration);
 
-        setJMenuBar(jMenuBar1);
+        menuAide.setText("Aide");
+        menuBarMain.add(menuAide);
+
+        setJMenuBar(menuBarMain);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -136,12 +182,18 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
     private void fermeture(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_fermeture
         ConnectionBDD.getInstance().closeConnection();
     }//GEN-LAST:event_fermeture
+
+    private void menuConfigurationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuConfigurationMouseClicked
+        
+        //new jFrameChangePassword().setVisible(true);
+    }//GEN-LAST:event_menuConfigurationMouseClicked
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu menuAide;
+    private javax.swing.JMenuBar menuBarMain;
+    private javax.swing.JMenu menuConfiguration;
+    private javax.swing.JMenu menuFichier;
     private javax.swing.JTabbedPane tabbedPaneMain;
     // End of variables declaration//GEN-END:variables
 }
