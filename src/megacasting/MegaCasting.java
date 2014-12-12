@@ -20,7 +20,7 @@ public class MegaCasting {
 	java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new jFrameMegaCasting().setVisible(true);
-                //new jFrameLogin().setVisible(true);
+//                new jFrameLogin().setVisible(true);
             }
         });	
 		

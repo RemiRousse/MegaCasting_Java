@@ -14,7 +14,9 @@ import java.sql.Statement;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+
 import megacasting.entity.Contrat;
+import megacasting.entity.Domaine;
 
 /**
  *
@@ -166,4 +168,36 @@ public class ContratDAO {
         
         return contrat;
     }
+    
+    public Contrat findFromLibelle(Connection cnx, String libelle) {
+    	Contrat contrat = null;
+        
+        PreparedStatement pstmt = null;
+        
+        try {
+            pstmt = cnx.prepareStatement("SELECT Identifiant, Libelle "
+                    + " FROM Contrat "
+                    + " WHERE Libelle = ?");
+            pstmt.setString(1, libelle);
+            
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+            	contrat = new Contrat(rs.getLong("Identifiant"), rs.getString("Libelle"));
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (pstmt != null) {
+                    pstmt.close();
+                }
+            } catch (Exception e) {
+            }
+
+        }
+        
+        return contrat;
+    }
+    
 }

@@ -14,6 +14,7 @@ import java.sql.Statement;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+
 import megacasting.entity.Domaine;
 import megacasting.entity.Metier;
 
@@ -205,6 +206,39 @@ public class MetierDAO {
             }
             
         } catch (Exception e) {
+        }
+        
+        return metier;
+    }
+    
+    public Metier findFromLibelle(Connection cnx, String libelle) {
+        Metier metier = null;
+        
+        PreparedStatement pstmt = null;
+        
+        try {
+        	pstmt = cnx.prepareStatement("SELECT Identifiant, Libelle, IdentifiantDomaine "
+                    + "FROM Metier "
+                    + " WHERE Libelle = ?");
+            pstmt.setString(1, libelle);
+            
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+            	DomaineDAO d = new DomaineDAO();
+                Domaine domaine = d.find(cnx, rs.getLong("IdentifiantDomaine"));
+                metier = new Metier(rs.getLong("Identifiant"), rs.getString("Libelle"), domaine);
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (pstmt != null) {
+                    pstmt.close();
+                }
+            } catch (Exception e) {
+            }
+
         }
         
         return metier;

@@ -50,8 +50,5 @@ public class Metier {
         this.libelle = libelle;
         this.domaine = domaine;
     }
-    
-    
-    
-    
+     
 }
