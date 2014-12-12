@@ -454,11 +454,11 @@ public class jPanelPersonne extends javax.swing.JPanel {
         labelCand_pays.setText("Pays");
 
         textFieldCand_dateNaissance.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
-        textFieldCand_dateNaissance.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textFieldCand_dateNaissanceActionPerformed(evt);
-            }
-        });
+//        textFieldCand_dateNaissance.addActionListener(new java.awt.event.ActionListener() {
+//            public void actionPerformed(java.awt.event.ActionEvent evt) {
+//                textFieldCand_dateNaissanceActionPerformed(evt);
+//            }
+//        });
 
         javax.swing.GroupLayout panelCand_formLayout = new javax.swing.GroupLayout(panelCand_form);
         panelCand_form.setLayout(panelCand_formLayout);
@@ -585,6 +585,51 @@ public class jPanelPersonne extends javax.swing.JPanel {
                 .addComponent(tabbedPanePers)
                 .addContainerGap())
         );
+        
+        /* EVENEMENTS */
+        buttonEmpl_insert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	buttonEmpl_insert(evt);
+            }
+        });
+        buttonCand_insert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	buttonCand_insert(evt);
+            }
+        });
+        
+        buttonEmpl_update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	buttonEmpl_update(evt);
+            }
+        });
+        buttonCand_update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	buttonCand_update(evt);
+            }
+        });
+        
+        buttonEmpl_delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	buttonEmpl_delete(evt);
+            }
+        });
+        buttonCand_delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	buttonCand_delete(evt);
+            }
+        });
+        
+        tableCand_list.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                selectionCandidat(evt);
+            }
+        });
+        tableEmpl_list.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                selectionEmploye(evt);
+            }
+        });
     }// </editor-fold>//GEN-END:initComponents
 
     private void comboBoxPers_sortActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxPers_sortActionPerformed
