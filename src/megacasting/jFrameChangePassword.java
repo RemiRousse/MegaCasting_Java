@@ -28,9 +28,38 @@ public class jFrameChangePassword extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        labelChPwd_user = new javax.swing.JLabel();
+        textFieldChPwd_user = new javax.swing.JTextField();
+        labelChPwd_old = new javax.swing.JLabel();
+        passwordFieldChPwd_old = new javax.swing.JPasswordField();
+        labelChPwd_new = new javax.swing.JLabel();
+        passwordFieldChPwd_new = new javax.swing.JPasswordField();
+        labelChPwd_confirmNew = new javax.swing.JLabel();
+        passwordFieldChPwd_confirmNew = new javax.swing.JPasswordField();
+        buttonChPwd_valid = new javax.swing.JButton();
+
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
+            }
+        });
+
+        labelChPwd_user.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labelChPwd_user.setText("Utilisateur");
+
+        labelChPwd_old.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labelChPwd_old.setText("Ancien mot de passe");
+
+        labelChPwd_new.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labelChPwd_new.setText("Nouveau mot de passe");
+
+        labelChPwd_confirmNew.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labelChPwd_confirmNew.setText("Confirmer le nouveau");
+
+        buttonChPwd_valid.setText("Valider");
+        buttonChPwd_valid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonChPwd_validActionPerformed(evt);
             }
         });
 
@@ -38,11 +67,53 @@ public class jFrameChangePassword extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelChPwd_user, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(textFieldChPwd_user))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelChPwd_confirmNew, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(passwordFieldChPwd_confirmNew, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelChPwd_new, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(passwordFieldChPwd_new, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelChPwd_old, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(passwordFieldChPwd_old, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(70, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(133, 133, 133)
+                .addComponent(buttonChPwd_valid, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelChPwd_user)
+                    .addComponent(textFieldChPwd_user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelChPwd_old)
+                    .addComponent(passwordFieldChPwd_old, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelChPwd_new)
+                    .addComponent(passwordFieldChPwd_new, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelChPwd_confirmNew)
+                    .addComponent(passwordFieldChPwd_confirmNew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(buttonChPwd_valid)
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         pack();
@@ -51,6 +122,10 @@ public class jFrameChangePassword extends javax.swing.JFrame {
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         
     }//GEN-LAST:event_formWindowClosing
+
+    private void buttonChPwd_validActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonChPwd_validActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_buttonChPwd_validActionPerformed
 
     /**
      * @param args the command line arguments
@@ -88,5 +163,14 @@ public class jFrameChangePassword extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonChPwd_valid;
+    private javax.swing.JLabel labelChPwd_confirmNew;
+    private javax.swing.JLabel labelChPwd_new;
+    private javax.swing.JLabel labelChPwd_old;
+    private javax.swing.JLabel labelChPwd_user;
+    private javax.swing.JPasswordField passwordFieldChPwd_confirmNew;
+    private javax.swing.JPasswordField passwordFieldChPwd_new;
+    private javax.swing.JPasswordField passwordFieldChPwd_old;
+    private javax.swing.JTextField textFieldChPwd_user;
     // End of variables declaration//GEN-END:variables
 }

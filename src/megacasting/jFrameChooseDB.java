@@ -28,19 +28,56 @@ public class jFrameChooseDB extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        labelChDB_chemin = new javax.swing.JLabel();
+        textFieldChDB_chemin = new javax.swing.JTextField();
+        buttonChDB_valid = new javax.swing.JButton();
+
+        setResizable(false);
+
+        labelChDB_chemin.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        labelChDB_chemin.setText("Chemin d'accès la base");
+
+        buttonChDB_valid.setText("Valider");
+        buttonChDB_valid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonChDB_validActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(labelChDB_chemin, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(textFieldChDB_chemin, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(124, 124, 124)
+                        .addComponent(buttonChDB_valid, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(79, 79, 79)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelChDB_chemin)
+                    .addComponent(textFieldChDB_chemin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                .addComponent(buttonChDB_valid)
+                .addGap(87, 87, 87))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonChDB_validActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonChDB_validActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_buttonChDB_validActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +115,8 @@ public class jFrameChooseDB extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonChDB_valid;
+    private javax.swing.JLabel labelChDB_chemin;
+    private javax.swing.JTextField textFieldChDB_chemin;
     // End of variables declaration//GEN-END:variables
 }
