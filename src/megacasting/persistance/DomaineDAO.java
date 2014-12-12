@@ -176,7 +176,8 @@ public class DomaineDAO {
         try {
             pstmt = cnx.prepareStatement("SELECT Identifiant, Libelle "
                     + " FROM Domaine "
-                    + " WHERE Libelle = ?");
+                    + " WHERE Libelle = ? ");
+            
             pstmt.setString(1, libelle);
             
             ResultSet rs = pstmt.executeQuery();

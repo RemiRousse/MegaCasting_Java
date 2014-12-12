@@ -382,9 +382,7 @@ public class jPanelOffre extends javax.swing.JPanel {
      * @param evt
      */
     private void buttonOffre_insertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonOffre_insertActionPerformed
-        // TODO add your handling code here:
-         
-     	
+
     	//test not null
     	if ((textFieldOffre_libelle.getText().equals("")) || (textFieldOffre_reference.getText().equals("")) || (formattedTFOffre_datePublication.getText().equals(""))) {
     		jFrameAlert jFrameAlertNull = new jFrameAlert("Vous ne pouvez laisser de champs vide.");
@@ -401,18 +399,24 @@ public class jPanelOffre extends javax.swing.JPanel {
 	    		String libelle = textFieldOffre_libelle.getText();
 	    		String reference = textFieldOffre_reference.getText();
 	    		
-	    		Object contrat = comboBoxOffre_contrat.getSelectedItem();
-	        	Object metier = comboBoxOffre_metier.getSelectedItem();
-	        	Object domaine = comboBoxOffre_domaine.getSelectedItem();
+	    		String libContrat = comboBoxOffre_contrat.getSelectedItem().toString();
+	    		String libMetier = comboBoxOffre_metier.getSelectedItem().toString();
+	    		String libDomaine = comboBoxOffre_domaine.getSelectedItem().toString();
+	    		
+	    		ContratDAO ctrlDAO = new ContratDAO();
+	    		Contrat contrat = ctrlDAO.findFromLibelle(cnx, libContrat);
+	    		
+	    		MetierDAO metiDAO = new MetierDAO();
+	    		Metier metier = metiDAO.findFromLibelle(cnx, libMetier);
+
+	    		DomaineDAO domaDAO = new DomaineDAO();
+	        	Domaine domaine = domaDAO.findFromLibelle(cnx, libDomaine);
+        	
+	        	Offre offre = new Offre(libelle, reference, datePublication, contrat, metier, domaine);
 	        	
-//	        	Contrat contrat = (Contrat) comboBoxOffre_contrat.getSelectedItem();
-//	        	Metier metier = (Metier) comboBoxOffre_metier.getSelectedItem();
-//	        	Domaine domaine = (Domaine) comboBoxOffre_domaine.getSelectedItem();
-	        	
-//	        	Offre offre = new Offre(libelle, reference, datePublication, contrat, metier, domaine);
-	        	
-//	        	jFrameOffreDetails detailsOffre = new jFrameOffreDetails(offre);
-//	            detailsOffre.setVisible(true);
+	        	jFrameOffreDetails detailsOffre = new jFrameOffreDetails(offre);
+	            detailsOffre.setVisible(true);
+	            
 	    	} catch (Exception e) {
 	    		jFrameAlert jFrameAlertNull = new jFrameAlert("Impossible de créer l'objet Offre. jPanelOffre.java ligne 400.");
 	    		jFrameAlertNull.setVisible(true);
