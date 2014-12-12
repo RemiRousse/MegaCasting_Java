@@ -37,7 +37,7 @@ public class jFrameOffreDetails extends javax.swing.JFrame {
             }
         });
                 
-        // GÃ©rer l'onglet Ã  ouvrir selon le bouton sÃ©lectionnÃ© (Ajouter / Modifier) dans jPanelOffre
+        // Gérer l'onglet Ã  ouvrir selon le bouton sélectionné (Ajouter / Modifier) dans jPanelOffre
         tabbedPaneOffreDetails.setSelectedIndex(0);
         
         this.setDefaultCloseOperation(HIDE_ON_CLOSE);
@@ -105,16 +105,16 @@ public class jFrameOffreDetails extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         labelUpdateOffre_reference.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelUpdateOffre_reference.setText("RÃ©fÃ©rence");
+        labelUpdateOffre_reference.setText("Référence");
 
         labelUpdateOffre_libelle.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelUpdateOffre_libelle.setText("LibellÃ©");
+        labelUpdateOffre_libelle.setText("Libellé");
 
         labelUpdateOffre_datePublication.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         labelUpdateOffre_datePublication.setText("Date de publication");
 
         labelUpdateOffre_dateDebutContrat.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelUpdateOffre_dateDebutContrat.setText("DÃ©but du contrat");
+        labelUpdateOffre_dateDebutContrat.setText("Début du contrat");
 
         labelUpdateOffre_dateFinContrat.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         labelUpdateOffre_dateFinContrat.setText("Fin du contrat");
@@ -149,7 +149,7 @@ public class jFrameOffreDetails extends javax.swing.JFrame {
         comboBoxUpdateOffre_domaine.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         labelUpdateOffre_metier.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelUpdateOffre_metier.setText("MÃ©tier");
+        labelUpdateOffre_metier.setText("Métier");
 
         comboBoxUpdateOffre_metier.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -259,16 +259,16 @@ public class jFrameOffreDetails extends javax.swing.JFrame {
         tabbedPaneOffreDetails.addTab("tab2", panelUpdateOffre);
 
         labelInsertOffre_reference.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelInsertOffre_reference.setText("RÃ©fÃ©rence");
+        labelInsertOffre_reference.setText("Référence");
 
         labelInsertOffre_libelle.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelInsertOffre_libelle.setText("LibellÃ©");
+        labelInsertOffre_libelle.setText("Libellé");
 
         labelInsertOffre_datePublication.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         labelInsertOffre_datePublication.setText("Date de publication");
 
         labelInsertOffre_dateDebutContrat.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelInsertOffre_dateDebutContrat.setText("DÃ©but du contrat");
+        labelInsertOffre_dateDebutContrat.setText("Début du contrat");
 
         labelInsertOffre_dateFinContrat.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         labelInsertOffre_dateFinContrat.setText("Fin du contrat");
@@ -303,7 +303,7 @@ public class jFrameOffreDetails extends javax.swing.JFrame {
         comboBoxInsertOffre_domaine.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         labelInsertOffre_metier.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelInsertOffre_metier.setText("MÃ©tier");
+        labelInsertOffre_metier.setText("Métier");
 
         comboBoxInsertOffre_metier.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 

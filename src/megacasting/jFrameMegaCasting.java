@@ -40,10 +40,10 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
         jPanelParametres parametres = new jPanelParametres();
         tabbedPaneMain.addTab("Contrats / Métiers", parametres);
         
-        // CrÃ©ation des sous-menus
+        // Création des sous-menus
         JMenuItem menuItemPassword = new JMenuItem("Changer mon mot de passe");
-        JMenuItem menuItemChooseDB = new JMenuItem("Choix base de donnÃ©es");
-        JMenuItem menuItemFullScreen = new JMenuItem("Mode plein Ã©cran");
+        JMenuItem menuItemChooseDB = new JMenuItem("Choix base de données");
+        JMenuItem menuItemFullScreen = new JMenuItem("Mode plein écran");
         
         // Affectation au menu Configuration
         menuConfiguration.add(menuItemPassword);

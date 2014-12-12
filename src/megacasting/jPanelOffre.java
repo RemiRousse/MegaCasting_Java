@@ -83,6 +83,7 @@ public class jPanelOffre extends javax.swing.JPanel {
                 o.getMetier().getLibelle(),
                 o.getContrat().getLibelle()
             });
+ 
         }
         
         //Initialisation de la combo box des domaines
@@ -183,7 +184,7 @@ public class jPanelOffre extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "RÃ©fÃ©rence", "LibellÃ©", "Date de publication", "Domaine", "MÃ©tier", "Contrat"
+                "Référence", "Libellé", "Date de publication", "Domaine", "Métier", "Contrat"
             }
         ) {
             Class[] types = new Class [] {
@@ -229,10 +230,10 @@ public class jPanelOffre extends javax.swing.JPanel {
         panelOffre_form.setBorder(javax.swing.BorderFactory.createTitledBorder("Formulaire"));
 
         labelOffre_reference.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelOffre_reference.setText("RÃ©fÃ©rence");
+        labelOffre_reference.setText("Référence");
 
         labelOffre_libelle.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelOffre_libelle.setText("LibellÃ©");
+        labelOffre_libelle.setText("Libellé");
 
         labelOffre_datePublication.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         labelOffre_datePublication.setText("Date de publication");
@@ -249,7 +250,7 @@ public class jPanelOffre extends javax.swing.JPanel {
         });
 
         labelOffre_metier.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelOffre_metier.setText("MÃ©tier");
+        labelOffre_metier.setText("Métier");
 
         labelOffre_contrat.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         labelOffre_contrat.setText("Contrat");
@@ -432,6 +433,8 @@ public class jPanelOffre extends javax.swing.JPanel {
         textFieldOffre_libelle.setText(o.getLibelle());
         textFieldOffre_reference.setText(o.getReference());
         formattedTFOffre_datePublication.setValue(o.getDateDebContrat());
+        
+        // Not works
         comboBoxOffre_contrat.setSelectedItem(o.getContrat());
         comboBoxOffre_domaine.setSelectedItem(o.getDomaine());
         comboBoxOffre_metier.setSelectedItem(o.getMetier());

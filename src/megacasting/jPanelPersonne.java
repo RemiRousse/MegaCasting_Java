@@ -402,7 +402,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Nom", "PrÃ©nom", "Date de naissance", "Pays"
+                "Nom", "Prénom", "Date de naissance", "Pays"
             }
         ) {
             Class[] types = new Class [] {

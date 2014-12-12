@@ -183,7 +183,7 @@ public class jPanelParametres extends javax.swing.JPanel {
                 {null}
             },
             new String [] {
-                "LibellÃ©"
+                "Libellé"
             }
         ) {
             Class[] types = new Class [] {
@@ -209,7 +209,7 @@ public class jPanelParametres extends javax.swing.JPanel {
         scrollPaneContrat.setViewportView(tableContrat);
 
         labelContrat_libelle.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelContrat_libelle.setText("LibellÃ©");
+        labelContrat_libelle.setText("Libellé");
 
         buttonContrat_insert.setText("Ajouter");
         buttonContrat_insert.addActionListener(new java.awt.event.ActionListener() {
@@ -273,7 +273,7 @@ public class jPanelParametres extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        panelMetier.setBorder(javax.swing.BorderFactory.createTitledBorder("MÃ©tiers"));
+        panelMetier.setBorder(javax.swing.BorderFactory.createTitledBorder("Métiers"));
         panelMetier.setPreferredSize(new java.awt.Dimension(12, 231));
 
         tableMetier.setModel(new javax.swing.table.DefaultTableModel(
@@ -284,7 +284,7 @@ public class jPanelParametres extends javax.swing.JPanel {
                 {null, null}
             },
             new String [] {
-                "LibellÃ©", "Domaine"
+                "Libellé", "Domaine"
             }
         ) {
             Class[] types = new Class [] {
@@ -310,7 +310,7 @@ public class jPanelParametres extends javax.swing.JPanel {
         scrollPaneMetier.setViewportView(tableMetier);
 
         labelMetier_libelle.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelMetier_libelle.setText("LibellÃ©");
+        labelMetier_libelle.setText("Libellé");
 
         labelMetier_domaine.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         labelMetier_domaine.setText("Domaine");
@@ -387,7 +387,7 @@ public class jPanelParametres extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        panelDomaine.setBorder(javax.swing.BorderFactory.createTitledBorder("Domaines de mÃ©tiers"));
+        panelDomaine.setBorder(javax.swing.BorderFactory.createTitledBorder("Domaines de métiers"));
         panelDomaine.setPreferredSize(new java.awt.Dimension(12, 230));
 
         tableDomaine.setModel(new javax.swing.table.DefaultTableModel(
@@ -398,7 +398,7 @@ public class jPanelParametres extends javax.swing.JPanel {
                 {null}
             },
             new String [] {
-                "LibellÃ©"
+                "Libellé"
             }
         ) {
             Class[] types = new Class [] {
@@ -424,7 +424,7 @@ public class jPanelParametres extends javax.swing.JPanel {
         scrollPaneDomaine.setViewportView(tableDomaine);
 
         labelDomaine_libelle.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelDomaine_libelle.setText("LibellÃ©");
+        labelDomaine_libelle.setText("Libellé");
 
         buttonDomaine_insert.setText("Ajouter");
         buttonDomaine_insert.addActionListener(new java.awt.event.ActionListener() {
