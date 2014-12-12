@@ -29,19 +29,19 @@ public class jFrameMegaCasting extends javax.swing.JFrame {
         tabbedPaneMain.add("Offres", offre);
         
         jPanelSociete societe = new jPanelSociete();
-        tabbedPaneMain.addTab("Sociï¿½tï¿½s", societe);
+        tabbedPaneMain.addTab("Sociétés", societe);
         
         jPanelPersonne personne = new jPanelPersonne();
         tabbedPaneMain.addTab("Personnes", personne);
         
         jPanelParametres parametres = new jPanelParametres();
-        tabbedPaneMain.addTab("Contrats / Mï¿½tiers", parametres);
+        tabbedPaneMain.addTab("Contrats / Métiers", parametres);
         
         jMenu1.setText("Fichier");
         
         jMenu2.setText("Configuration");
         jMenu2.add("Identifiants");
-        jMenu2.add("Base de donnÃ©es");
+        jMenu2.add("Base de données");
                 
     }
 

@@ -255,7 +255,7 @@ public class jPanelSociete extends javax.swing.JPanel {
         labelAnnonceur_responsable.setText("Responsable");
 
         labelAnnonceur_siret.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelAnnonceur_siret.setText("NÂ° Siret");
+        labelAnnonceur_siret.setText("N° Siret");
 
         javax.swing.GroupLayout panelAnnonceur_formLayout = new javax.swing.GroupLayout(panelAnnonceur_form);
         panelAnnonceur_form.setLayout(panelAnnonceur_formLayout);

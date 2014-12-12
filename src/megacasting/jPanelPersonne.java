@@ -81,8 +81,8 @@ public class jPanelPersonne extends javax.swing.JPanel {
             model.addRow(new Object[] {
                 e.getNom(),
                 e.getPrenom(),
-                e.getHabilitation(),
-                e.getPoste()
+                e.getPoste(),
+                e.getHabilitation()
             });
         }
     }
@@ -159,7 +159,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
 
         panelPers_sort.setBorder(javax.swing.BorderFactory.createTitledBorder("Tri"));
 
-        comboBoxPers_sort.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2" }));
+        comboBoxPers_sort.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Employé", "Candidat" }));
         comboBoxPers_sort.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboBoxPers_sortActionPerformed(evt);
@@ -182,7 +182,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        panelEmpl_list.setBorder(javax.swing.BorderFactory.createTitledBorder("Liste des employÃ©s"));
+        panelEmpl_list.setBorder(javax.swing.BorderFactory.createTitledBorder("Liste des employés"));
 
         tableEmpl_list.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -213,7 +213,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Nom", "PrÃ©nom", "Poste", "Habilitation"
+                "Nom", "Prénom", "Poste", "Habilitation"
             }
         ) {
             Class[] types = new Class [] {
@@ -256,7 +256,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
         labelEmpl_nom.setText("Nom");
 
         labelEmpl_prenom.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelEmpl_prenom.setText("PrÃ©nom");
+        labelEmpl_prenom.setText("Prénom");
 
         labelEmpl_poste.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         labelEmpl_poste.setText("Poste");
@@ -369,7 +369,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
                     .addContainerGap()))
         );
 
-        tabbedPanePers.addTab("EmployÃ©s", panelEmpl);
+        tabbedPanePers.addTab("Employés", panelEmpl);
 
         panelCand_list.setBorder(javax.swing.BorderFactory.createTitledBorder("Liste des candidats"));
 
@@ -454,11 +454,6 @@ public class jPanelPersonne extends javax.swing.JPanel {
         labelCand_pays.setText("Pays");
 
         textFieldCand_dateNaissance.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
-//        textFieldCand_dateNaissance.addActionListener(new java.awt.event.ActionListener() {
-//            public void actionPerformed(java.awt.event.ActionEvent evt) {
-//                textFieldCand_dateNaissanceActionPerformed(evt);
-//            }
-//        });
 
         javax.swing.GroupLayout panelCand_formLayout = new javax.swing.GroupLayout(panelCand_form);
         panelCand_form.setLayout(panelCand_formLayout);
@@ -710,7 +705,7 @@ public class jPanelPersonne extends javax.swing.JPanel {
 			    	candidatDAO.insert(cnx, candidat);
 
 				} catch (Exception e) {
-			    	jFrameAlert jFrameAlert = new jFrameAlert("L'ajout a ï¿½chouï¿½. Rï¿½ï¿½ssayez.");
+			    	jFrameAlert jFrameAlert = new jFrameAlert("L'ajout a échoué. Rééssayez.");
 			    	jFrameAlert.setVisible(true);
 				} finally {
 					//Clear textField
